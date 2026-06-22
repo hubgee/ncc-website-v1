@@ -14,7 +14,7 @@
             <a href="{{ route('reporting') }}" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold text-sm">
                 Report a Case Now
             </a>
-           <a href="{{ route('get-involved') }}" class="border border-white px-4 py-2 rounded-lg font-semibold text-sm">
+           <a href="{{ route('what-we-do') }}" class="border border-white px-4 py-2 rounded-lg font-semibold text-sm">
                 Work With Us
             </a>
         </div>
@@ -22,34 +22,49 @@
 </section>
 
     <!-- Mission Section -->
-    <section class="py-12 px-6 md:px-12 text-center">
-        <h2 class="text-2xl md:text-3xl font-bold text-green-700">Our Mission</h2>
-        <p class="mt-4 max-w-2xl mx-auto text-gray-700">
-            Championship the Rights of Every Child in Malawi. We work tirelessly to protect, promote, and fulfill the rights of children.
-        </p>
-        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="p-6 bg-white shadow rounded">
-                <img src="/icons/protection.svg" class="mx-auto h-12 mb-4" alt="Protection">
-                <h3 class="font-semibold">Protection First</h3>
-            </div>
-            <div class="p-6 bg-white shadow rounded">
-                <img src="/icons/education.svg" class="mx-auto h-12 mb-4" alt="Education">
-                <h3 class="font-semibold">Education & Awareness</h3>
-            </div>
-            <div class="p-6 bg-white shadow rounded">
-                <img src="/icons/justice.svg" class="mx-auto h-12 mb-4" alt="Justice">
-                <h3 class="font-semibold">Justice & Advocacy</h3>
-            </div>
+<section class="py-12 px-6 md:px-12 bg-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <!-- Left: Mission Image -->
+        <div>
+            <img src="{{ asset('images/mission.jpg') }}" alt="Children drawing together" class="rounded-lg shadow-md w-full h-auto object-cover">
         </div>
-    </section>
+
+        <!-- Right: Mission Text -->
+        <div>
+            <h2 class="text-2xl md:text-3xl font-bold text-green-700 mb-2">Our Mission</h2>
+            <h3 class="italic text-lg md:text-xl text-gray-600 mb-4">Championing the Rights of Every Child in Malawi</h3>
+            <p class="text-gray-700 mb-6">
+                The National Children’s Commission works tirelessly to protect, promote, and fulfil the rights of children. 
+                We believe every child regardless of background deserves safety, education and the chance to thrive.
+            </p>
+
+            <!-- Mission Points with Font Awesome Icons -->
+            <ul class="space-y-4">
+                <li class="flex items-center">
+                    <i class="fa-solid fa-shield-halved text-green-600 text-xl mr-3"></i>
+                    <span class="font-bold text-gray-800">Protection First</span>
+                </li>
+                <li class="flex items-center">
+                    <i class="fa-solid fa-book-open text-green-600 text-xl mr-3"></i>
+                    <span class="font-bold text-gray-800">Education & Awareness</span>
+                </li>
+                <li class="flex items-center">
+                    <i class="fa-solid fa-scale-balanced text-green-600 text-xl mr-3"></i>
+                    <span class="font-bold text-gray-800">Justice & Advocacy</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
 
     <!-- Statistics Section -->
-    <section class="bg-green-50 py-12 px-6 md:px-12">
+    <section class="bg-green-700 py-12 px-6 md:px-12">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div><h3 class="text-2xl font-bold text-green-700">1,249</h3><p>Children Supported</p></div>
-            <div><h3 class="text-2xl font-bold text-green-700">2,000+</h3><p>Families Reached</p></div>
-            <div><h3 class="text-2xl font-bold text-green-700">6,000</h3><p>Community Members</p></div>
-            <div><h3 class="text-2xl font-bold text-green-700">28</h3><p>Districts Covered</p></div>
+            <div><h3 class="text-2xl font-bold text-white">1,249</h3><p>Children Supported</p></div>
+            <div><h3 class="text-2xl font-bold text-white">2,000+</h3><p>Families Reached</p></div>
+            <div><h3 class="text-2xl font-bold text-white">6,000</h3><p>Community Members</p></div>
+            <div><h3 class="text-2xl font-bold text-white">28</h3><p>Districts Covered</p></div>
         </div>
     </section>
 

@@ -7,19 +7,24 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
        <!-- Free Font Awesome 6 CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+                       <script src="//unpkg.com/alpinejs" defer></script>
+                       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
     </head>
     <body class="min-h-screen bg-slate-50 text-slate-900">
         <header class="border-b border-slate-200 bg-white/95 backdrop-blur-sm sticky top-0 z-30">
             <div class="mx-auto flex max-w-7.5xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-                <a href="{{ route('home') }}" class="text-lg font-semibold text-emerald-700">NCC</a>
+                <a href="{{ route('home') }}" class="text-lg font-semibold text-emerald-700">
+                    <img src="{{ asset('images/ncc-logo.png') }}" alt="NCC Logo" class="h-10 w-auto">
+                </a>
                 <div class="hidden sm:flex items-center gap-20">
                     <nav class="flex items-center gap-5 text-sm text-slate-700">
                         <a href="{{ route('home') }}" class="hover:text-emerald-700">Home</a>
                         <a href="{{ route('about') }}" class="hover:text-emerald-700">About</a>
-                        <a href="{{ route('services') }}" class="hover:text-emerald-700">What we do</a>
+                        <a href="{{ route('what-we-do') }}" class="hover:text-emerald-700">What we do</a>
                         <a href="{{ route('reporting') }}" class="hover:text-emerald-700">Reporting</a>
-                        <a href="{{ route('get-involved') }}" class="hover:text-emerald-700">Work With Us</a>
+                        
                     </nav>
                     <div class="flex items-center gap-3">
       <!-- Child Rights Corner Button -->
@@ -62,7 +67,7 @@
             <ul class="space-y-2">
                 <li><a href="{{ route('home') }}" class="hover:text-green-600">Home</a></li>
                 <li><a href="{{ route('about') }}" class="hover:text-green-600">About Us</a></li>
-                <li><a href="{{ route('services') }}" class="hover:text-green-600">What We Do</a></li>
+                <li><a href="{{ route('what-we-do') }}" class="hover:text-green-600">What We Do</a></li>
                 <li><a href="#" class="hover:text-green-600">Resources</a></li>
             </ul>
         </div>
@@ -122,5 +127,6 @@
     </div>
 </footer>
 
+    @stack('scripts')
     </body>
 </html>
