@@ -3,55 +3,86 @@
 @section('title', 'What We Do')
 
 @section('content')
-    <!-- Banner Section -->
-    <section class="py-12 px-6 md:px-12 bg-white">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <!-- Left: Banner Image -->
-            <div>
-                <img src="{{ asset('images/what-we-do-banner.png') }}" alt="Children smiling" class="rounded-lg shadow-md w-full h-auto object-cover">
-            </div>
-            <!-- Right: Banner Text -->
-            <div>
-                <h1 class="text-3xl md:text-4xl font-bold text-green-700 mb-4">WHAT WE DO</h1>
-                <p class="text-lg md:text-xl text-gray-700">
+<section class="px-6 md:px-12 bg-white" x-data="{ tab: 'protection' }">
+    <div class="max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 h-80"> <!-- controllable height -->
+
+        <!-- Left: Hero Image with overlay + centered text -->
+        <div class="relative h-80 overflow-hidden rounded-lg shadow-md">
+            <img src="{{ asset('images/what-we-do-banner.png') }}" 
+                 alt="Children smiling" 
+                 class="w-full h-full object-cover">
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black/50"></div>
+            <!-- Centered Text -->
+            <div class="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">WHAT WE DO</h1>
+                <p class="text-lg md:text-xl text-gray-100 mb-8">
                     Every child deserves to feel safe, heard and protected!
                 </p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Our Services Tabs -->
-<section class="py-12 px-6 md:px-12 bg-green-700" x-data="{ tab: 'protection' }">
-    <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl md:text-3xl font-bold text-white mb-6">Our Services</h2>
-
-        <!-- Tabs -->
-        <div class="flex flex-wrap gap-13 mb-8">
-            <button @click="tab = 'protection'" :class="tab === 'protection' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border'" class="px-4 py-2 rounded-md font-semibold">Child Protection</button>
-            <button @click="tab = 'advocacy'" :class="tab === 'advocacy' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border'" class="px-4 py-2 rounded-md font-semibold">Advocacy & Policy</button>
-            <button @click="tab = 'awareness'" :class="tab === 'awareness' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border'" class="px-4 py-2 rounded-md font-semibold">Awareness</button>
-            <button @click="tab = 'capacity'" :class="tab === 'capacity' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border'" class="px-4 py-2 rounded-md font-semibold">Capacity Building</button>
-            <button @click="tab = 'referral'" :class="tab === 'referral' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border'" class="px-4 py-2 rounded-md font-semibold">Referral & Support</button>
-            <button @click="tab = 'research'" :class="tab === 'research' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border'" class="px-4 py-2 rounded-md font-semibold">Research</button>
-        </div>
-
-        <!-- Tab Content -->
-        <div class="bg-white rounded-lg shadow-md p-6 space-y-6">
-            <!-- Child Protection -->
-            <div x-show="tab === 'protection'" class="flex items-start gap-4">
-                <i class="fa-solid fa-shield-halved text-green-600 text-4xl"></i>
-                <div>
-                    <h3 class="font-bold text-xl text-gray-800 mb-2">Child Protection</h3>
-                    <p class="text-gray-700 mb-4">
-                        Monitoring and preventing abuse, neglect, and exploitation of children.
-                        Investigating cases of child maltreatment. Promoting child-safe environments in communities, schools, and institutions.
-
-                    </p>
-                    <a href="#" class="text-green-600 font-semibold hover:underline">Learn More ></a>
+                <!-- Statistics inside hero -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">1,249+</h3>
+                        <p class="text-gray-100">Children Supported</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">2,000+</h3>
+                        <p class="text-gray-100">Families Reached</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">6,000+</h3>
+                        <p class="text-gray-100">Community Members</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">28</h3>
+                        <p class="text-gray-100">Districts Covered</p>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Advocacy & Policy -->
+        <!-- Right: Our Services Tabs -->
+        <div class="h-80 flex flex-col justify-center">
+            <h2 class="text-2xl md:text-2xl font-semibold text-green-700 mb-6">Our Services</h2>
+
+            <!-- Tabs -->
+            <div class="flex flex-wrap gap-4 mb-8">
+                <button @click="tab = 'protection'" 
+                    :class="tab === 'protection' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border'" 
+                    class="px-2 py-1 rounded-md font-semibold">Child Protection</button>
+                <button @click="tab = 'advocacy'" 
+                    :class="tab === 'advocacy' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border'" 
+                    class="px-2 py-1 rounded-md font-semibold">Advocacy & Policy</button>
+                <button @click="tab = 'awareness'" 
+                    :class="tab === 'awareness' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border'" 
+                    class="px-2 py-1 rounded-md font-semibold">Awareness</button>
+                <button @click="tab = 'capacity'" 
+                    :class="tab === 'capacity' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border'" 
+                    class="px-2 py-1 rounded-md font-semibold">Capacity Building</button>
+                <button @click="tab = 'referral'" 
+                    :class="tab === 'referral' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border'" 
+                    class="px-2 py-1 rounded-md font-semibold">Referral & Support</button>
+                <button @click="tab = 'research'" 
+                    :class="tab === 'research' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 border'" 
+                    class="px-2 py-1 rounded-md font-semibold">Research</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="bg-white rounded-lg shadow-md p-6 space-y-6 flex-1 overflow-y-auto">
+                <!-- Child Protection -->
+                <div x-show="tab === 'protection'" class="flex items-start gap-4">
+                    <i class="fa-solid fa-shield-halved text-green-600 text-4xl"></i>
+                    <div>
+                        <h3 class="font-bold text-xl text-gray-800 mb-2">Child Protection</h3>
+                        <p class="text-gray-700 mb-4">
+                            Monitoring and preventing abuse, neglect, and exploitation of children.
+                            Investigating cases of child maltreatment. Promoting child-safe environments in communities, schools, and institutions.
+                        </p>
+                        <a href="#" class="text-green-600 font-semibold hover:underline">Learn More ></a>
+                    </div>
+                </div>
+                <!-- Advocacy & Policy -->
             <div x-show="tab === 'advocacy'" class="flex items-start gap-4">
                 <i class="fa-solid fa-gavel text-green-600 text-4xl"></i>
                 <div>
@@ -76,7 +107,7 @@
                     <a href="#" class="text-green-600 font-semibold hover:underline">Learn More ></a>
                 </div>
             </div>
-
+               
             <!-- Capacity Building -->
             <div x-show="tab === 'capacity'" class="flex items-start gap-4">
                 <i class="fa-solid fa-users text-green-600 text-4xl"></i>
@@ -122,7 +153,7 @@
 
     <!-- Latest News Section -->
     <section class="py-12 px-6 md:px-12 bg-white">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-8xl mx-auto">
             <h2 class="text-2xl md:text-3xl font-bold text-green-700 mb-6">Latest News</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- News Card -->
@@ -158,7 +189,7 @@
 
     <!-- Moments That Matter -->
 <section class="py-12 px-6 md:px-12 bg-white">
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-8xl mx-auto">
         <h2 class="text-2xl md:text-3xl font-bold text-green-700 mb-6">Moments That Matter</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Event Card -->
@@ -191,7 +222,7 @@
 
 <!-- Our Programs -->
 <section class="py-12 px-6 md:px-12 bg-slate-50">
-    <div class="max-w-7xl mx-auto text-center">
+    <div class="max-w-8xl mx-auto text-center">
         <h2 class="text-2xl md:text-3xl font-bold text-green-700 mb-2">Our Programs</h2>
         <p class="text-gray-600 mb-8">What We Do For Children</p>
 
@@ -220,7 +251,7 @@
 
 
      <!-- Statistics Section -->
-    <section class="bg-green-700 py-12 px-6 md:px-12">
+    <!--<section class="bg-green-700 py-12 px-6 md:px-12">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div><h3 class="text-2xl font-bold text-white">1,249</h3><p>Children Supported</p></div>
             <div><h3 class="text-2xl font-bold text-white">2,000+</h3><p>Families Reached</p></div>
@@ -247,3 +278,4 @@
     </div>
 </section>
 @endsection
+

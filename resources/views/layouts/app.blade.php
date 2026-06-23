@@ -14,7 +14,7 @@
     </head>
     <body class="min-h-screen bg-slate-50 text-slate-900">
         <header class="border-b border-slate-200 bg-white/95 backdrop-blur-sm sticky top-0 z-30">
-            <div class="mx-auto flex max-w-7.5xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+            <div class="mx-auto flex max-w-8xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
                 <a href="{{ route('home') }}" class="text-lg font-semibold text-emerald-700">
                     <img src="{{ asset('images/ncc-logo.png') }}" alt="NCC Logo" class="h-10 w-auto">
                 </a>
@@ -43,12 +43,12 @@
             </div>
         </header>
 
-        <main class="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <main class="mx-auto w-full max-w-8xl px-4 py-6 sm:px-6 lg:px-8">
             @yield('content')
         </main>
 
         <footer class="bg-green-50 text-gray-700 pt-12 pb-6">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-5 gap-8">
+    <div class="max-w-8xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-5 gap-8">
         <!-- Partnerships -->
         <div>
             <h3 class="font-bold text-green-700 mb-4">Partnerships & Stakeholders</h3>
@@ -130,3 +130,4 @@
     @stack('scripts')
     </body>
 </html>
+
