@@ -47,11 +47,11 @@
             @yield('content')
         </main>
 
-        <footer class="bg-green-50 text-gray-700 pt-12 pb-6">
+        <footer class="bg-green-700 text-white pt-12 pb-6">
     <div class="max-w-8xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-5 gap-8">
         <!-- Partnerships -->
         <div>
-            <h3 class="font-bold text-green-700 mb-4">Partnerships & Stakeholders</h3>
+            <h3 class="font-bold text-gray-700 mb-4">Partnerships & Stakeholders</h3>
             <ul class="space-y-2">
                 <li>Unicef</li>
                 <li>NGOCCR</li>
@@ -63,7 +63,7 @@
 
         <!-- Quick Links -->
         <div>
-            <h3 class="font-bold text-green-700 mb-4">Quick Links</h3>
+            <h3 class="font-bold text-gray-700 mb-4">Quick Links</h3>
             <ul class="space-y-2">
                 <li><a href="{{ route('home') }}" class="hover:text-green-600">Home</a></li>
                 <li><a href="{{ route('about') }}" class="hover:text-green-600">About Us</a></li>
@@ -74,7 +74,7 @@
 
         <!-- Help & Support -->
         <div>
-            <h3 class="font-bold text-green-700 mb-4">Help & Support</h3>
+            <h3 class="font-bold text-gray-700 mb-4">Help & Support</h3>
             <ul class="space-y-2">
                 <li><a href="{{ route('reporting') }}" class="hover:text-green-600">Report a Case</a></li>
                 <li><a href="#" class="hover:text-green-600">Check Case Studies</a></li>
@@ -85,7 +85,7 @@
 
         <!-- Contact -->
         <div>
-            <h3 class="font-bold text-green-700 mb-4">Contact Us</h3>
+            <h3 class="font-bold text-gray-700 mb-4">Contact Us</h3>
             <p>P.O Box 30346, Area 12<br> Lilongwe, Malawi</p>
             <p class="mt-2">📞 +265 (0) 880‑268‑418</p>
             <p>✉️ nccmalawi@gmail.com</p>
@@ -93,13 +93,13 @@
 
         <!-- Find Us -->
         <div>
-            <h3 class="font-bold text-green-700 mb-4">Find Us</h3>
+            <h3 class="font-bold text-gray-700 mb-4">Find Us</h3>
             <img src="{{ asset('images/map-placeholder.jpg') }}" alt="Map" class="rounded shadow-md w-full h-32 object-cover">
         </div>
     </div>
 
     <!-- Bottom Section -->
-    <div class="border-t border-green-200 mt-8 pt-6 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="bg-slate-50 border-t border-green-200 mt-8  px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
         <!-- Logo & Newsletter -->
         <div class="flex flex-col md:flex-row items-center gap-6">
             <img src="{{ asset('images/ncc-logo.png') }}" alt="NCC Logo" class="h-16 w-auto">

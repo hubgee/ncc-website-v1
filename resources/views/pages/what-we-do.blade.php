@@ -154,33 +154,33 @@
     <!-- Latest News Section -->
     <section class="py-12 px-6 md:px-12 bg-white">
         <div class="max-w-8xl mx-auto">
-            <h2 class="text-2xl md:text-3xl font-bold text-green-700 mb-6">Latest News</h2>
+            <h2 class="text-2xl md:text-2xl font-bold text-green-700 mb-6">Latest News</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- News Card -->
-                <div class="bg-slate-50 rounded-lg shadow-md overflow-hidden">
+                <div class="bg-green-700 rounded-lg shadow-md overflow-hidden">
                     <img src="{{ asset('images/news1.png') }}" alt="News 1" class="w-full h-40 object-cover">
                     <div class="p-4">
-                        <h3 class="font-bold text-gray-800 mb-2">NCC Calls for Stronger Action Against Child Labor</h3>
-                        <p class="text-sm text-gray-500 mb-2">7 May 2026 | Dedza</p>
-                        <p class="text-gray-700 text-sm">Leaders need to put more effort in nabbing perpetrators of child labor…</p>
+                        <h3 class="font-bold text-white mb-2">NCC Calls for Stronger Action Against Child Labor</h3>
+                        <p class="text-sm text-gray-300 mb-2">7 May 2026 | Dedza</p>
+                        <p class="text-gray-300 text-sm">Leaders need to put more effort in nabbing perpetrators of child labor…</p>
                     </div>
                 </div>
                 <!-- News Card -->
-                <div class="bg-slate-50 rounded-lg shadow-md overflow-hidden">
+                <div class="bg-green-700 rounded-lg shadow-md overflow-hidden">
                     <img src="{{ asset('images/news2.png') }}" alt="News 2" class="w-full h-40 object-cover">
                     <div class="p-4">
-                        <h3 class="font-bold text-gray-800 mb-2">New Child Protection Guidelines Launched</h3>
-                        <p class="text-sm text-gray-500 mb-2">7 May 2026 | Ntchieu</p>
-                        <p class="text-gray-700 text-sm">NCC introduces new child protection guidelines, as one of the ways to help…</p>
+                        <h3 class="font-bold text-white mb-2">New Child Protection Guidelines Launched</h3>
+                        <p class="text-sm text-gray-300 mb-2">7 May 2026 | Ntchieu</p>
+                        <p class="text-gray-300 text-sm">NCC introduces new child protection guidelines, as one of the ways to help…</p>
                     </div>
                 </div>
                 <!-- News Card -->
-                <div class="bg-slate-50 rounded-lg shadow-md overflow-hidden">
+                <div class="bg-green-700 rounded-lg shadow-md overflow-hidden">
                     <img src="{{ asset('images/news3.png') }}" alt="News 3" class="w-full h-40 object-cover">
                     <div class="p-4">
-                        <h3 class="font-bold text-gray-800 mb-2">NCC Meets Youth Leaders to Promote Child Participation</h3>
-                        <p class="text-sm text-gray-500 mb-2">7 May 2026 | Mzuzu</p>
-                        <p class="text-gray-700 text-sm">Leaders need to put more effort in nabbing perpetrators of child labor…</p>
+                        <h3 class="font-bold text-white mb-2">NCC Meets Youth Leaders to Promote Child Participation</h3>
+                        <p class="text-sm text-gray-300 mb-2">7 May 2026 | Mzuzu</p>
+                        <p class="text-gray-300 text-sm">Leaders need to put more effort in nabbing perpetrators of child labor…</p>
                     </div>
                 </div>
             </div>
@@ -223,24 +223,24 @@
 <!-- Our Programs -->
 <section class="py-12 px-6 md:px-12 bg-slate-50">
     <div class="max-w-8xl mx-auto text-center">
-        <h2 class="text-2xl md:text-3xl font-bold text-green-700 mb-2">Our Programs</h2>
+        <h2 class="text-2xl md:text-2xl font-bold text-green-700 mb-2">Our Programs</h2>
         <p class="text-gray-600 mb-8">What We Do For Children</p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Protection -->
-            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+            <div class="p-6 hover:shadow-lg transition duration-300">
                 <i class="fa-solid fa-shield-halved text-green-600 text-5xl mb-4"></i>
                 <h3 class="font-bold text-lg text-gray-800 mb-2">Protection</h3>
                 <p class="text-gray-600">Child Protection Services</p>
             </div>
             <!-- Education -->
-            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+            <div class="p-6 hover:shadow-lg transition duration-300">
                 <i class="fa-solid fa-book-open text-green-600 text-5xl mb-4"></i>
                 <h3 class="font-bold text-lg text-gray-800 mb-2">Education</h3>
                 <p class="text-gray-600">Back to School Initiative</p>
             </div>
             <!-- Labor -->
-            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+            <div class="p-6 hover:shadow-lg transition duration-300">
                 <i class="fa-solid fa-briefcase text-green-600 text-5xl mb-4"></i>
                 <h3 class="font-bold text-lg text-gray-800 mb-2">Labor</h3>
                 <p class="text-gray-600">Anti-Child Labor</p>
