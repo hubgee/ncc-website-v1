@@ -3,9 +3,19 @@
 @section("title", "Home")
 
 @section("content")
+@php
+    $hero = \App\Models\SiteContent::where('section', 'home')->where('type', 'hero')->where('is_published', true)->first();
+    $heroImage = $hero && $hero->image_path ? asset('storage/' . $hero->image_path . '?v=' . $hero->updated_at->timestamp) : asset('images/hero-children.jpg');
+
+    $updates = \App\Models\SiteContent::where('section', 'home')->where('type', 'update')->where('is_published', true)->orderBy('sort_order')->get();
+    $featuredUpdate = $updates->first();
+    $sidebarUpdate = $updates->slice(1);
+
+    $news = \App\Models\SiteContent::where('section', 'home')->where('type', 'news')->where('is_published', true)->orderBy('sort_order')->get();
+@endphp
 				<!-- Hero Section -->
 				<section class="relative bg-cover bg-center h-[70vh] flex items-center justify-center text-center text-white"
-								style="background-image: url('{{ asset("images/hero-children.jpg") }}');">
+								style="background-image: url('{{ $heroImage }}');">
 								<div class="bg-black/50 absolute inset-0"></div>
 								<div class="relative z-10 px-4">
 												<h1 class="text-3xl md:text-5xl font-bold">Every Child Matters, Every Voice Counts</h1>
@@ -78,36 +88,83 @@
 								<h2 class="text-base md:text-base font-bold text-green-700 text-center mb-4">LATEST UPDATES</h2>
 								<div class="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
 
-												<!-- Left Panel: Image + Red Rectangle -->
+				<!-- Left Panel: Image + Red Rectangle -->
+											@if($featuredUpdate)
 												<div class="md:col-span-2 flex flex-col md:flex-row rounded-lg overflow-hidden shadow-lg">
-																<!-- Image side -->
-																<div class="flex-1">
-																				<img src="{{ asset("images/vaccine.jpg") }}" alt="Take on Typhoid" class="w-full h-full object-cover">
-																</div>
-																<!-- Red rectangle side -->
-																<div class="bg-red-600 text-white flex flex-col justify-between p-4 md:w-1/2">
-																				<!-- Icon -->
-																				<div class="flex justify-start mb-4">
-																								<i class="fa-solid fa-kit-medical text-2xl"></i>
-																				</div>
-																				<!-- Heading + Text -->
-																				<div>
-																								<h3 class="text-2xl font-bold mb-2">TAKE ON TYPHOID</h3>
-																								<p class="text-sm md:text-base mb-4">
-																												Typhoid vaccine being administered to children below 15
-																								</p>
-																				</div>
-																				<!-- Read More -->
-																				<a href="#" class="underline text-sm hover:text-gray-200">Read More</a>
-																</div>
+				<!-- Image side -->
+				<div class="flex-1">
+												<img src="{{ $featuredUpdate->image_path ? asset('storage/' . $featuredUpdate->image_path . '?v=' . $featuredUpdate->updated_at->timestamp) : asset('images/vaccine.jpg') }}" alt="{{ $featuredUpdate->title }}" class="w-full h-full object-cover">
+				</div>
+				<!-- Red rectangle side -->
+				<div class="bg-{{ $featuredUpdate->accent_color ?? 'red' }}-600 text-white flex flex-col justify-between p-4 md:w-1/2">
+												<!-- Icon -->
+												<div class="flex justify-start mb-4">
+																<i class="fa-solid fa-kit-medical text-2xl"></i>
 												</div>
+												<!-- Heading + Text -->
+												<div>
+																<h3 class="text-2xl font-bold mb-2">{{ $featuredUpdate->title }}</h3>
+																<p class="text-sm md:text-base mb-4">
+																				{{ $featuredUpdate->description }}
+																</p>
+												</div>
+												<!-- Read More -->
+																@if($featuredUpdate->button_text && $featuredUpdate->button_url)
+																<a href="{{ $featuredUpdate->button_url }}" class="underline text-sm hover:text-gray-200">{{ $featuredUpdate->button_text }}</a>
+																@endif
+				</div>
+												</div>
+											@else
+												<div class="md:col-span-2 flex flex-col md:flex-row rounded-lg overflow-hidden shadow-lg">
+				<!-- Image side -->
+				<div class="flex-1">
+												<img src="{{ asset("images/vaccine.jpg") }}" alt="Take on Typhoid" class="w-full h-full object-cover">
+				</div>
+				<!-- Red rectangle side -->
+				<div class="bg-red-600 text-white flex flex-col justify-between p-4 md:w-1/2">
+												<!-- Icon -->
+												<div class="flex justify-start mb-4">
+																<i class="fa-solid fa-kit-medical text-2xl"></i>
+												</div>
+												<!-- Heading + Text -->
+												<div>
+																<h3 class="text-2xl font-bold mb-2">TAKE ON TYPHOID</h3>
+																<p class="text-sm md:text-base mb-4">
+																				Typhoid vaccine being administered to children below 15
+																</p>
+												</div>
+												<!-- Read More -->
+																<a href="#" class="underline text-sm hover:text-gray-200">Read More</a>
+				</div>
+												</div>
+											@endif
 
-												<!-- Right Panel: White Card -->
+
+				<!-- Right Panel: White Card -->
+											@if($sidebarUpdate->isNotEmpty())
+												@php $s = $sidebarUpdate->first(); @endphp
 												<div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
 																<!-- Image -->
-																<img src="{{ asset("images/Kids-Coding.jpg") }}" alt="Children in Tech" class="w-full h-48 object-cover">
+												<img src="{{ $s->image_path ? asset('storage/' . $s->image_path . '?v=' . $s->updated_at->timestamp) : asset('images/Kids-Coding.jpg') }}" alt="{{ $s->title }}" class="w-full h-48 object-cover">
 																<!-- Text -->
-																<div class="p-6 flex flex-col justify-between flex-1">
+												<div class="p-6 flex flex-col justify-between flex-1">
+																				<div>
+																								<h3 class="text-2xl font-bold mb-2">{{ $s->title }}</h3>
+																								<p class="text-sm md:text-base mb-4">
+																												{{ $s->description }}
+																								</p>
+																				</div>
+																								@if($s->button_text && $s->button_url)
+																				<a href="{{ $s->button_url }}" class="underline text-sm text-green-700 hover:text-green-900">{{ $s->button_text }}</a>
+																				@endif
+												</div>
+												</div>
+											@else
+				<div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+																<!-- Image -->
+												<img src="{{ asset("images/Kids-Coding.jpg") }}" alt="Children in Tech" class="w-full h-48 object-cover">
+																<!-- Text -->
+												<div class="p-6 flex flex-col justify-between flex-1">
 																				<div>
 																								<h3 class="text-2xl font-bold mb-2">CHILDREN IN TECH</h3>
 																								<p class="text-sm md:text-base mb-4">
@@ -116,10 +173,12 @@
 																												An initiative sponsored by UNICEF and the Malawi government.
 																								</p>
 																				</div>
-																				<!-- Read More -->
+																								<!-- Read More -->
 																				<a href="#" class="underline text-sm text-green-700 hover:text-green-900">Read More</a>
-																</div>
 												</div>
+				</div>
+											@endif
+
 
 								</div>
 				</section>
@@ -128,6 +187,15 @@
 				<section class="py-12 px-6 md:px-12 bg-white">
 
 								<div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+												@forelse($news as $article)
+												<article class="overflow-hidden bg-white shadow rounded-[10px]">
+																<img src="{{ $article->image_path ? asset('storage/' . $article->image_path . '?v=' . $article->updated_at->timestamp) : asset('images/update-1.jpg') }}" alt="{{ $article->title }}"
+																				class="w-full h-70 object-cover rounded-t-[10px]">
+																<div class="p-6">
+																				<h3 class="font-semibold text-xl">{{ $article->title }}</h3>
+																</div>
+												</article>
+												@empty
 												<article class="overflow-hidden bg-white shadow rounded-[10px]">
 																<img src="{{ asset("images/update-1.jpg") }}" alt="Child protection act"
 																				class="w-full h-70 object-cover rounded-t-[10px]">
@@ -152,6 +220,7 @@
 																				</h3>
 																</div>
 												</article>
+												@endforelse
 								</div>
 				</section>
 				<!-- Action Buttons Section -->

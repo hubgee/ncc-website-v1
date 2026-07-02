@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\ContentController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,4 +25,19 @@ Route::get('/childrens-corner', function () {
 Route::get('/reporting', function () {
     return view('pages.reporting');
 })->name('reporting');
+
+Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AuthController::class, 'login']);
+Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
+
+Route::middleware([AdminMiddleware::class])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/contents/{section}', [ContentController::class, 'index'])->name('contents.index');
+    Route::post('/contents/{section}', [ContentController::class, 'store'])->name('contents.store');
+    Route::get('/contents/{section}/{id}/edit', [ContentController::class, 'edit'])->name('contents.edit');
+    Route::put('/contents/{section}/{id}', [ContentController::class, 'update'])->name('contents.update');
+    Route::delete('/contents/{section}/{id}', [ContentController::class, 'destroy'])->name('contents.destroy');
+    Route::post('/contents/{section}/{id}/toggle-publish', [ContentController::class, 'togglePublish'])->name('contents.toggle-publish');
+    Route::post('/contents/{id}/upload-image', [ContentController::class, 'uploadImage'])->name('contents.upload-image');
+});
 
