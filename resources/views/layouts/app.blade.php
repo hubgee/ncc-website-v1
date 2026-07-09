@@ -22,8 +22,18 @@
 																				<img src="{{ asset("images/ncc-logo.png") }}" alt="NCC Logo" class="h-10 w-auto">
 																</a>
 
-																<div class="hidden flex-1 items-center justify-end gap-10 sm:flex">
-																				<nav class="flex items-center gap-15 text-sm text-slate-700">
+																<div class="hidden flex-1 items-center justify-end gap-10 lg:gap-10 md:flex">
+																				<nav class="hidden md:flex lg:hidden items-center gap-15 text-red-700" aria-label="Main navigation">
+																								<a href="{{ route("home") }}" class="hover:text-emerald-700" aria-label="Home"><i
+																																class="fa-solid fa-house text-lg"></i></a>
+																								<a href="{{ route("about") }}" class="hover:text-emerald-700" aria-label="About"><i
+																																class="fa-solid fa-circle-info text-lg"></i></a>
+																								<a href="{{ route("what-we-do") }}" class="hover:text-emerald-700" aria-label="What we do"><i
+																																class="fa-solid fa-hand-holding-heart text-lg"></i></a>
+																								<a href="{{ route("reporting") }}" class="hover:text-emerald-700" aria-label="Reporting"><i
+																																class="fa-solid fa-file text-lg"></i></a>
+																				</nav>
+																				<nav class="hidden lg:flex items-center gap-6 text-sm text-slate-700">
 																								<a href="{{ route("home") }}" class="hover:text-emerald-700">Home</a>
 																								<a href="{{ route("about") }}" class="hover:text-emerald-700">About</a>
 																								<a href="{{ route("what-we-do") }}" class="hover:text-emerald-700">What we do</a>
@@ -43,7 +53,7 @@
 																				</div>
 																</div>
 
-																<div class="flex items-center gap-2 sm:hidden">
+																<div class="flex items-center gap-2 md:hidden">
 																				<a href="{{ route("childrens-corner") }}"
 																								class="flex items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-[11px] font-semibold uppercase text-gray-800 transition hover:border-green-700 hover:text-green-700">
 																								<i class="fa-solid fa-child mr-2 text-red-600"></i>
@@ -61,7 +71,7 @@
 																</div>
 												</div>
 
-												<div class="border-t border-slate-200 px-4 pb-4 sm:hidden" x-show="open" @click.away="open = false"
+												<div class="border-t border-slate-200 px-4 pb-4 md:hidden" x-show="open" @click.away="open = false"
 																x-transition>
 																<nav class="mt-4 flex flex-col gap-3 text-sm text-slate-700">
 																				<a href="{{ route("home") }}" class="hover:text-emerald-700">Home</a>
@@ -136,8 +146,8 @@
 																<div class="flex flex-col md:flex-row items-center gap-6">
 																				<img src="{{ asset("images/ncc-logo.png") }}" alt="NCC Logo" class="h-16 w-auto">
 																				<form class="flex gap-2">
-																								<input type="email" placeholder="Enter your email"
-																												class="border border-green-300 rounded px-3 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-green-500">
+																								<input type="email" placeholder="Enter your email to subscribe"
+																												class="border border-green-300 placeholder:text-green-700 text-black rounded px-3 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-green-500">
 																								<button type="submit"
 																												class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Subscribe</button>
 																				</form>

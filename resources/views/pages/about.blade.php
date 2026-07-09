@@ -196,156 +196,105 @@
 								</div>
 				</section>
 
-				<!-- Governance Section -->
-				<section class="py-12 px-6 md:px-12 bg-slate-50">
-								<div class="max-w-7xl mx-auto">
-												<h2 class="text-3xl font-bold text-green-700 mb-2">Governance</h2>
-												<h3 class="text-xl font-semibold text-gray-800 mb-4">Commissioners & Ex‑Officials</h3>
-												<p class="text-gray-700 mb-8">
-																The Commission is governed by appointed Commissioners and key ex‑official representatives
-																from relevant government institutions.
-												</p>
+				<div class="max-w-8xl mx-auto px-4 py-10">
+								<!-- Tabs -->
+								<div class="flex space-x-4 border-b mb-6">
+												<button class="tab-btn px-4 py-2 font-semibold text-blue-600 border-b-2 border-blue-600"
+																data-tab="commissioners">
+																Commissioners
+												</button>
+												<button class="tab-btn px-4 py-2 font-semibold text-gray-600 hover:text-blue-600" data-tab="managers">
+																Managers & Above
+												</button>
+												<button class="tab-btn px-4 py-2 font-semibold text-gray-600 hover:text-blue-600" data-tab="ex-officials">
+																Ex-Officials
+												</button>
+								</div>
 
-												<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-																<!-- Commissioners -->
-																<div>
-																				<h4 class="text-lg font-bold text-gray-800 mb-4">Commissioners</h4>
-																				<div class="space-y-4">
-																								<div class="flex items-center border border-green-600 rounded-lg bg-white p-4">
-																												<i class="fa-solid fa-user-tie text-green-600 text-2xl mr-4"></i>
-																												<div>
-																																<p class="font-semibold">Mr Benedicto Khondowe</p>
-																																<p class="text-sm text-gray-600">Chairperson</p>
-																												</div>
-																								</div>
-																								<div class="flex items-center border border-green-600 rounded-lg bg-white p-4">
-																												<i class="fa-solid fa-user-tie text-green-600 text-2xl mr-4"></i>
-																												<div>
-																																<p class="font-semibold">Mr Benedicto Khondowe</p>
-																																<p class="text-sm text-gray-600">Vice Chairperson</p>
-																												</div>
-																								</div>
-																								<div class="flex items-center border border-green-600 rounded-lg bg-white p-4">
-																												<i class="fa-solid fa-user text-green-600 text-2xl mr-4"></i>
-																												<div>
-																																<p class="font-semibold">Dr Lucy Kapachira</p>
-																																<p class="text-sm text-gray-600">Chair, Corporate Division</p>
-																												</div>
-																								</div>
-																								<div class="flex items-center border border-green-600 rounded-lg bg-white p-4">
-																												<i class="fa-solid fa-user text-green-600 text-2xl mr-4"></i>
-																												<div>
-																																<p class="font-semibold">Mrs Laika Milanzi</p>
-																																<p class="text-sm text-gray-600">Chair, Compliance Division</p>
-																												</div>
-																								</div>
-																								<div class="flex items-center border border-green-600 rounded-lg bg-white p-4">
-																												<i class="fa-solid fa-user text-green-600 text-2xl mr-4"></i>
-																												<div>
-																																<p class="font-semibold">Mrs Julia Chimuna</p>
-																																<p class="text-sm text-gray-600">Chair, Documentation & Learning Division</p>
-																												</div>
-																								</div>
-																				</div>
+								<!-- Tab Content -->
+								<!-- Commissioners -->
+								<div id="commissioners" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+												@for ($i = 1; $i <= 5; $i++)
+																<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
+																				<img src="{{ asset("image" . (($i % 2) + 1) . ".png") }}" alt="Portrait"
+																								class="rounded-md w-32 h-40 object-cover mb-4">
+																				<h3 class="text-lg font-bold">Commissioner {{ $i }}</h3>
+																				<p class="text-gray-600">Position {{ $i }}</p>
+																</div>
+												@endfor
+								</div>
+
+								<!-- Managers -->
+								<div id="managers" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+												@for ($i = 1; $i <= 4; $i++)
+																<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
+																				<img src="{{ asset("image" . (($i % 2) + 1) . ".png") }}" alt="Portrait"
+																								class="rounded-md w-32 h-40 object-cover mb-4">
+																				<h3 class="text-lg font-bold">Manager {{ $i }}</h3>
+																				<p class="text-gray-600">Position {{ $i }}</p>
+																</div>
+												@endfor
+								</div>
+
+								<!-- Ex-Officials -->
+								<div id="ex-officials" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+												@for ($i = 1; $i <= 3; $i++)
+																<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
+																				<img src="{{ asset("image" . (($i % 2) + 1) . ".png") }}" alt="Portrait"
+																								class="rounded-md w-32 h-40 object-cover mb-4">
+																				<h3 class="text-lg font-bold">Ex-Official {{ $i }}</h3>
+																				<p class="text-gray-600">Position {{ $i }}</p>
+																</div>
+												@endfor
+								</div>
+
+								<!-- Organogram -->
+								<div class="mt-12">
+												<div class="flex flex-col items-center">
+																<!-- CEO -->
+																<div class="bg-green-500 text-white font-bold px-6 py-3 rounded-lg shadow">
+																				Chief Executive Officer
 																</div>
 
-																<!-- Ex‑Officials -->
-																<div>
+																<!-- Line -->
+																<div class="h-12 w-1 bg-green-500"></div>
 
-																				<div class="space-y-4 mt-47">
-																								<h4 class="text-lg font-bold text-gray-800 mb-4">Ex‑Officials</h4>
-																								<div class="flex items-center border border-green-600 rounded-lg bg-white p-4">
-																												<i class="fa-solid fa-user text-green-600 text-2xl mr-4"></i>
-																												<div>
-																																<p class="font-semibold">Dr Esmie Kainja</p>
-																																<p class="text-sm text-gray-600">Secretary responsible for Children Affairs</p>
-																												</div>
-																								</div>
-																								<div class="flex items-center border border-green-600 rounded-lg bg-white p-4">
-																												<i class="fa-solid fa-user-tie text-green-600 text-2xl mr-4"></i>
-																												<div>
-																																<p class="font-semibold">Secretary to Treasury</p>
-																																<p class="text-sm text-gray-600">Ministry of Finance</p>
-																												</div>
-																								</div>
-																								<div class="flex items-center border border-green-600 rounded-lg bg-white p-4">
-																												<i class="fa-solid fa-user text-green-600 text-2xl mr-4"></i>
-																												<div>
-																																<p class="font-semibold">Priscilla Thawe</p>
-																																<p class="text-sm text-gray-600">Executive Secretary, Malawi Human Rights Commission</p>
-																												</div>
-																								</div>
+																<!-- Managers -->
+																<div class="flex flex-wrap mb-8 justify-center gap-20">
+																				<div class="bg-green-500 text-white font-bold px-6 py-3 rounded-lg shadow">
+																								Director of Compliance
+																				</div>
+																				<div class="bg-green-500 text-white font-bold px-6 py-3 rounded-lg shadow">
+																								Finance Manager
+																				</div>
+																				<div class="bg-green-500 text-white font-bold px-6 py-3 rounded-lg shadow">
+																								Human Resource Manager
 																				</div>
 																</div>
 												</div>
 								</div>
-				</section>
-				<!-- Secretariat and Organogram side-by-side -->
-				<section class="py-12 px-6 md:px-12 bg-slate-50">
-								<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
-												<div class="bg-white rounded-2xl shadow-sm p-6 lg:p-8">
-																<h3 class="text-2xl font-bold text-green-700 mb-2">Secretariat</h3>
-																<h3 class="text-xl font-semibold text-black mb-4">Management Team</h3>
-																<p class="text-gray-600 mb-6">Senior management responsible for the day-to-day operations of the National
-																				Children’s Commission.</p>
-																<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-																				<div class="flex items-center gap-4 border border-green-600 rounded-2xl bg-slate-50 p-4">
-																								<i class="fa-solid fa-user-tie text-green-600 text-3xl"></i>
-																								<div>
-																												<p class="font-semibold">Mr Geoffrey Chimwala</p>
-																												<p class="text-sm text-gray-600">Chief Executive Officer (Acting)</p>
-																								</div>
-																				</div>
-																				<div class="flex items-center gap-4 border border-green-600 rounded-2xl bg-slate-50 p-4">
-																								<i class="fa-solid fa-user-tie text-green-600 text-3xl"></i>
-																								<div>
-																												<p class="font-semibold">Mrs Martha Chiwanda</p>
-																												<p class="text-sm text-gray-600">Director of Compliance (Acting)</p>
-																								</div>
-																				</div>
-																				<div class="flex items-center gap-4 border border-green-600 rounded-2xl bg-slate-50 p-4">
-																								<i class="fa-solid fa-user text-green-600 text-3xl"></i>
-																								<div>
-																												<p class="font-semibold">Mr Allan Jere</p>
-																												<p class="text-sm text-gray-600">Finance Manager (Acting)</p>
-																								</div>
-																				</div>
-																				<div class="flex items-center gap-4 border border-green-600 rounded-2xl bg-slate-50 p-4">
-																								<i class="fa-solid fa-user text-green-600 text-3xl"></i>
-																								<div>
-																												<p class="font-semibold">Thoko Gremu</p>
-																												<p class="text-sm text-gray-600">Human Resource Manager (Acting)</p>
-																								</div>
-																				</div>
-																</div>
-												</div>
+				</div>
 
-												<div class="bg-white rounded-2xl shadow-sm p-6 lg:p-8">
-																<h2 class="text-2xl text-green-700 text-center mb-2">Organogram</h2>
-																<div class="flex justify-center mb-8">
-																				<div class="border border-green-600 rounded-2xl bg-slate-50 p-4 mx-auto flex items-center gap-4">
-																								<i class="fa-solid fa-user-tie text-green-600 text-3xl"></i>
-																								<p class="font-semibold">Chief Executive Officer</p>
-																				</div>
-																</div>
-																<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-																				<div class="flex items-center gap-4 border border-green-600 rounded-2xl bg-slate-50 p-4">
-																								<i class="fa-solid fa-user-tie text-green-600 text-3xl"></i>
-																								<p class="font-semibold">Director of Compliance</p>
-																				</div>
-																				<div class="flex items-center gap-4 border border-green-600 rounded-2xl bg-slate-50 p-4">
-																								<i class="fa-solid fa-user text-green-600 text-3xl"></i>
-																								<p class="font-semibold">Finance Manager</p>
-																				</div>
-																				<div class="flex items-center gap-4 border border-green-600 rounded-2xl bg-slate-50 p-4">
-																								<i class="fa-solid fa-user text-green-600 text-3xl"></i>
-																								<p class="font-semibold">Human Resource Manager</p>
-																				</div>
-																</div>
-																<p class="text-sm text-gray-600 text-center italic mt-15">Full Organogram available on request.</p>
-												</div>
-								</div>
-				</section>
+				<!-- Simple Tab Script -->
+				<script>
+								document.querySelectorAll('.tab-btn').forEach(btn => {
+												btn.addEventListener('click', () => {
+																// Reset all buttons
+																document.querySelectorAll('.tab-btn').forEach(b => {
+																				b.classList.remove('text-blue-600', 'border-blue-600');
+																				b.classList.add('text-gray-600');
+																				b.classList.remove('border-b-2');
+																});
+																// Highlight active
+																btn.classList.add('text-blue-600', 'border-blue-600', 'border-b-2');
+
+																// Hide all content
+																document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+																// Show selected
+																document.getElementById(btn.dataset.tab).classList.remove('hidden');
+												});
+								});
+				</script>
 
 				<!-- Statistics Section -->
 				<section class="py-12 px-6 md:px-12">
