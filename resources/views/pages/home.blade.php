@@ -13,22 +13,53 @@
 
     $news = \App\Models\SiteContent::where('section', 'home')->where('type', 'news')->where('is_published', true)->orderBy('sort_order')->get();
 @endphp
+<style>
+        @keyframes heroFade1 {
+            0%, 25% { opacity: 1; }
+            33%, 91% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes heroFade2 {
+            0%, 33% { opacity: 0; }
+            36%, 64% { opacity: 1; }
+            71%, 100% { opacity: 0; }
+        }
+        @keyframes heroFade3 {
+            0%, 71% { opacity: 0; }
+            75%, 94% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            animation-duration: 9s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+        .hero-slide-1 { animation-name: heroFade1; }
+        .hero-slide-2 { animation-name: heroFade2; }
+        .hero-slide-3 { animation-name: heroFade3; }
+    </style>
 				<!-- Hero Section -->
-				<section class="relative bg-cover bg-center h-[70vh] flex items-center justify-center text-center text-white"
-								style="background-image: url('{{ $heroImage }}');">
-								<div class="bg-black/50 absolute inset-0"></div>
-								<div class="relative z-10 px-4">
+				<section class="relative h-[70vh] flex items-center justify-center text-center text-white overflow-hidden">
+								<div class="hero-slide hero-slide-1" style="background-image: url('{{ asset('images/hero-children.jpg') }}');"></div>
+								<div class="hero-slide hero-slide-2" style="background-image: url('{{ asset('images/vaccine.jpg') }}');"></div>
+								<div class="hero-slide hero-slide-3" style="background-image: url('{{ asset('images/Kids-Coding.jpg') }}');"></div>
+								<div class="bg-black/50 absolute inset-0 z-10"></div>
+								<div class="relative z-20 px-4">
 												<h1 class="text-3xl md:text-5xl font-bold">Every Child Matters, Every Voice Counts</h1>
 												<p class="mt-4 text-lg md:text-xl">Safeguarding children’s rights and dignity.</p>
 												<div class="mt-6 flex flex-col md:flex-row gap-4 justify-center">
-																<a href="{{ route("reporting") }}"
-																				class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold text-sm">
-																				Report a Case Now
-																</a>
-																<a href="{{ route("what-we-do") }}" class="border border-white px-4 py-2 rounded-lg font-semibold text-sm">
-																				Work With Us
-																</a>
-												</div>
+                                                                <a href="{{ route("reporting") }}"
+                                                                                class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold text-sm">
+                                                                                Report a Case Now
+                                                                </a>
+                                                                <a href="{{ route("what-we-do") }}" class="border border-white px-4 py-2 rounded-lg font-semibold text-sm">
+                                                                                Work With Us
+                                                                </a>
+                                                </div>
 								</div>
 				</section>
 
