@@ -30,14 +30,14 @@
 																																class="fa-solid fa-circle-info text-lg"></i></a>
 																								<a href="{{ route("what-we-do") }}" class="hover:text-emerald-700" aria-label="What we do"><i
 																																class="fa-solid fa-hand-holding-heart text-lg"></i></a>
-																								<a href="{{ route("reporting") }}" class="hover:text-emerald-700" aria-label="Reporting"><i
+																								<a href="{{ route("resources") }}" class="hover:text-emerald-700" aria-label="Resources"><i
 																																class="fa-solid fa-file text-lg"></i></a>
 																				</nav>
 																				<nav class="hidden lg:flex items-center gap-6 text-sm text-slate-700">
 																								<a href="{{ route("home") }}" class="hover:text-emerald-700">Home</a>
 																								<a href="{{ route("about") }}" class="hover:text-emerald-700">About</a>
 																								<a href="{{ route("what-we-do") }}" class="hover:text-emerald-700">What we do</a>
-																								<a href="{{ route("reporting") }}" class="hover:text-emerald-700">Reporting</a>
+																								<a href="{{ route("resources") }}" class="hover:text-emerald-700">Resources</a>
 																				</nav>
 																				<div class="flex items-center gap-3">
 																								<a href="{{ route("childrens-corner") }}"
@@ -77,7 +77,7 @@
 																				<a href="{{ route("home") }}" class="hover:text-emerald-700">Home</a>
 																				<a href="{{ route("about") }}" class="hover:text-emerald-700">About</a>
 																				<a href="{{ route("what-we-do") }}" class="hover:text-emerald-700">What we do</a>
-																				<a href="{{ route("reporting") }}" class="hover:text-emerald-700">Reporting</a>
+																				<a href="{{ route("resources") }}" class="hover:text-emerald-700">Resources</a>
 
 																</nav>
 												</div>

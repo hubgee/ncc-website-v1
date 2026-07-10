@@ -230,7 +230,10 @@
 																												</p>
 																								</div>
 																								<!-- Read More -->
-																								<a href="#" class="underline text-sm hover:text-gray-200">Read More</a>
+																								<a href="https://www.facebook.com/61578135073164/
+posts/122177408528937835/?
+mibextid=rS40aB7S9Ucbxw6v"
+																												class="underline text-sm hover:text-gray-200">Read More</a>
 																				</div>
 																</div>
 												@endif
@@ -259,20 +262,23 @@
 												@else
 																<div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
 																				<!-- Image -->
-																				<img src="{{ asset("images/Kids-Coding.jpg") }}" alt="Children in Tech"
-																								class="w-full h-48 object-cover">
+																				<img src="{{ asset("images/mwambo.jpg") }}" alt="Children in Tech" class="w-full h-48 object-cover">
 																				<!-- Text -->
 																				<div class="p-6 flex flex-col justify-between flex-1">
 																								<div>
-																												<h3 class="text-2xl font-bold mb-2">CHILDREN IN TECH</h3>
+																												<h3 class="text-2xl font-bold mb-2">PROTECT FAMILIES & CHILDREN</h3>
 																												<p class="text-sm md:text-base mb-4">
-																																Children in Tech highlights the growing involvement of young people in the digital world,
-																																where technology is shaping education, creativity, and future opportunities.
-																																An initiative sponsored by UNICEF and the Malawi government.
+																																The National Children’s Commission joined the Ministry of Gender, Children, Disability and
+																																Social Welfare, development partners, traditional leaders, and community members in
+																																commemorating the International Day of Families and the International Day of
+																																Street-Connected Children at Lunzu Primary School Ground in Blantyre.
 																												</p>
 																								</div>
 																								<!-- Read More -->
-																								<a href="#" class="underline text-sm text-green-700 hover:text-green-900">Read More</a>
+																								<a href="https://www.facebook.com/61578135073164/
+posts/122177408528937835/?
+mibextid=rS40aB7S9Ucbxw6v"
+																												class="underline text-sm text-green-700 hover:text-green-900">Read More</a>
 																				</div>
 																</div>
 												@endif
@@ -335,7 +341,10 @@
 																												</p>
 																								</div>
 																								<!-- Read More -->
-																								<a href="#" class="underline text-sm hover:text-gray-200">Read More</a>
+																								<a href="https://www.facebook.com/61578135073164/
+posts/122179322960937835/?
+mibextid=rS40aB7S9Ucbxw6v"
+																												class="underline text-sm hover:text-gray-200">Read More</a>
 																				</div>
 																</div>
 												@endif
@@ -376,7 +385,10 @@
 																												</p>
 																								</div>
 																								<!-- Read More -->
-																								<a href="#" class="underline text-sm text-green-700 hover:text-green-900">Read More</a>
+																								<a href="https://www.facebook.com/61578135073164/
+posts/122179322960937835/?
+mibextid=rS40aB7S9Ucbxw6v"
+																												class="underline text-sm text-green-700 hover:text-green-900">Read More</a>
 																				</div>
 																</div>
 												@endif

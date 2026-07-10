@@ -145,19 +145,48 @@
 				<!-- images section -->
 				<!-- images section -->
 				<div class="w-full px-4 py-12 bg-white">
-								<!-- Section Heading -->
-								<h2 class="text-2xl md:text-3xl font-bold text-center mb-4 mt-8 animate-bounce">
-												Helping Kids Grow Through Play And Learning
-								</h2>
 
-								<!-- Images Row -->
-								<div class="flex justify-start gap-4 overflow-x-auto scrollbar-hide md:justify-center md:overflow-visible">
-												<img src="/images/window1.png" alt="Window 1" class="shrink-0" />
-												<img src="/images/window2.png" alt="Window 2" class="shrink-0" />
-												<img src="/images/window3.png" alt="Window 3" class="shrink-0 h-70 mt-8" />
-												<img src="/images/window4.png" alt="Window 4" class="shrink-0" />
-												<img src="/images/window5.png" alt="Window 5" class="shrink-0" />
+								<div x-data="{
+		    current: 0,
+		    images: [
+		        '/images/window1.png',
+		        '/images/window2.png',
+		        '/images/window3.png',
+		        '/images/window4.png',
+		        '/images/window5.png'
+		    ]
+		}" class="w-full px-4 py-12 bg-white">
+
+												<!-- Section Heading -->
+												<h2 class="text-2xl md:text-3xl font-bold text-center mb-4 mt-8 animate-bounce">
+																Helping Kids Grow Through Play And Learning
+												</h2>
+
+												<!-- Desktop: normal row -->
+												<div class="hidden md:flex justify-center gap-4">
+																<template x-for="img in images" :key="img">
+																				<img :src="img" class="shrink-0" alt="Image">
+																</template>
+												</div>
+
+												<!-- Mobile: arrows + single row view -->
+												<div class="relative md:hidden flex justify-center items-center">
+																<img :src="images[current]" class="shrink-0" alt="Image">
+
+																<!-- Left Arrow -->
+																<button x-show="current > 0" @click="current--"
+																				class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full">
+																				&#8592;
+																</button>
+
+																<!-- Right Arrow -->
+																<button x-show="current < images.length - 1" @click="current++"
+																				class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full">
+																				&#8594;
+																</button>
+												</div>
 								</div>
+
 				</div>
 
 				<!-- Kids News & Updates Section -->

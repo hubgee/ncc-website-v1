@@ -26,6 +26,10 @@ Route::get('/reporting', function () {
     return view('pages.reporting');
 })->name('reporting');
 
+Route::get('/resources', function () {
+    return view('pages.resources');
+})->name('resources');
+
 Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AuthController::class, 'login']);
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');

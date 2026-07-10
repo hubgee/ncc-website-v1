@@ -211,43 +211,78 @@
 												</button>
 								</div>
 
-								<!-- Tab Content -->
 								<!-- Commissioners -->
 								<div id="commissioners" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-												@for ($i = 1; $i <= 5; $i++)
-																<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
-																				<img src="{{ asset("image" . (($i % 2) + 1) . ".png") }}" alt="Portrait"
-																								class="rounded-md w-32 h-40 object-cover mb-4">
-																				<h3 class="text-lg font-bold">Commissioner {{ $i }}</h3>
-																				<p class="text-gray-600">Position {{ $i }}</p>
-																</div>
-												@endfor
+												<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
+																<img src="{{ asset("images/vincent-mwakawawa.jpg") }}"
+																				class="w-32 h-40  object-cover transform transition duration-300 hover:scale-110 mb-4 rounded-md"
+																				alt="Vincent Mwakawawa">
+																<h3 class="text-lg font-bold">Mr Vincent Mwakawawa</h3>
+																<p class="text-gray-600">Chairperson</p>
+												</div>
+												<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
+																<img src="{{ asset("images/benedicto-khondowe.jpg") }}"
+																				class="w-32 h-40 object-cover transform transition duration-300 hover:scale-110 mb-4 rounded-md"
+																				alt="Benedicto Khondowe">
+																<h3 class="text-lg font-bold">Mr Benedicto Khondowe</h3>
+																<p class="text-gray-600">Vice Chairperson</p>
+												</div>
+												<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
+																<img src="{{ asset("images/lucy-kapachira.jpg") }}"
+																				class="w-32 h-40 object-cover transform transition duration-300 hover:scale-110 mb-4 rounded-md"
+																				alt="Lucy Kapachira">
+																<h3 class="text-lg font-bold">Dr Lucy Kapachira</h3>
+																<p class="text-gray-600">Chair, Corporate Division</p>
+												</div>
+												<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
+																<img src="{{ asset("images/laika-milanzi.jpg") }}"
+																				class="w-32 h-40 object-cover transform transition duration-300 hover:scale-110 mb-4 rounded-md"
+																				alt="Laika Milanzi">
+																<h3 class="text-lg font-bold">Mrs Laika Milanzi</h3>
+																<p class="text-gray-600">Chair, Compliance Division</p>
+												</div>
+												<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
+																<img src="{{ asset("images/julia-chimuna.jpg") }}"
+																				class="w-32 h-40 object-cover transform transition duration-300 hover:scale-110 mb-4 rounded-md"
+																				alt="Julia Chimuna">
+																<h3 class="text-lg font-bold">Mrs Julia Chimuna</h3>
+																<p class="text-gray-600">Chair, Documentation & Learning Division</p>
+												</div>
 								</div>
 
-								<!-- Managers -->
-								<div id="managers" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-												@for ($i = 1; $i <= 4; $i++)
-																<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
-																				<img src="{{ asset("image" . (($i % 2) + 1) . ".png") }}" alt="Portrait"
-																								class="rounded-md w-32 h-40 object-cover mb-4">
-																				<h3 class="text-lg font-bold">Manager {{ $i }}</h3>
-																				<p class="text-gray-600">Position {{ $i }}</p>
-																</div>
-												@endfor
+								<!-- Managers (hidden by default) -->
+								<div id="managers" class="tab-content hidden">
+												<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+																@foreach (["vincent-mwakawawa.jpg", "benedicto-khondowe.jpg", "lucy-kapachira.jpg", "laika-milanzi.jpg"] as $img)
+																				<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
+																								<div class="overflow-hidden rounded-md mb-4">
+																												<img src="{{ asset("images/" . $img) }}"
+																																class="w-32 h-40 object-cover transform transition duration-300 hover:scale-110"
+																																alt="Manager">
+																								</div>
+																								<h3 class="text-lg font-bold">Manager Name</h3>
+																								<p class="text-gray-600">Manager Position</p>
+																				</div>
+																@endforeach
+												</div>
 								</div>
 
-								<!-- Ex-Officials -->
-								<div id="ex-officials" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-												@for ($i = 1; $i <= 3; $i++)
-																<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
-																				<img src="{{ asset("image" . (($i % 2) + 1) . ".png") }}" alt="Portrait"
-																								class="rounded-md w-32 h-40 object-cover mb-4">
-																				<h3 class="text-lg font-bold">Ex-Official {{ $i }}</h3>
-																				<p class="text-gray-600">Position {{ $i }}</p>
-																</div>
-												@endfor
+								<!-- Ex-Officials (hidden by default) -->
+								<div id="ex-officials" class="tab-content hidden">
+												<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+																@foreach (["vincent-mwakawawa.jpg", "benedicto-khondowe.jpg", "lucy-kapachira.jpg"] as $img)
+																				<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
+																								<div class="overflow-hidden rounded-md mb-4">
+																												<img src="{{ asset("images/" . $img) }}"
+																																class="w-32 h-40 object-cover transform transition duration-300 hover:scale-110"
+																																alt="Ex-Official">
+																								</div>
+																								<h3 class="text-lg font-bold">Ex-Official Name</h3>
+																								<p class="text-gray-600">Ex-Official Position</p>
+																				</div>
+																@endforeach
+												</div>
 								</div>
-
 								<!-- Organogram -->
 								<div class="mt-12">
 												<div class="flex flex-col items-center">
