@@ -30,6 +30,14 @@ Route::get('/resources', function () {
     return view('pages.resources');
 })->name('resources');
 
+Route::get('/donate', function () {
+    return view('pages.donate');
+})->name('donate');
+
+Route::get('/advertise', function () {
+    return view('pages.advertise');
+})->name('advertise');
+
 Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AuthController::class, 'login']);
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');

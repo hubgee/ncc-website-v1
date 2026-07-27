@@ -33,6 +33,18 @@
 																								<input type="number" class="w-full border rounded-md p-2">
 																				</div>
 																				<div>
+																								<label class="block text-sm font-semibold">Child’s Name</label>
+																								<input type="text" class="w-full border rounded-md p-2">
+																				</div>
+																				<div>
+																								<label class="block text-sm font-semibold">District</label>
+																								<input type="text" class="w-full border rounded-md p-2">
+																				</div>
+																				<div>
+																								<label class="block text-sm font-semibold">Village,T/A</label>
+																								<input type="text" class="w-full border rounded-md p-2">
+																				</div>
+																				<div>
 																								<label class="block text-sm font-semibold">Gender</label>
 																								<select class="w-full border rounded-md p-2">
 																												<option>Male</option>
@@ -50,10 +62,7 @@
 																												<option>Other</option>
 																								</select>
 																				</div>
-																				<div>
-																								<label class="block text-sm font-semibold">District / Location</label>
-																								<input type="text" class="w-full border rounded-md p-2">
-																				</div>
+
 																				<div>
 																								<label class="block text-sm font-semibold">Date of Incident</label>
 																								<input type="date" class="w-full border rounded-md p-2">

@@ -203,11 +203,11 @@
 																data-tab="commissioners">
 																Commissioners
 												</button>
-												<button class="tab-btn px-4 py-2 font-semibold text-gray-600 hover:text-blue-600" data-tab="managers">
-																Managers & Above
-												</button>
 												<button class="tab-btn px-4 py-2 font-semibold text-gray-600 hover:text-blue-600" data-tab="ex-officials">
 																Ex-Officials
+												</button>
+												<button class="tab-btn px-4 py-2 font-semibold text-gray-600 hover:text-blue-600" data-tab="managers">
+																Management
 												</button>
 								</div>
 

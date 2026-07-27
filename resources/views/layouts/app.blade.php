@@ -32,12 +32,15 @@
 																																class="fa-solid fa-hand-holding-heart text-lg"></i></a>
 																								<a href="{{ route("resources") }}" class="hover:text-emerald-700" aria-label="Resources"><i
 																																class="fa-solid fa-file text-lg"></i></a>
+																								<a href="{{ route("advertise") }}" class="hover:text-emerald-700" aria-label="Advertise"><i
+																																class="fa-solid fa-bullhorn text-lg"></i></a>
 																				</nav>
 																				<nav class="hidden lg:flex items-center gap-6 text-sm text-slate-700">
 																								<a href="{{ route("home") }}" class="hover:text-emerald-700">Home</a>
 																								<a href="{{ route("about") }}" class="hover:text-emerald-700">About</a>
 																								<a href="{{ route("what-we-do") }}" class="hover:text-emerald-700">What we do</a>
 																								<a href="{{ route("resources") }}" class="hover:text-emerald-700">Resources</a>
+																								<a href="{{ route("advertise") }}" class="hover:text-emerald-700">Advertise</a>
 																				</nav>
 																				<div class="flex items-center gap-3">
 																								<a href="{{ route("childrens-corner") }}"
@@ -49,6 +52,11 @@
 																								<a href="{{ route("reporting") }}"
 																												class="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700">
 																												Report a Case Now
+																								</a>
+
+																								<a href="{{ route("donate") }}"
+																												class="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700">
+																												Donate
 																								</a>
 																				</div>
 																</div>
@@ -78,6 +86,7 @@
 																				<a href="{{ route("about") }}" class="hover:text-emerald-700">About</a>
 																				<a href="{{ route("what-we-do") }}" class="hover:text-emerald-700">What we do</a>
 																				<a href="{{ route("resources") }}" class="hover:text-emerald-700">Resources</a>
+																				<a href="{{ route("advertise") }}" class="hover:text-emerald-700">Advertise</a>
 
 																</nav>
 												</div>
@@ -91,7 +100,7 @@
 												<div class="max-w-8xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-5 gap-8">
 																<!-- Partnerships -->
 																<div>
-																				<h3 class="font-bold text-gray-700 mb-4">Partnerships & Stakeholders</h3>
+																				<h3 class="font-bold text-white mb-4">Partnerships & Stakeholders</h3>
 																				<ul class="space-y-2">
 																								<li>Unicef</li>
 																								<li>NGOCCR</li>
@@ -103,18 +112,19 @@
 
 																<!-- Quick Links -->
 																<div>
-																				<h3 class="font-bold text-gray-700 mb-4">Quick Links</h3>
+																				<h3 class="font-bold text-white mb-4">Quick Links</h3>
 																				<ul class="space-y-2">
 																								<li><a href="{{ route("home") }}" class="hover:text-green-600">Home</a></li>
 																								<li><a href="{{ route("about") }}" class="hover:text-green-600">About Us</a></li>
 																								<li><a href="{{ route("what-we-do") }}" class="hover:text-green-600">What We Do</a></li>
-																								<li><a href="#" class="hover:text-green-600">Resources</a></li>
+																								<li><a href="{{ route("resources") }}" class="hover:text-green-600">Resources</a></li>
+																								<li><a href="{{ route("advertise") }}" class="hover:text-green-600">Advertise</a></li>
 																				</ul>
 																</div>
 
 																<!-- Help & Support -->
 																<div>
-																				<h3 class="font-bold text-gray-700 mb-4">Help & Support</h3>
+																				<h3 class="font-bold text-white mb-4">Help & Support</h3>
 																				<ul class="space-y-2">
 																								<li><a href="{{ route("reporting") }}" class="hover:text-green-600">Report a Case</a></li>
 																								<li><a href="#" class="hover:text-green-600">Check Case Studies</a></li>
@@ -125,7 +135,7 @@
 
 																<!-- Contact -->
 																<div>
-																				<h3 class="font-bold text-gray-700 mb-4">Contact Us</h3>
+																				<h3 class="font-bold text-white mb-4">Contact Us</h3>
 																				<p>P.O Box 30346, Area 12<br> Lilongwe, Malawi</p>
 																				<p class="mt-2">📞 +265 (0) 880‑268‑418</p>
 																				<p>✉️ nccmalawi@gmail.com</p>
@@ -133,7 +143,7 @@
 
 																<!-- Find Us -->
 																<div>
-																				<h3 class="font-bold text-gray-700 mb-4">Find Us</h3>
+																				<h3 class="font-bold text-white mb-4">Find Us</h3>
 																				<img src="{{ asset("images/map-placeholder.jpg") }}" alt="Map"
 																								class="rounded shadow-md w-full h-32 object-cover">
 																</div>

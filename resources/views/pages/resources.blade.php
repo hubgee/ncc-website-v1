@@ -11,7 +11,7 @@
 								</p>
 
 								<!-- Search + Filters -->
-								<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
+								<div class="flex flex-col mb-8 gap-4">
 												<!-- Search -->
 												<div class="flex-1">
 																<input type="text" placeholder="Search resources..."
@@ -27,6 +27,18 @@
 																</button>
 																<button class="px-4 py-2 border rounded-lg text-gray-600 hover:bg-emerald-50 hover:text-emerald-700">
 																				Guidelines
+																</button>
+																<button class="px-4 py-2 border rounded-lg text-gray-600 hover:bg-emerald-50 hover:text-emerald-700">
+																				Legal Instruments
+																</button>
+																<button class="px-4 py-2 border rounded-lg text-gray-600 hover:bg-emerald-50 hover:text-emerald-700">
+																				Strategic Policies
+																</button>
+																<button class="px-4 py-2 border rounded-lg text-gray-600 hover:bg-emerald-50 hover:text-emerald-700">
+																				Stakeholder Tools
+																</button>
+																<button class="px-4 py-2 border rounded-lg text-gray-600 hover:bg-emerald-50 hover:text-emerald-700">
+																				Reports
 																</button>
 												</div>
 								</div>
