@@ -35,7 +35,7 @@
 																								<a href="{{ route("advertise") }}" class="hover:text-emerald-700" aria-label="Advertise"><i
 																																class="fa-solid fa-bullhorn text-lg"></i></a>
 																				</nav>
-																				<nav class="hidden lg:flex items-center gap-6 text-sm text-slate-700">
+																				<nav class="hidden lg:flex items-center gap-6 text-sm text-black">
 																								<a href="{{ route("home") }}" class="hover:text-emerald-700">Home</a>
 																								<a href="{{ route("about") }}" class="hover:text-emerald-700">About</a>
 																								<a href="{{ route("what-we-do") }}" class="hover:text-emerald-700">What we do</a>
@@ -70,6 +70,10 @@
 																				<a href="{{ route("reporting") }}"
 																								class="rounded-md bg-red-600 px-4 py-2 text-center font-semibold text-white transition hover:bg-red-700">
 																								Report a Case Now
+																				</a>
+																				<a href="{{ route("donate") }}"
+																								class="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700">
+																								Donate
 																				</a>
 																				<button type="button"
 																								class="inline-flex items-center justify-center rounded-md p-2 text-slate-700 transition hover:bg-slate-100 hover:text-emerald-700"
@@ -127,6 +131,7 @@
 																				<h3 class="font-bold text-white mb-4">Help & Support</h3>
 																				<ul class="space-y-2">
 																								<li><a href="{{ route("reporting") }}" class="hover:text-green-600">Report a Case</a></li>
+																								<li><a href="#" class="hover:text-green-600">Donate</a></li>
 																								<li><a href="#" class="hover:text-green-600">Check Case Studies</a></li>
 																								<li><a href="#" class="hover:text-green-600">FAQs</a></li>
 																								<li><a href="#" class="hover:text-green-600">Contact Us</a></li>

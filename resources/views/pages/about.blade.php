@@ -219,6 +219,9 @@
 																				alt="Vincent Mwakawawa">
 																<h3 class="text-lg font-bold">Mr Vincent Mwakawawa</h3>
 																<p class="text-gray-600">Chairperson</p>
+																<button onclick="document.getElementById('bio-modal-vincent').classList.remove('hidden')"
+																				class="mt-2 text-sm text-green-600 hover:underline font-semibold transition duration-200">View
+																				Biography</button>
 												</div>
 												<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
 																<img src="{{ asset("images/benedicto-khondowe.jpg") }}"
@@ -226,6 +229,9 @@
 																				alt="Benedicto Khondowe">
 																<h3 class="text-lg font-bold">Mr Benedicto Khondowe</h3>
 																<p class="text-gray-600">Vice Chairperson</p>
+																<button onclick="document.getElementById('bio-modal-benedicto').classList.remove('hidden')"
+																				class="mt-2 text-sm text-green-600 hover:underline font-semibold transition duration-200">View
+																				Biography</button>
 												</div>
 												<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
 																<img src="{{ asset("images/lucy-kapachira.jpg") }}"
@@ -233,13 +239,20 @@
 																				alt="Lucy Kapachira">
 																<h3 class="text-lg font-bold">Dr Lucy Kapachira</h3>
 																<p class="text-gray-600">Chair, Corporate Division</p>
+																<button onclick="document.getElementById('bio-lucy-kapachira').classList.remove('hidden')"
+																				class="mt-2 text-sm text-green-600 hover:underline font-semibold transition duration-200">View
+																				Biography</button>
 												</div>
+
 												<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
 																<img src="{{ asset("images/laika-milanzi.jpg") }}"
 																				class="w-32 h-40 object-cover transform transition duration-300 hover:scale-110 mb-4 rounded-md"
 																				alt="Laika Milanzi">
 																<h3 class="text-lg font-bold">Mrs Laika Milanzi</h3>
 																<p class="text-gray-600">Chair, Compliance Division</p>
+																<button onclick="document.getElementById('bio-laika-milanzi').classList.remove('hidden')"
+																				class="mt-2 text-sm text-green-600 hover:underline font-semibold transition duration-200">View
+																				Biography</button>
 												</div>
 												<div class="bg-white shadow rounded-lg p-4 flex flex-col items-center">
 																<img src="{{ asset("images/julia-chimuna.jpg") }}"
@@ -247,6 +260,9 @@
 																				alt="Julia Chimuna">
 																<h3 class="text-lg font-bold">Mrs Julia Chimuna</h3>
 																<p class="text-gray-600">Chair, Documentation & Learning Division</p>
+																<button onclick="document.getElementById('bio-julia-chimuna').classList.remove('hidden')"
+																				class="mt-2 text-sm text-green-600 hover:underline font-semibold transition duration-200">View
+																				Biography</button>
 												</div>
 								</div>
 
@@ -352,6 +368,171 @@
 												</div>
 								</div>
 				</section>
+
+				<!-- Biography Modal -->
+				<div id="bio-modal-vincent" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden"
+								onclick="this.classList.add('hidden')">
+								<div class="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 p-6 relative" onclick="event.stopPropagation()">
+												<button onclick="document.getElementById('bio-modal-vincent').classList.add('hidden')"
+																class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition duration-200">
+																<i class="fa-solid fa-xmark text-xl"></i>
+												</button>
+												<div class="text-center mb-6">
+																<img src="{{ asset("images/vincent-mwakawawa.jpg") }}"
+																				class="w-24 h-24 rounded-full mx-auto mb-3 object-cover" alt="Vincent Mwakawawa">
+																<h3 class="text-xl font-bold">Mr Vincent Mwakawawa</h3>
+																<p class="text-gray-600">Chairperson</p>
+												</div>
+												<div class="space-y-4 text-gray-700">
+																<div>
+																				<h4 class="font-semibold text-green-700 mb-1">Professional Background</h4>
+																				<p class="text-sm">Mr. Mwakawawa has over two decades of experience in child protection policy and
+																								advocacy across Malawi. He has led initiatives to strengthen legislative frameworks for children's
+																								rights and has worked extensively with government ministries and community organizations. His career
+																								has focused on ensuring vulnerable children have access to safety, education, and justice.</p>
+																</div>
+																<div>
+																				<h4 class="font-semibold text-green-700 mb-1">Education &amp; Certifications</h4>
+																				<p class="text-sm">Mr. Mwakawawa holds a degree in Social Work from a recognized institution and has
+																								completed advanced certifications in child rights and protection. He has attended numerous
+																								professional development programs on advocacy, policy reform, and community engagement. He is a
+																								registered member of relevant professional bodies in the social services sector.</p>
+																</div>
+												</div>
+								</div>
+				</div>
+
+				<!-- Biography Modal for Benedicto Khondowe -->
+				<div id="bio-modal-benedicto" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden"
+								onclick="this.classList.add('hidden')">
+								<div class="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 p-6 relative" onclick="event.stopPropagation()">
+												<button onclick="document.getElementById('bio-modal-benedicto').classList.add('hidden')"
+																class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition duration-200">
+																<i class="fa-solid fa-xmark text-xl"></i>
+												</button>
+												<div class="text-center mb-6">
+																<img src="{{ asset("images/benedicto-khondowe.jpg") }}"
+																				class="w-24 h-24 rounded-full mx-auto mb-3 object-cover" alt="Benedicto Khondowe">
+																<h3 class="text-xl font-bold">Mr Benedicto Khondowe</h3>
+																<p class="text-gray-600">Vice Chairperson</p>
+												</div>
+												<div class="space-y-4 text-gray-700">
+																<div>
+																				<h4 class="font-semibold text-green-700 mb-1">Professional Background</h4>
+																				<p class="text-sm">Mr. Khondowe has over two decades of experience in child protection policy and
+																								advocacy across Malawi. He has led initiatives to strengthen legislative frameworks for children's
+																								rights and has worked extensively with government ministries and community organizations. His career
+																								has focused on ensuring vulnerable children have access to safety, education, and justice.</p>
+																</div>
+																<div>
+																				<h4 class="font-semibold text-green-700 mb-1">Education &amp; Certifications</h4>
+																				<p class="text-sm">Mr. Khondowe holds a degree in Social Work from a recognized institution and has
+																								completed advanced certifications in child rights and protection. He has attended numerous
+																								professional development programs on advocacy, policy reform, and community engagement. He is a
+																								registered member of relevant professional bodies in the social services sector.</p>
+																</div>
+												</div>
+								</div>
+				</div>
+
+				<!-- Biography Modal for DR lucy Kapachira -->
+				<div id="bio-lucy-kapachira" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden"
+								onclick="this.classList.add('hidden')">
+								<div class="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 p-6 relative" onclick="event.stopPropagation()">
+												<button onclick="document.getElementById('bio-lucy-kapachira').classList.add('hidden')"
+																class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition duration-200">
+																<i class="fa-solid fa-xmark text-xl"></i>
+												</button>
+												<div class="text-center mb-6">
+																<img src="{{ asset("images/lucy-kapachira.jpg") }}"
+																				class="w-24 h-24 rounded-full mx-auto mb-3 object-cover" alt="Benedicto Khondowe">
+																<h3 class="text-xl font-bold">DR Lucy Kapachira</h3>
+																<p class="text-gray-600">Chair, Coorporate Division</p>
+												</div>
+												<div class="space-y-4 text-gray-700">
+																<div>
+																				<h4 class="font-semibold text-green-700 mb-1">Professional Background</h4>
+																				<p class="text-sm">Dr Lucy Kapachira has over two decades of experience in child protection policy and
+																								advocacy across Malawi. He has led initiatives to strengthen legislative frameworks for children's
+																								rights and has worked extensively with government ministries and community organizations. His career
+																								has focused on ensuring vulnerable children have access to safety, education, and justice.</p>
+																</div>
+																<div>
+																				<h4 class="font-semibold text-green-700 mb-1">Education &amp; Certifications</h4>
+																				<p class="text-sm">Dr Lucy Kapachira holds a PHD in Social Work from a recognized institution and has
+																								completed advanced certifications in child rights and protection. He has attended numerous
+																								professional development programs on advocacy, policy reform, and community engagement. He is a
+																								registered member of relevant professional bodies in the social services sector.</p>
+																</div>
+												</div>
+								</div>
+				</div>
+
+				<!-- Biography Modal for Mrs Laika Milanzi -->
+				<div id="bio-laika-milanzi" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden"
+								onclick="this.classList.add('hidden')">
+								<div class="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 p-6 relative" onclick="event.stopPropagation()">
+												<button onclick="document.getElementById('bio-laika-milanzi').classList.add('hidden')"
+																class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition duration-200">
+																<i class="fa-solid fa-xmark text-xl"></i>
+												</button>
+												<div class="text-center mb-6">
+																<img src="{{ asset("images/laika-milanzi.jpg") }}"
+																				class="w-24 h-24 rounded-full mx-auto mb-3 object-cover" alt="Benedicto Khondowe">
+																<h3 class="text-xl font-bold">Mrs Lika Milanzi</h3>
+																<p class="text-gray-600">Chair, Compliance Division</p>
+												</div>
+												<div class="space-y-4 text-gray-700">
+																<div>
+																				<h4 class="font-semibold text-green-700 mb-1">Professional Background</h4>
+																				<p class="text-sm">Mrs Laika Milanzi has over two decades of experience in child protection policy and
+																								advocacy across Malawi. He has led initiatives to strengthen legislative frameworks for children's
+																								rights and has worked extensively with government ministries and community organizations. His career
+																								has focused on ensuring vulnerable children have access to safety, education, and justice.</p>
+																</div>
+																<div>
+																				<h4 class="font-semibold text-green-700 mb-1">Education &amp; Certifications</h4>
+																				<p class="text-sm">Mrs Laika Milanzi holds a PHD in Social Work from a recognized institution and has
+																								completed advanced certifications in child rights and protection. He has attended numerous
+																								professional development programs on advocacy, policy reform, and community engagement. He is a
+																								registered member of relevant professional bodies in the social services sector.</p>
+																</div>
+												</div>
+								</div>
+				</div>
+
+				<!-- Biography Modal for Mrs Julia Chimuna -->
+				<div id="bio-julia-chimuna" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden"
+								onclick="this.classList.add('hidden')">
+								<div class="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 p-6 relative" onclick="event.stopPropagation()">
+												<button onclick="document.getElementById('bio-julia-chimuna').classList.add('hidden')"
+																class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition duration-200">
+																<i class="fa-solid fa-xmark text-xl"></i>
+												</button>
+												<div class="text-center mb-6">
+																<img src="{{ asset("images/julia-chimuna.jpg") }}"
+																				class="w-24 h-24 rounded-full mx-auto mb-3 object-cover" alt="Benedicto Khondowe">
+																<h3 class="text-xl font-bold">Mrs Julia Chimuna</h3>
+																<p class="text-gray-600">Chair, Documentation & Learning Division</p>
+												</div>
+												<div class="space-y-4 text-gray-700">
+																<div>
+																				<h4 class="font-semibold text-green-700 mb-1">Professional Background</h4>
+																				<p class="text-sm">Mrs Julia Chimuna has over two decades of experience in child protection policy and
+																								advocacy across Malawi. He has led initiatives to strengthen legislative frameworks for children's
+																								rights and has worked extensively with government ministries and community organizations. His career
+																								has focused on ensuring vulnerable children have access to safety, education, and justice.</p>
+																</div>
+																<div>
+																				<h4 class="font-semibold text-green-700 mb-1">Education &amp; Certifications</h4>
+																				<p class="text-sm">Mrs Julia Chimuna holds a PHD in Social Work from a recognized institution and has
+																								completed advanced certifications in child rights and protection. He has attended numerous
+																								professional development programs on advocacy, policy reform, and community engagement. He is a
+																								registered member of relevant professional bodies in the social services sector.</p>
+																</div>
+												</div>
+								</div>
+				</div>
 
 				<!-- Action Buttons Section -->
 				<section class="py-12 px-6 md:px-12">
