@@ -38,9 +38,14 @@ Route::get('/advertise', function () {
     return view('pages.advertise');
 })->name('advertise');
 
+Route::get('/news', function () {
+    return view('pages.news');
+})->name('news');
+
 Route::get('/checkout', function () {
     return view('pages.checkout');
 })->name('checkout');
+
 
 Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AuthController::class, 'login']);

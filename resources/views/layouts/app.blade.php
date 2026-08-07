@@ -16,7 +16,7 @@
 
 				<body class="min-h-screen bg-slate-50 text-slate-900">
 								<header class="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur-sm"
-												x-data="{ open: false }">
+												x-data="{ open: false, latestOpen: false }">
 												<div class="mx-auto flex max-w-8xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
 																<a href="{{ route("home") }}" class="text-lg font-semibold text-emerald-700">
 																				<img src="{{ asset("images/ncc-logo.png") }}" alt="NCC Logo" class="h-10 w-auto">
@@ -38,6 +38,19 @@
 																				<nav class="hidden lg:flex items-center gap-6 text-sm text-black">
 																								<a href="{{ route("home") }}" class="hover:text-emerald-700">Home</a>
 																								<a href="{{ route("about") }}" class="hover:text-emerald-700">About</a>
+																								<div class="relative">
+																												<button @click="latestOpen = !latestOpen"
+																																class="hover:text-emerald-700 flex items-center gap-1">
+																																Latest <i class="fa-solid fa-chevron-down text-xs"></i>
+																												</button>
+																												<div x-show="latestOpen" @click.away="latestOpen = false" x-transition
+																																class="absolute top-full left-0 mt-2 bg-white border border-slate-200 rounded-lg shadow-lg py-2 min-w-50 z-40">
+																																<a href="{{ route("news") }}"
+																																				class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-emerald-700">News</a>
+																																<a href="#"
+																																				class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-emerald-700">Stories</a>
+																												</div>
+																								</div>
 																								<a href="{{ route("what-we-do") }}" class="hover:text-emerald-700">What we do</a>
 																								<a href="{{ route("resources") }}" class="hover:text-emerald-700">Resources</a>
 																								<a href="{{ route("advertise") }}" class="hover:text-emerald-700">Advertise</a>
@@ -88,6 +101,16 @@
 																<nav class="mt-4 flex flex-col gap-3 text-sm text-slate-700">
 																				<a href="{{ route("home") }}" class="hover:text-emerald-700">Home</a>
 																				<a href="{{ route("about") }}" class="hover:text-emerald-700">About</a>
+																				<div>
+																								<button @click="latestOpen = !latestOpen"
+																												class="flex items-center gap-1 hover:text-emerald-700">
+																												Latest <i class="fa-solid fa-chevron-down text-xs"></i>
+																								</button>
+																								<div x-show="latestOpen" x-transition class="ml-4 mt-2 flex flex-col gap-2">
+																												<a href="#" class="hover:text-emerald-700">News</a>
+																												<a href="#" class="hover:text-emerald-700">Stories</a>
+																								</div>
+																				</div>
 																				<a href="{{ route("what-we-do") }}" class="hover:text-emerald-700">What we do</a>
 																				<a href="{{ route("resources") }}" class="hover:text-emerald-700">Resources</a>
 																				<a href="{{ route("advertise") }}" class="hover:text-emerald-700">Advertise</a>

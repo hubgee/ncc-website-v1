@@ -205,45 +205,45 @@
 												<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
 																<!-- Card 1: Health -->
-																<div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 text-center">
+																<div class="relative rounded-lg shadow hover:shadow-lg transition overflow-hidden">
 																				<img src="{{ asset("images/vaccine.jpg") }}" alt="Health"
-																								class="w-full h-75 object-cover rounded mb-4">
-																				<h3 class="text-xl font-bold text-gray-900">ADVOCACY & POLICY</h3>
+																								class="w-full h-75 object-cover">
+																				<h3 class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">ADVOCACY & POLICY</h3>
 																</div>
 
 																<!-- Card 2: Education -->
-																<div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 text-center">
+																<div class="relative rounded-lg shadow hover:shadow-lg transition overflow-hidden">
 																				<img src="{{ asset("images/update-1.jpg") }}" alt="Education"
-																								class="w-full h-75 object-cover rounded mb-4">
-																				<h3 class="text-xl font-bold text-gray-900">AWARENESS</h3>
+																								class="w-full h-75 object-cover">
+																				<h3 class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">AWARENESS</h3>
 																</div>
 
 																<!-- Card 3: Protection -->
-																<div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 text-center">
+																<div class="relative rounded-lg shadow hover:shadow-lg transition overflow-hidden">
 																				<img src="{{ asset("images/NCCkids.jpg") }}" alt="Protection"
-																								class="w-full h-75 object-cover rounded mb-4">
-																				<h3 class="text-xl font-bold text-gray-900">PROTECTION</h3>
+																								class="w-full h-75 object-cover">
+																				<h3 class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">PROTECTION</h3>
 																</div>
 
 																<!-- Card 4: Resilience -->
-																<div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 text-center">
+																<div class="relative rounded-lg shadow hover:shadow-lg transition overflow-hidden">
 																				<img src="{{ asset("images/covered.jpg") }}" alt="Resilience"
-																								class="w-full h-75 object-cover rounded mb-4">
-																				<h3 class="text-xl font-bold text-gray-900">REFERRAL & SUPPORT</h3>
+																								class="w-full h-75 object-cover">
+																				<h3 class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">REFERRAL & SUPPORT</h3>
 																</div>
 
 																<!-- Card 5: Emergencies -->
-																<div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 text-center">
+																<div class="relative rounded-lg shadow hover:shadow-lg transition overflow-hidden">
 																				<img src="{{ asset("images/image4.jpg") }}" alt="Emergencies"
-																								class="w-full h-75 object-cover rounded mb-4">
-																				<h3 class="text-xl font-bold text-gray-900">CAPACITY BUILDING</h3>
+																								class="w-full h-75 object-cover">
+																				<h3 class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">CAPACITY BUILDING</h3>
 																</div>
 
 																<!-- Card 6: Our Impact -->
-																<div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 text-center">
+																<div class="relative rounded-lg shadow hover:shadow-lg transition overflow-hidden">
 																				<img src="{{ asset("images/mission.jpg") }}" alt="Our Impact"
-																								class="w-full h-75 object-cover rounded mb-4">
-																				<h3 class="text-xl font-bold text-gray-900">RESEARCH</h3>
+																								class="w-full h-75 object-cover">
+																				<h3 class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">RESEARCH</h3>
 																</div>
 
 												</div>
