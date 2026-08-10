@@ -191,7 +191,7 @@
 				<!-- Red Line Divider -->
 
 				<!-- Initiatives Section -->
-				<section class="py-12 px-6 md:px-12 bg-white">
+				<section class="py-6 px-6 md:px-12 bg-white">
 								<div class="flex justify-left">
 												<hr class="w-8 border-t-4 border-red-800">
 								</div>
