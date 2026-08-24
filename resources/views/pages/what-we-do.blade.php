@@ -42,127 +42,127 @@
 												</div>
 
 												<!-- Right: Our Services Tabs
-																																																																																																																																																																				<div class="flex flex-col justify-center gap-4 lg:h-80">
-																																																																																																																																																																								<h2 class="text-2xl md:text-2xl font-semibold text-green-700 mb-2">Our Services</h2>
-																																																																																																																																																																								<!-- Tabs
-																																																																																																																																																																								<div class="flex flex-wrap gap-4 mb-8">
-																																																																																																																																																																												<button @click="tab = 'protection'"
-																																																																																																																																																																																:class="tab === 'protection'
-																																																																																																																																																																																    ?
-																																																																																																																																																																																    'bg-red-600 text-white' :
-																																																																																																																																																																																    'bg-white text-gray-700 border'"
-																																																																																																																																																																																class="px-2 py-1 rounded-md font-semibold">Child Protection</button>
-																																																																																																																																																																												<button @click="tab = 'advocacy'"
-																																																																																																																																																																																:class="tab === 'advocacy'
-																																																																																																																																																																																    ?
-																																																																																																																																																																																    'bg-red-600 text-white' :
-																																																																																																																																																																																    'bg-white text-gray-700 border'"
-																																																																																																																																																																																class="px-2 py-1 rounded-md font-semibold">Advocacy & Policy</button>
-																																																																																																																																																																												<button @click="tab = 'awareness'"
-																																																																																																																																																																																:class="tab === 'awareness'
-																																																																																																																																																																																    ?
-																																																																																																																																																																																    'bg-red-600 text-white' :
-																																																																																																																																																																																    'bg-white text-gray-700 border'"
-																																																																																																																																																																																class="px-2 py-1 rounded-md font-semibold">Awareness</button>
-																																																																																																																																																																												<button @click="tab = 'capacity'"
-																																																																																																																																																																																:class="tab === 'capacity'
-																																																																																																																																																																																    ?
-																																																																																																																																																																																    'bg-red-600 text-white' :
-																																																																																																																																																																																    'bg-white text-gray-700 border'"
-																																																																																																																																																																																class="px-2 py-1 rounded-md font-semibold">Capacity Building</button>
-																																																																																																																																																																												<button @click="tab = 'referral'"
-																																																																																																																																																																																:class="tab === 'referral'
-																																																																																																																																																																																    ?
-																																																																																																																																																																																    'bg-red-600 text-white' :
-																																																																																																																																																																																    'bg-white text-gray-700 border'"
-																																																																																																																																																																																class="px-2 py-1 rounded-md font-semibold">Referral & Support</button>
-																																																																																																																																																																												<button @click="tab = 'research'"
-																																																																																																																																																																																:class="tab === 'research'
-																																																																																																																																																																																    ?
-																																																																																																																																																																																    'bg-red-600 text-white' :
-																																																																																																																																																																																    'bg-white text-gray-700 border'"
-																																																																																																																																																																																class="px-2 py-1 rounded-md font-semibold">Research</button>
-																																																																																																																																																																								</div>
+																																																																																																																																																																																																				<div class="flex flex-col justify-center gap-4 lg:h-80">
+																																																																																																																																																																																																								<h2 class="text-2xl md:text-2xl font-semibold text-green-700 mb-2">Our Services</h2>
+																																																																																																																																																																																																								<!-- Tabs
+																																																																																																																																																																																																								<div class="flex flex-wrap gap-4 mb-8">
+																																																																																																																																																																																																												<button @click="tab = 'protection'"
+																																																																																																																																																																																																																:class="tab === 'protection'
+																																																																																																																																																																																																																    ?
+																																																																																																																																																																																																																    'bg-red-600 text-white' :
+																																																																																																																																																																																																																    'bg-white text-gray-700 border'"
+																																																																																																																																																																																																																class="px-2 py-1 rounded-md font-semibold">Child Protection</button>
+																																																																																																																																																																																																												<button @click="tab = 'advocacy'"
+																																																																																																																																																																																																																:class="tab === 'advocacy'
+																																																																																																																																																																																																																    ?
+																																																																																																																																																																																																																    'bg-red-600 text-white' :
+																																																																																																																																																																																																																    'bg-white text-gray-700 border'"
+																																																																																																																																																																																																																class="px-2 py-1 rounded-md font-semibold">Advocacy & Policy</button>
+																																																																																																																																																																																																												<button @click="tab = 'awareness'"
+																																																																																																																																																																																																																:class="tab === 'awareness'
+																																																																																																																																																																																																																    ?
+																																																																																																																																																																																																																    'bg-red-600 text-white' :
+																																																																																																																																																																																																																    'bg-white text-gray-700 border'"
+																																																																																																																																																																																																																class="px-2 py-1 rounded-md font-semibold">Awareness</button>
+																																																																																																																																																																																																												<button @click="tab = 'capacity'"
+																																																																																																																																																																																																																:class="tab === 'capacity'
+																																																																																																																																																																																																																    ?
+																																																																																																																																																																																																																    'bg-red-600 text-white' :
+																																																																																																																																																																																																																    'bg-white text-gray-700 border'"
+																																																																																																																																																																																																																class="px-2 py-1 rounded-md font-semibold">Capacity Building</button>
+																																																																																																																																																																																																												<button @click="tab = 'referral'"
+																																																																																																																																																																																																																:class="tab === 'referral'
+																																																																																																																																																																																																																    ?
+																																																																																																																																																																																																																    'bg-red-600 text-white' :
+																																																																																																																																																																																																																    'bg-white text-gray-700 border'"
+																																																																																																																																																																																																																class="px-2 py-1 rounded-md font-semibold">Referral & Support</button>
+																																																																																																																																																																																																												<button @click="tab = 'research'"
+																																																																																																																																																																																																																:class="tab === 'research'
+																																																																																																																																																																																																																    ?
+																																																																																																																																																																																																																    'bg-red-600 text-white' :
+																																																																																																																																																																																																																    'bg-white text-gray-700 border'"
+																																																																																																																																																																																																																class="px-2 py-1 rounded-md font-semibold">Research</button>
+																																																																																																																																																																																																								</div>
 
-																																																																																																																																																																								<!-- Tab Content
-																																																																																																																																																												<div class="rounded-lg bg-white p-6 shadow-md">
-																																																																																																																																																																<!-- Child Protection
-																																																																																																																																																																												<div x-show="tab === 'protection'" class="flex items-start gap-4">
-																																																																																																																																																																																<i class="fa-solid fa-shield-halved text-green-600 text-4xl"></i>
-																																																																																																																																																																																<div>
-																																																																																																																																																																																				<h3 class="font-bold text-xl text-gray-800 mb-2">Child Protection</h3>
-																																																																																																																																																																																				<p class="text-gray-700 mb-4">
-																																																																																																																																																																																								Monitoring and preventing abuse, neglect, and exploitation of children.
-																																																																																																																																																																																								Investigating cases of child maltreatment. Promoting child-safe environments in communities,
-																																																																																																																																																																																								schools, and institutions.
-																																																																																																																																																																																				</p>
-																																																																																																																																																																																				<a href="#" class="text-green-600 font-semibold hover:underline">Learn More ></a>
-																																																																																																																																																																																</div>
-																																																																																																																																																																												</div>
-																																																																																																																																																																												<!-- Advocacy & Policy
-																																																																																																																																																																												<div x-show="tab === 'advocacy'" class="flex items-start gap-4">
-																																																																																																																																																																																<i class="fa-solid fa-gavel text-green-600 text-4xl"></i>
-																																																																																																																																																																																<div>
-																																																																																																																																																																																				<h3 class="font-bold text-xl text-gray-800 mb-2">Advocacy & Policy</h3>
-																																																																																																																																																																																				<p class="text-gray-700 mb-4">
-																																																																																																																																																																																								Placeholder: influencing laws and policies to strengthen child rights.
-																																																																																																																																																																																								Working with government and stakeholders for systemic change.
-																																																																																																																																																																																				</p>
-																																																																																																																																																																																				<a href="#" class="text-green-600 font-semibold hover:underline">Learn More ></a>
-																																																																																																																																																																																</div>
-																																																																																																																																																																												</div>
+																																																																																																																																																																																																								<!-- Tab Content
+																																																																																																																																																																																												<div class="rounded-lg bg-white p-6 shadow-md">
+																																																																																																																																																																																																<!-- Child Protection
+																																																																																																																																																																																																												<div x-show="tab === 'protection'" class="flex items-start gap-4">
+																																																																																																																																																																																																																<i class="fa-solid fa-shield-halved text-green-600 text-4xl"></i>
+																																																																																																																																																																																																																<div>
+																																																																																																																																																																																																																				<h3 class="font-bold text-xl text-gray-800 mb-2">Child Protection</h3>
+																																																																																																																																																																																																																				<p class="text-gray-700 mb-4">
+																																																																																																																																																																																																																								Monitoring and preventing abuse, neglect, and exploitation of children.
+																																																																																																																																																																																																																								Investigating cases of child maltreatment. Promoting child-safe environments in communities,
+																																																																																																																																																																																																																								schools, and institutions.
+																																																																																																																																																																																																																				</p>
+																																																																																																																																																																																																																				<a href="#" class="text-green-600 font-semibold hover:underline">Learn More ></a>
+																																																																																																																																																																																																																</div>
+																																																																																																																																																																																																												</div>
+																																																																																																																																																																																																												<!-- Advocacy & Policy
+																																																																																																																																																																																																												<div x-show="tab === 'advocacy'" class="flex items-start gap-4">
+																																																																																																																																																																																																																<i class="fa-solid fa-gavel text-green-600 text-4xl"></i>
+																																																																																																																																																																																																																<div>
+																																																																																																																																																																																																																				<h3 class="font-bold text-xl text-gray-800 mb-2">Advocacy & Policy</h3>
+																																																																																																																																																																																																																				<p class="text-gray-700 mb-4">
+																																																																																																																																																																																																																								Placeholder: influencing laws and policies to strengthen child rights.
+																																																																																																																																																																																																																								Working with government and stakeholders for systemic change.
+																																																																																																																																																																																																																				</p>
+																																																																																																																																																																																																																				<a href="#" class="text-green-600 font-semibold hover:underline">Learn More ></a>
+																																																																																																																																																																																																																</div>
+																																																																																																																																																																																																												</div>
 
-																																																																																																																																																																												<!-- Awareness
-																																																																																																																																																																												<div x-show="tab === 'awareness'" class="flex items-start gap-4">
-																																																																																																																																																																																<i class="fa-solid fa-bullhorn text-green-600 text-4xl"></i>
-																																																																																																																																																																																<div>
-																																																																																																																																																																																				<h3 class="font-bold text-xl text-gray-800 mb-2">Awareness</h3>
-																																																																																																																																																																																				<p class="text-gray-700 mb-4">
-																																																																																																																																																																																								Placeholder: raising awareness through campaigns, workshops, and community outreach.
-																																																																																																																																																																																								Empowering children and families with knowledge of their rights.
-																																																																																																																																																																																				</p>
-																																																																																																																																																																																				<a href="#" class="text-green-600 font-semibold hover:underline">Learn More ></a>
-																																																																																																																																																																																</div>
-																																																																																																																																																																												</div>
+																																																																																																																																																																																																												<!-- Awareness
+																																																																																																																																																																																																												<div x-show="tab === 'awareness'" class="flex items-start gap-4">
+																																																																																																																																																																																																																<i class="fa-solid fa-bullhorn text-green-600 text-4xl"></i>
+																																																																																																																																																																																																																<div>
+																																																																																																																																																																																																																				<h3 class="font-bold text-xl text-gray-800 mb-2">Awareness</h3>
+																																																																																																																																																																																																																				<p class="text-gray-700 mb-4">
+																																																																																																																																																																																																																								Placeholder: raising awareness through campaigns, workshops, and community outreach.
+																																																																																																																																																																																																																								Empowering children and families with knowledge of their rights.
+																																																																																																																																																																																																																				</p>
+																																																																																																																																																																																																																				<a href="#" class="text-green-600 font-semibold hover:underline">Learn More ></a>
+																																																																																																																																																																																																																</div>
+																																																																																																																																																																																																												</div>
 
-																																																																																																																																																																												<!-- Capacity Building
-																																																																																																																																																																												<div x-show="tab === 'capacity'" class="flex items-start gap-4">
-																																																																																																																																																																																<i class="fa-solid fa-users text-green-600 text-4xl"></i>
-																																																																																																																																																																																<div>
-																																																																																																																																																																																				<h3 class="font-bold text-xl text-gray-800 mb-2">Capacity Building</h3>
-																																																																																																																																																																																				<p class="text-gray-700 mb-4">
-																																																																																																																																																																																								Placeholder: training professionals, institutions, and communities.
-																																																																																																																																																																																								Strengthening skills and resources for effective child protection.
-																																																																																																																																																																																				</p>
-																																																																																																																																																																																				<a href="#" class="text-green-600 font-semibold hover:underline">Learn More ></a>
-																																																																																																																																																																																</div>
-																																																																																																																																																																												</div>
+																																																																																																																																																																																																												<!-- Capacity Building
+																																																																																																																																																																																																												<div x-show="tab === 'capacity'" class="flex items-start gap-4">
+																																																																																																																																																																																																																<i class="fa-solid fa-users text-green-600 text-4xl"></i>
+																																																																																																																																																																																																																<div>
+																																																																																																																																																																																																																				<h3 class="font-bold text-xl text-gray-800 mb-2">Capacity Building</h3>
+																																																																																																																																																																																																																				<p class="text-gray-700 mb-4">
+																																																																																																																																																																																																																								Placeholder: training professionals, institutions, and communities.
+																																																																																																																																																																																																																								Strengthening skills and resources for effective child protection.
+																																																																																																																																																																																																																				</p>
+																																																																																																																																																																																																																				<a href="#" class="text-green-600 font-semibold hover:underline">Learn More ></a>
+																																																																																																																																																																																																																</div>
+																																																																																																																																																																																																												</div>
 
-																																																																																																																																																																												<!-- Referral & Support
-																																																																																																																																																																												<div x-show="tab === 'referral'" class="flex items-start gap-4">
-																																																																																																																																																																																<i class="fa-solid fa-hands-helping text-green-600 text-4xl"></i>
-																																																																																																																																																																																<div>
-																																																																																																																																																																																				<h3 class="font-bold text-xl text-gray-800 mb-2">Referral & Support</h3>
-																																																																																																																																																																																				<p class="text-gray-700 mb-4">
-																																																																																																																																																																																								Placeholder: connecting children and families to support services.
-																																																																																																																																																																																								Providing pathways for counseling, healthcare, and legal aid.
-																																																																																																																																																																																				</p>
-																																																																																																																																																																																				<a href="#" class="text-green-600 font-semibold hover:underline">Learn More ></a>
-																																																																																																																																																																																</div>
-																																																																																																																																																																												</div>
+																																																																																																																																																																																																												<!-- Referral & Support
+																																																																																																																																																																																																												<div x-show="tab === 'referral'" class="flex items-start gap-4">
+																																																																																																																																																																																																																<i class="fa-solid fa-hands-helping text-green-600 text-4xl"></i>
+																																																																																																																																																																																																																<div>
+																																																																																																																																																																																																																				<h3 class="font-bold text-xl text-gray-800 mb-2">Referral & Support</h3>
+																																																																																																																																																																																																																				<p class="text-gray-700 mb-4">
+																																																																																																																																																																																																																								Placeholder: connecting children and families to support services.
+																																																																																																																																																																																																																								Providing pathways for counseling, healthcare, and legal aid.
+																																																																																																																																																																																																																				</p>
+																																																																																																																																																																																																																				<a href="#" class="text-green-600 font-semibold hover:underline">Learn More ></a>
+																																																																																																																																																																																																																</div>
+																																																																																																																																																																																																												</div>
 
-																																																																																																																																																																												<!-- Research
-																																																																																																																																																																												<div x-show="tab === 'research'" class="flex items-start gap-4">
-																																																																																																																																																																																<i class="fa-solid fa-flask text-green-600 text-4xl"></i>
-																																																																																																																																																																																<div>
-																																																																																																																																																																																				<h3 class="font-bold text-xl text-gray-800 mb-2">Research</h3>
-																																																																																																																																																																																				<p class="text-gray-700 mb-4">
-																																																																																																																																																																																								Placeholder: conducting studies to inform evidence-based strategies.
-																																																																																																																																																																																								Gathering data to improve child protection programs.
-																																																																																																																																																																																				</p>
-																																																																																																																																																																																				<a href="#" class="text-green-600 font-semibold hover:underline">Learn More ></a>
-																																																																																																																																																																																</div>
-																																																																																																																																																																															-->
+																																																																																																																																																																																																												<!-- Research
+																																																																																																																																																																																																												<div x-show="tab === 'research'" class="flex items-start gap-4">
+																																																																																																																																																																																																																<i class="fa-solid fa-flask text-green-600 text-4xl"></i>
+																																																																																																																																																																																																																<div>
+																																																																																																																																																																																																																				<h3 class="font-bold text-xl text-gray-800 mb-2">Research</h3>
+																																																																																																																																																																																																																				<p class="text-gray-700 mb-4">
+																																																																																																																																																																																																																								Placeholder: conducting studies to inform evidence-based strategies.
+																																																																																																																																																																																																																								Gathering data to improve child protection programs.
+																																																																																																																																																																																																																				</p>
+																																																																																																																																																																																																																				<a href="#" class="text-green-600 font-semibold hover:underline">Learn More ></a>
+																																																																																																																																																																																																																</div>
+																																																																																																																																																																																																															-->
 				</section>
 
 				<!-- Partnership Section -->
@@ -194,7 +194,11 @@
 																				DONATE NOW TO SUPPORT OUR WORK
 																</a>
 												</div>
+
 								</div>
+
+								<!-- Red Line Divider -->
+								<hr class="max-w-full border-t-4 border-red-600 my-10">
 				</section>
 				<!-- Thematic Cards Section -->
 				<section class="w-full bg-white py-12 px-4 sm:px-6 lg:px-8">
@@ -206,54 +210,61 @@
 
 																<!-- Card 1: Health -->
 																<div class="relative rounded-lg shadow hover:shadow-lg transition overflow-hidden">
-																				<img src="{{ asset("images/vaccine.jpg") }}" alt="Health"
-																								class="w-full h-75 object-cover">
-																				<h3 class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">ADVOCACY & POLICY</h3>
+																				<img src="{{ asset("images/vaccine.jpg") }}" alt="Health" class="w-full h-75 object-cover">
+																				<h3
+																								class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">
+																								ADVOCACY & POLICY</h3>
 																</div>
 
 																<!-- Card 2: Education -->
 																<div class="relative rounded-lg shadow hover:shadow-lg transition overflow-hidden">
-																				<img src="{{ asset("images/update-1.jpg") }}" alt="Education"
-																								class="w-full h-75 object-cover">
-																				<h3 class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">AWARENESS</h3>
+																				<img src="{{ asset("images/update-1.jpg") }}" alt="Education" class="w-full h-75 object-cover">
+																				<h3
+																								class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">
+																								AWARENESS</h3>
 																</div>
 
 																<!-- Card 3: Protection -->
 																<div class="relative rounded-lg shadow hover:shadow-lg transition overflow-hidden">
-																				<img src="{{ asset("images/NCCkids.jpg") }}" alt="Protection"
-																								class="w-full h-75 object-cover">
-																				<h3 class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">PROTECTION</h3>
+																				<img src="{{ asset("images/NCCkids.jpg") }}" alt="Protection" class="w-full h-75 object-cover">
+																				<h3
+																								class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">
+																								PROTECTION</h3>
 																</div>
 
 																<!-- Card 4: Resilience -->
 																<div class="relative rounded-lg shadow hover:shadow-lg transition overflow-hidden">
-																				<img src="{{ asset("images/covered.jpg") }}" alt="Resilience"
-																								class="w-full h-75 object-cover">
-																				<h3 class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">REFERRAL & SUPPORT</h3>
+																				<img src="{{ asset("images/covered.jpg") }}" alt="Resilience" class="w-full h-75 object-cover">
+																				<h3
+																								class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">
+																								REFERRAL & SUPPORT</h3>
 																</div>
 
 																<!-- Card 5: Emergencies -->
 																<div class="relative rounded-lg shadow hover:shadow-lg transition overflow-hidden">
-																				<img src="{{ asset("images/image4.jpg") }}" alt="Emergencies"
-																								class="w-full h-75 object-cover">
-																				<h3 class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">CAPACITY BUILDING</h3>
+																				<img src="{{ asset("images/image4.jpg") }}" alt="Emergencies" class="w-full h-75 object-cover">
+																				<h3
+																								class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">
+																								CAPACITY BUILDING</h3>
 																</div>
 
 																<!-- Card 6: Our Impact -->
 																<div class="relative rounded-lg shadow hover:shadow-lg transition overflow-hidden">
-																				<img src="{{ asset("images/mission.jpg") }}" alt="Our Impact"
-																								class="w-full h-75 object-cover">
-																				<h3 class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">RESEARCH</h3>
+																				<img src="{{ asset("images/mission.jpg") }}" alt="Our Impact" class="w-full h-75 object-cover">
+																				<h3
+																								class="absolute bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-md font-bold text-sm shadow-md">
+																								RESEARCH</h3>
 																</div>
 
 												</div>
 								</div>
 
 								<!-- Our Child, Our Responsibility Section -->
-								<div class="mt-15 max-w-6xl mx-auto text-left">
-
+								<div class="mt-10 max-w-6xl mx-auto text-left">
+												<!-- Red Line Divider -->
+												<hr class="w-10 border-t-4 border-red-600 my-6">
 												<!-- Heading -->
-												<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+												<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
 																OUR CHILD, OUR RESPONSIBILITY
 												</h2>
 

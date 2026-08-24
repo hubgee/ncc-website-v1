@@ -19,23 +19,11 @@
 												x-data="{ open: false, latestOpen: false }">
 												<div class="mx-auto flex max-w-8xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
 																<a href="{{ route("home") }}" class="text-lg font-semibold text-emerald-700">
-																				<img src="{{ asset("images/ncc-logo.png") }}" alt="NCC Logo" class="h-10 w-auto">
+																				<img src="{{ asset("images/ncc-logo.png") }}" alt="NCC Logo" class="h-20 w-auto">
 																</a>
 
-																<div class="hidden flex-1 items-center justify-end gap-10 lg:gap-10 md:flex">
-																				<nav class="hidden md:flex lg:hidden items-center gap-15 text-red-700" aria-label="Main navigation">
-																								<a href="{{ route("home") }}" class="hover:text-emerald-700" aria-label="Home"><i
-																																class="fa-solid fa-house text-lg"></i></a>
-																								<a href="{{ route("about") }}" class="hover:text-emerald-700" aria-label="About"><i
-																																class="fa-solid fa-circle-info text-lg"></i></a>
-																								<a href="{{ route("what-we-do") }}" class="hover:text-emerald-700" aria-label="What we do"><i
-																																class="fa-solid fa-hand-holding-heart text-lg"></i></a>
-																								<a href="{{ route("resources") }}" class="hover:text-emerald-700" aria-label="Resources"><i
-																																class="fa-solid fa-file text-lg"></i></a>
-																								<a href="{{ route("advertise") }}" class="hover:text-emerald-700" aria-label="Advertise"><i
-																																class="fa-solid fa-bullhorn text-lg"></i></a>
-																				</nav>
-																				<nav class="hidden lg:flex items-center gap-6 text-sm text-black">
+																<div class="hidden flex-1 items-center justify-end gap-10 lg:gap-10 lg:flex">
+																				<nav class="flex items-center gap-6 text-sm text-black">
 																								<a href="{{ route("home") }}" class="hover:text-emerald-700">Home</a>
 																								<a href="{{ route("about") }}" class="hover:text-emerald-700">About</a>
 																								<div class="relative">
@@ -74,20 +62,7 @@
 																				</div>
 																</div>
 
-																<div class="flex items-center gap-2 md:hidden">
-																				<a href="{{ route("childrens-corner") }}"
-																								class="flex items-center justify-center rounded-md border border-gray-300 px-3 py-2 text-[11px] font-semibold uppercase text-gray-800 transition hover:border-green-700 hover:text-green-700">
-																								<i class="fa-solid fa-child mr-2 text-red-600"></i>
-																								Child Rights Corner
-																				</a>
-																				<a href="{{ route("reporting") }}"
-																								class="rounded-md bg-red-600 px-4 py-2 text-center font-semibold text-white transition hover:bg-red-700">
-																								Report a Case Now
-																				</a>
-																				<a href="{{ route("donate") }}"
-																								class="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700">
-																								Donate
-																				</a>
+																<div class="flex items-center gap-2 lg:hidden">
 																				<button type="button"
 																								class="inline-flex items-center justify-center rounded-md p-2 text-slate-700 transition hover:bg-slate-100 hover:text-emerald-700"
 																								@click="open = !open" :aria-expanded="open" aria-label="Toggle navigation">
@@ -96,7 +71,7 @@
 																</div>
 												</div>
 
-												<div class="border-t border-slate-200 px-4 pb-4 md:hidden" x-show="open" @click.away="open = false"
+												<div class="border-t border-slate-200 px-4 pb-4 lg:hidden" x-show="open" @click.away="open = false"
 																x-transition>
 																<nav class="mt-4 flex flex-col gap-3 text-sm text-slate-700">
 																				<a href="{{ route("home") }}" class="hover:text-emerald-700">Home</a>
@@ -107,7 +82,7 @@
 																												Latest <i class="fa-solid fa-chevron-down text-xs"></i>
 																								</button>
 																								<div x-show="latestOpen" x-transition class="ml-4 mt-2 flex flex-col gap-2">
-																												<a href="#" class="hover:text-emerald-700">News</a>
+																												<a href="{{ route("news") }}" class="hover:text-emerald-700">News</a>
 																												<a href="#" class="hover:text-emerald-700">Stories</a>
 																								</div>
 																				</div>
@@ -115,6 +90,21 @@
 																				<a href="{{ route("resources") }}" class="hover:text-emerald-700">Resources</a>
 																				<a href="{{ route("advertise") }}" class="hover:text-emerald-700">Advertise</a>
 
+																				<div class="mt-4 flex flex-col gap-3">
+																								<a href="{{ route("childrens-corner") }}"
+																												class="flex items-center justify-center rounded-md border border-gray-300 px-4 py-3 text-sm font-semibold uppercase text-gray-800 transition hover:border-green-700 hover:text-green-700">
+																												<i class="fa-solid fa-child mr-2 text-red-600"></i>
+																												Child Rights Corner
+																								</a>
+																								<a href="{{ route("reporting") }}"
+																												class="flex items-center justify-center rounded-md bg-red-600 px-4 py-3 text-center font-semibold text-white transition hover:bg-red-700">
+																												Report a Case Now
+																								</a>
+																								<a href="{{ route("donate") }}"
+																												class="flex items-center justify-center rounded-md bg-red-600 px-4 py-3 text-center font-semibold text-white transition hover:bg-red-700">
+																												Donate
+																								</a>
+																				</div>
 																</nav>
 												</div>
 								</header>

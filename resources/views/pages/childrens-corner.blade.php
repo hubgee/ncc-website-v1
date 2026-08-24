@@ -3,6 +3,25 @@
 @section("title", 'Children\'s Corner')
 
 @section("content")
+				<style>
+								@keyframes kidsMarquee {
+												0% {
+																transform: translateX(-50%);
+												}
+
+												100% {
+																transform: translateX(0);
+												}
+								}
+
+								.animate-marquee {
+												animation: kidsMarquee 20s linear infinite;
+								}
+
+								.animate-marquee:hover {
+												animation-play-state: paused;
+								}
+				</style>
 
 				<div class="w-full px-4 py-12 relative overflow-hidden bg-cover bg-center bg-black/45">
 								<div class="relative z-10 text-center text-black">
@@ -18,77 +37,72 @@
 												</p>
 
 												<!-- Responsive Layout -->
-												<div
-																class="flex flex-col items-center justify-center mt-10 lg:flex-row lg:justify-between lg:items-center transition-all duration-500 ease-in-out">
+												<div class="flex flex-col items-center justify-center mt-10 transition-all duration-500 ease-in-out">
 
-																<!-- Right Icons (first on mobile, last on desktop) -->
-																<div class="order-1 lg:order-3 flex flex-wrap justify-center gap-20">
-																				<!-- Share Story -->
-																				<div class="flex flex-col items-center">
-																								<div
-																												class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-purple-100 hover:bg-purple-200 hover:scale-110 hover:shadow-lg transition animate-bounce">
-																												<i class="fa-solid fa-pencil text-purple-600 text-lg"></i>
-																								</div>
-																								<span class="text-sm mt-2">Share Story</span>
-																				</div>
-																				<!-- Share Drawing -->
-																				<div class="flex flex-col items-center">
-																								<div
-																												class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-pink-100 hover:bg-pink-200 hover:scale-110 hover:shadow-lg transition animate-bounce">
-																												<i class="fa-solid fa-paintbrush text-pink-600 text-lg"></i>
-																								</div>
-																								<span class="text-sm mt-2">Share Drawing</span>
-																				</div>
-																				<!-- Share Poem -->
-																				<div class="flex flex-col items-center">
-																								<div
-																												class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-indigo-100 hover:bg-indigo-200 hover:scale-110 hover:shadow-lg transition animate-bounce">
-																												<i class="fa-solid fa-feather text-indigo-600 text-lg"></i>
-																								</div>
-																								<span class="text-sm mt-2">Share Poem</span>
-																				</div>
-																</div>
+													<!-- Stick Figure (always centered above icons) -->
+													<div class="flex justify-center animate-pulse mb-9">
+														<img src="/images/child-hero.png" alt="Children illustration" class="w-70 md:w-96 mx-auto" />
+													</div>
 
-																<!-- Stick Figure (second on mobile, center on desktop) -->
-																<div class="order-2 lg:order-2 flex justify-center animate-pulse my-9 lg:my-0">
-																				<img src="/images/child-hero.png" alt="Children illustration" class="w-70 md:w-96 mx-auto" />
-																</div>
-
-																<!-- Left Icons (last on mobile, first on desktop) -->
-																<div class="order-3 lg:order-1 flex flex-wrap justify-center gap-20">
-																				<!-- Quizzes -->
-																				<div class="flex flex-col items-center">
-																								<div
-																												class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-blue-100 hover:bg-blue-200 hover:scale-110 hover:shadow-lg transition animate-bounce">
-																												<i class="fa-solid fa-question text-blue-600 text-lg"></i>
-																								</div>
-																								<span class="text-sm mt-2">Quizzes</span>
-																				</div>
-																				<!-- Games -->
-																				<div class="flex flex-col items-center">
-																								<div
-																												class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-green-100 hover:bg-green-200 hover:scale-110 hover:shadow-lg transition animate-bounce">
-																												<i class="fa-solid fa-gamepad text-green-600 text-lg"></i>
-																								</div>
-																								<span class="text-sm mt-2">Games</span>
-																				</div>
-																				<!-- Videos -->
-																				<div class="flex flex-col items-center">
-																								<div
-																												class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-red-100 hover:bg-red-200 hover:scale-110 hover:shadow-lg transition animate-bounce">
-																												<i class="fa-solid fa-video text-red-600 text-lg"></i>
-																								</div>
-																								<span class="text-sm mt-2">Videos</span>
-																				</div>
-																				<!-- Stories -->
-																				<div class="flex flex-col items-center">
-																								<div
-																												class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-yellow-100 hover:bg-yellow-200 hover:scale-110 hover:shadow-lg transition animate-bounce">
-																												<i class="fa-solid fa-book-open text-yellow-600 text-lg"></i>
-																								</div>
-																								<span class="text-sm mt-2">Stories</span>
-																				</div>
-																</div>
+													<!-- Icons (sequential row below picture, wraps on mobile) -->
+													<div class="flex flex-wrap justify-between gap-8 w-full max-w-5xl mx-auto">
+														<!-- Quizzes -->
+														<div class="flex flex-col items-center">
+															<div
+																class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-blue-100 hover:bg-blue-200 hover:scale-110 hover:shadow-lg transition animate-bounce">
+																<i class="fa-solid fa-question text-blue-600 text-lg"></i>
+															</div>
+															<span class="text-sm mt-2">Quizzes</span>
+														</div>
+														<!-- Games -->
+														<div class="flex flex-col items-center">
+															<div
+																class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-green-100 hover:bg-green-200 hover:scale-110 hover:shadow-lg transition animate-bounce">
+																<i class="fa-solid fa-gamepad text-green-600 text-lg"></i>
+															</div>
+															<span class="text-sm mt-2">Games</span>
+														</div>
+														<!-- Videos -->
+														<div class="flex flex-col items-center">
+															<div
+																class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-red-100 hover:bg-red-200 hover:scale-110 hover:shadow-lg transition animate-bounce">
+																<i class="fa-solid fa-video text-red-600 text-lg"></i>
+															</div>
+															<span class="text-sm mt-2">Videos</span>
+														</div>
+														<!-- Stories -->
+														<div class="flex flex-col items-center">
+															<div
+																class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-yellow-100 hover:bg-yellow-200 hover:scale-110 hover:shadow-lg transition animate-bounce">
+																<i class="fa-solid fa-book-open text-yellow-600 text-lg"></i>
+															</div>
+															<span class="text-sm mt-2">Stories</span>
+														</div>
+														<!-- Share Story -->
+														<div class="flex flex-col items-center">
+															<div
+																class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-purple-100 hover:bg-purple-200 hover:scale-110 hover:shadow-lg transition animate-bounce">
+																<i class="fa-solid fa-pencil text-purple-600 text-lg"></i>
+															</div>
+															<span class="text-sm mt-2">Share Story</span>
+														</div>
+														<!-- Share Drawing -->
+														<div class="flex flex-col items-center">
+															<div
+																class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-pink-100 hover:bg-pink-200 hover:scale-110 hover:shadow-lg transition animate-bounce">
+																<i class="fa-solid fa-paintbrush text-pink-600 text-lg"></i>
+															</div>
+															<span class="text-sm mt-2">Share Drawing</span>
+														</div>
+														<!-- Share Poem -->
+														<div class="flex flex-col items-center">
+															<div
+																class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-indigo-100 hover:bg-indigo-200 hover:scale-110 hover:shadow-lg transition animate-bounce">
+																<i class="fa-solid fa-feather text-indigo-600 text-lg"></i>
+															</div>
+															<span class="text-sm mt-2">Share Poem</span>
+														</div>
+													</div>
 												</div>
 								</div>
 				</div>
@@ -104,7 +118,7 @@
 								</p>
 
 								<!-- Rights Icons Row -->
-								<div class="flex justify-center gap-8 md:gap-50">
+								<div class="flex flex-wrap justify-between gap-8 w-full max-w-5xl mx-auto">
 												<!-- Education Rights -->
 												<div class="flex flex-col items-center">
 																<div
@@ -143,10 +157,7 @@
 								</div>
 				</div>
 				<!-- images section -->
-				<!-- images section -->
-				<div class="w-full px-4 py-12 bg-white">
-
-								<div x-data="{
+				<div class="w-full px-4 py-12 bg-white" x-data="{
 		    current: 0,
 		    images: [
 		        '/images/window1.png',
@@ -155,38 +166,41 @@
 		        '/images/window4.png',
 		        '/images/window5.png'
 		    ]
-		}" class="w-full px-4 py-12 bg-white">
+		}">
 
-												<!-- Section Heading -->
-												<h2 class="text-2xl md:text-3xl font-bold text-center mb-4 mt-8 animate-bounce">
-																Helping Kids Grow Through Play And Learning
-												</h2>
+								<!-- Section Heading -->
+								<h2 class="text-2xl md:text-3xl font-bold text-center mb-4 animate-bounce">
+												Helping Kids Grow Through Play And Learning
+								</h2>
 
-												<!-- Desktop: normal row -->
-												<div class="hidden md:flex justify-center gap-4">
-																<template x-for="img in images" :key="img">
-																				<img :src="img" class="shrink-0" alt="Image">
+								<!-- Desktop: auto-sliding carousel -->
+								<div class="hidden md:block w-full overflow-hidden">
+												<div class="flex w-max items-center animate-marquee">
+																<template x-for="img in images" :key="'a-' + img">
+																				<img :src="img" class="shrink-0 h-20 lg:h-32 xl:h-44 w-auto object-contain mr-4" alt="Image">
 																</template>
-												</div>
-
-												<!-- Mobile: arrows + single row view -->
-												<div class="relative md:hidden flex justify-center items-center">
-																<img :src="images[current]" class="shrink-0" alt="Image">
-
-																<!-- Left Arrow -->
-																<button x-show="current > 0" @click="current--"
-																				class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full">
-																				&#8592;
-																</button>
-
-																<!-- Right Arrow -->
-																<button x-show="current < images.length - 1" @click="current++"
-																				class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full">
-																				&#8594;
-																</button>
+																<template x-for="img in images" :key="'b-' + img">
+																				<img :src="img" class="shrink-0 h-20 lg:h-32 xl:h-44 w-auto object-contain mr-4" alt="Image">
+																</template>
 												</div>
 								</div>
 
+								<!-- Mobile: arrows + single row view -->
+								<div class="relative md:hidden flex justify-center items-center">
+												<img :src="images[current]" class="shrink-0 max-w-full max-h-64 w-auto object-contain" alt="Image">
+
+												<!-- Left Arrow -->
+												<button x-show="current > 0" @click="current--"
+																class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full">
+																&#8592;
+												</button>
+
+												<!-- Right Arrow -->
+												<button x-show="current < images.length - 1" @click="current++"
+																class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full">
+																&#8594;
+												</button>
+								</div>
 				</div>
 
 				<!-- Kids News & Updates Section -->
