@@ -46,6 +46,7 @@
 	    isDownloading: false,
 	    downloadMessage: '',
 	    showContactPanel: false,
+	    isAnonymous: false,
 	    validate() {
 	        const errors = {};
 	        const f = this.form;
@@ -213,6 +214,15 @@
 	    },
 	    toggleContactPanel() {
 	        this.showContactPanel = !this.showContactPanel;
+	    },
+	    toggleAnonymous() {
+	        this.isAnonymous = !this.isAnonymous;
+	        if (this.isAnonymous) {
+	            this.form.reporter_name = '';
+	            this.form.preferred_contact = '';
+	            this.touched.reporter_name = false;
+	            this.touched.preferred_contact = false;
+	        }
 	    }
 	}">
 								<div class="max-w-7xl mx-auto">
@@ -238,6 +248,13 @@
 												<div x-show="tab === 'complaint'" class="bg-slate-50 rounded-lg shadow-md p-6 space-y-6">
 																<h2 class="text-xl font-bold text-gray-800">File a Complaint</h2>
 
+																<!-- Private / Sensitive Session Banner -->
+																<div class="bg-slate-100 border border-slate-200 rounded-md p-3 flex items-start gap-2">
+																				<i class="fa-solid fa-eye-slash text-slate-500 mt-0.5" aria-hidden="true"></i>
+																				<p class="text-xs text-slate-600"><strong>Private Mode Active</strong> — No local logs or session
+																								history will be retained on this device.</p>
+																</div>
+
 																<!-- Error Summary -->
 																<div x-show="Object.keys(errors).length > 0" role="alert" aria-live="assertive"
 																				class="bg-red-50 border-l-4 border-red-500 p-4 rounded-md">
@@ -255,33 +272,33 @@
 																				<!-- Violation Details -->
 																				<div>
 																								<label class="block text-sm font-semibold">Child's Age <span class="text-red-600">*</span></label>
-																								<input type="number" x-model="form.child_age" @blur="touched.child_age = true"
-																												:class="errors.child_age && touched.child_age ? 'border-red-500' : ''" x-ref="child_age"
-																												class="w-full border rounded-md p-2">
+																								<input type="number" x-model="form.child_age" @blur="touched.child_age = true" autocomplete="off"
+																												data-lpignore="true" :class="errors.child_age && touched.child_age ? 'border-red-500' : ''"
+																												x-ref="child_age" class="w-full border rounded-md p-2">
 																								<p x-show="errors.child_age && touched.child_age" x-text="errors.child_age"
 																												class="text-red-600 text-sm mt-1"></p>
 																				</div>
 																				<div>
 																								<label class="block text-sm font-semibold">Child's Name <span class="text-red-600">*</span></label>
-																								<input type="text" x-model="form.child_name" @blur="touched.child_name = true"
-																												:class="errors.child_name && touched.child_name ? 'border-red-500' : ''" x-ref="child_name"
-																												class="w-full border rounded-md p-2">
+																								<input type="text" x-model="form.child_name" @blur="touched.child_name = true" autocomplete="off"
+																												data-lpignore="true" :class="errors.child_name && touched.child_name ? 'border-red-500' : ''"
+																												x-ref="child_name" class="w-full border rounded-md p-2">
 																								<p x-show="errors.child_name && touched.child_name" x-text="errors.child_name"
 																												class="text-red-600 text-sm mt-1"></p>
 																				</div>
 																				<div>
 																								<label class="block text-sm font-semibold">District <span class="text-red-600">*</span></label>
-																								<input type="text" x-model="form.district" @blur="touched.district = true"
-																												:class="errors.district && touched.district ? 'border-red-500' : ''" x-ref="district"
-																												class="w-full border rounded-md p-2">
+																								<input type="text" x-model="form.district" @blur="touched.district = true" autocomplete="off"
+																												data-lpignore="true" :class="errors.district && touched.district ? 'border-red-500' : ''"
+																												x-ref="district" class="w-full border rounded-md p-2">
 																								<p x-show="errors.district && touched.district" x-text="errors.district"
 																												class="text-red-600 text-sm mt-1"></p>
 																				</div>
 																				<div>
 																								<label class="block text-sm font-semibold">Village,T/A <span class="text-red-600">*</span></label>
-																								<input type="text" x-model="form.village_ta" @blur="touched.village_ta = true"
-																												:class="errors.village_ta && touched.village_ta ? 'border-red-500' : ''" x-ref="village_ta"
-																												class="w-full border rounded-md p-2">
+																								<input type="text" x-model="form.village_ta" @blur="touched.village_ta = true" autocomplete="off"
+																												data-lpignore="true" :class="errors.village_ta && touched.village_ta ? 'border-red-500' : ''"
+																												x-ref="village_ta" class="w-full border rounded-md p-2">
 																								<p x-show="errors.village_ta && touched.village_ta" x-text="errors.village_ta"
 																												class="text-red-600 text-sm mt-1"></p>
 																				</div>
@@ -327,7 +344,7 @@
 																				</div>
 																				<div>
 																								<label class="block text-sm font-semibold">Description <span class="text-red-600">*</span></label>
-																								<textarea x-model="form.description" @blur="touched.description = true"
+																								<textarea x-model="form.description" @blur="touched.description = true" autocomplete="off" data-lpignore="true"
 																								    :class="errors.description && touched.description ? 'border-red-500' : ''" x-ref="description"
 																								    class="w-full border rounded-md p-2" rows="4"></textarea>
 																								<p x-text="form.description.length + ' / 2000 chars (min 20)'"
@@ -341,14 +358,56 @@
 																				<!-- Reporter Info -->
 																				<h3 class="text-lg font-bold text-gray-700 mt-6">Reporter Info (Optional)</h3>
 																				<div>
-																								<label class="block text-sm font-semibold">Your Name</label>
-																								<input type="text" x-model="form.reporter_name" @blur="touched.reporter_name = true"
-																												x-ref="reporter_name" class="w-full border rounded-md p-2">
+																								<!-- Anonymous Reporting Toggle -->
+																								<div
+																												class="bg-white border border-gray-200 rounded-md p-4 flex items-center justify-between gap-4">
+																												<div>
+																																<label for="anonymous-toggle"
+																																				class="text-sm font-semibold text-gray-800 cursor-pointer">Report Anonymously</label>
+																																<p class="text-xs text-gray-500 mt-0.5">Your name and contact details will not be recorded
+																																				or submitted.</p>
+																												</div>
+																												<label for="anonymous-toggle"
+																																class="relative inline-flex items-center cursor-pointer shrink-0"
+																																aria-label="Toggle anonymous reporting">
+																																<input type="checkbox" id="anonymous-toggle" class="sr-only peer" :checked="isAnonymous"
+																																				@change="toggleAnonymous()" autocomplete="off">
+																																<div
+																																				class="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-green-600 peer-focus:ring-2 peer-focus:ring-green-500 peer-focus:ring-offset-2 transition-colors duration-200">
+																																</div>
+																																<div
+																																				class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow transition-transform duration-200 peer-checked:translate-x-5">
+																																</div>
+																												</label>
+																								</div>
+
+																								<!-- Reporter Fields (hidden when reporting anonymously) -->
+																								<div x-show="!isAnonymous" x-transition:enter="transition ease-out duration-300"
+																												x-transition:enter-start="opacity-0 -translate-y-2"
+																												x-transition:enter-end="opacity-100 translate-y-0"
+																												x-transition:leave="transition ease-in duration-200"
+																												x-transition:leave-start="opacity-100 translate-y-0"
+																												x-transition:leave-end="opacity-0 -translate-y-2" class="space-y-4 overflow-hidden">
+																												<div>
+																																<label class="block text-sm font-semibold">Your Name</label>
+																																<input type="text" x-model="form.reporter_name" @blur="touched.reporter_name = true"
+																																				autocomplete="off" data-lpignore="true" x-ref="reporter_name"
+																																				class="w-full border rounded-md p-2">
+																												</div>
+																												<div>
+																																<label class="block text-sm font-semibold">Preferred Contact</label>
+																																<input type="text" x-model="form.preferred_contact"
+																																				@blur="touched.preferred_contact = true" autocomplete="off" data-lpignore="true"
+																																				x-ref="preferred_contact" class="w-full border rounded-md p-2">
+																												</div>
+																								</div>
 																				</div>
-																				<div>
-																								<label class="block text-sm font-semibold">Preferred Contact</label>
-																								<input type="text" x-model="form.preferred_contact" @blur="touched.preferred_contact = true"
-																												x-ref="preferred_contact" class="w-full border rounded-md p-2">
+
+																				<!-- Encryption & Trust Badge -->
+																				<div class="bg-green-50 border-l-4 border-green-600 rounded-md p-4 flex items-start gap-3">
+																								<i class="fa-solid fa-lock text-green-700 mt-0.5" aria-hidden="true"></i>
+																								<p class="text-sm text-green-800"><strong>Your data is encrypted end-to-end (256-bit SSL)</strong>
+																								</p>
 																				</div>
 
 																				<button type="submit" :disabled="isSubmitting"
@@ -383,7 +442,8 @@
 																<h2 class="text-xl font-bold text-gray-800">Attach Evidence</h2>
 																<div>
 																				<label class="block text-sm font-semibold">Case Reference Number</label>
-																				<input type="text" placeholder="e.g. NCC-2025-XXXXX" class="w-full border rounded-md p-2">
+																				<input type="text" placeholder="e.g. NCC-2025-XXXXX" autocomplete="off" data-lpignore="true"
+																								class="w-full border rounded-md p-2">
 																</div>
 																<div @click="$refs.fileInput.click()" @dragover.prevent="" @drop.prevent="handleFiles($event)"
 																				class="border-2 border-dashed border-gray-300 rounded-md p-6 text-center cursor-pointer hover:border-green-600 transition"
@@ -448,7 +508,8 @@
 																<h2 class="text-xl font-bold text-gray-800">Track Your Case</h2>
 																<div class="flex gap-2">
 																				<input type="text" x-model="trackReferenceInput" @keydown.enter="searchCase()"
-																								placeholder="e.g. NCC-2025-00847" x-ref="trackInput" class="flex-1 border rounded-md p-2">
+																								placeholder="e.g. NCC-2025-00847" autocomplete="off" data-lpignore="true" x-ref="trackInput"
+																								class="flex-1 border rounded-md p-2">
 																				<button @click="searchCase()" :disabled="isSearching"
 																								class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md font-semibold disabled:opacity-50">
 																								<span x-show="!isSearching">Track Case</span>

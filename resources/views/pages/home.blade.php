@@ -109,7 +109,7 @@
 								<div class="hero-slide hero-slide-3" style="background-image: url('{{ asset("images/nccCeleb.jpg") }}');"></div>
 								<div class="bg-black/50 absolute inset-0 z-10"></div>
 								<div class="relative z-20 px-4">
-												<h1 class="text-3xl md:text-5xl font-bold animate-bounce">Our Children, Our Responsibility</h1>
+												<h1 class="text-3xl md:text-5xl font-bold animate-pulse">Our Children, Our Responsibility</h1>
 												<p class="mt-4 text-lg md:text-xl">Safeguarding children’s rights and dignity.</p>
 												<div class="mt-6 flex flex-col md:flex-row gap-4 justify-center">
 																<a href="{{ route("reporting") }}"
