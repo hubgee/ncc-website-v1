@@ -27,86 +27,41 @@
 								    ->orderBy("sort_order")
 								    ->get();
 				@endphp
-				<style>
-								@keyframes heroFade1 {
-
-												0%,
-												25% {
-																opacity: 1;
-												}
-
-												33%,
-												91% {
-																opacity: 0;
-												}
-
-												100% {
-																opacity: 1;
-												}
-								}
-
-								@keyframes heroFade2 {
-
-												0%,
-												33% {
-																opacity: 0;
-												}
-
-												36%,
-												64% {
-																opacity: 1;
-												}
-
-												71%,
-												100% {
-																opacity: 0;
-												}
-								}
-
-								@keyframes heroFade3 {
-
-												0%,
-												71% {
-																opacity: 0;
-												}
-
-												75%,
-												94% {
-																opacity: 1;
-												}
-
-												100% {
-																opacity: 0;
-												}
-								}
-
-								.hero-slide {
-												position: absolute;
-												inset: 0;
-												background-size: cover;
-												background-position: center;
-												animation-duration: 9s;
-												animation-iteration-count: infinite;
-												animation-timing-function: ease-in-out;
-								}
-
-								.hero-slide-1 {
-												animation-name: heroFade1;
-								}
-
-								.hero-slide-2 {
-												animation-name: heroFade2;
-								}
-
-								.hero-slide-3 {
-												animation-name: heroFade3;
-								}
-				</style>
 				<!-- Hero Section -->
-				<section class="relative h-[70vh] flex items-center justify-center text-center text-white overflow-hidden">
-								<div class="hero-slide hero-slide-1" style="background-image: url('{{ asset("images/NCChero.jpg") }}');"></div>
-								<div class="hero-slide hero-slide-2" style="background-image: url('{{ asset("images/nccNews1.jpg") }}');"></div>
-								<div class="hero-slide hero-slide-3" style="background-image: url('{{ asset("images/nccCeleb.jpg") }}');"></div>
+				<section x-data="{
+								activeSlide: 0,
+								totalSlides: 3,
+								timer: null,
+								startTimer() {
+												this.stopTimer();
+												this.timer = setInterval(() => {
+																this.activeSlide = (this.activeSlide + 1) % this.totalSlides;
+												}, 9000);
+								},
+								stopTimer() {
+												if (this.timer) { clearInterval(this.timer); this.timer = null; }
+								},
+								goTo(i) { this.activeSlide = i; this.startTimer(); },
+								next() { this.goTo((this.activeSlide + 1) % this.totalSlides); },
+								prev() { this.goTo((this.activeSlide - 1 + this.totalSlides) % this.totalSlides); }
+				}"
+								x-init="startTimer()"
+								@mouseenter="stopTimer()"
+								@mouseleave="startTimer()"
+								role="region" aria-roledescription="carousel" aria-label="Featured highlights"
+								class="relative h-[70vh] flex items-center justify-center text-center text-white overflow-hidden">
+								<div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"
+												style="background-image: url('{{ asset("images/NCChero.jpg") }}');"
+												:class="activeSlide === 0 ? 'opacity-100' : 'opacity-0'"
+												:aria-hidden="activeSlide !== 0"></div>
+								<div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"
+												style="background-image: url('{{ asset("images/nccNews1.jpg") }}');"
+												:class="activeSlide === 1 ? 'opacity-100' : 'opacity-0'"
+												:aria-hidden="activeSlide !== 1"></div>
+								<div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"
+												style="background-image: url('{{ asset("images/nccCeleb.jpg") }}');"
+												:class="activeSlide === 2 ? 'opacity-100' : 'opacity-0'"
+												:aria-hidden="activeSlide !== 2"></div>
 								<div class="bg-black/50 absolute inset-0 z-10"></div>
 								<div class="relative z-20 px-4">
 												<h1 class="text-3xl md:text-5xl font-bold animate-pulse">Our Children, Our Responsibility</h1>
@@ -120,11 +75,37 @@
 																				Work With Us
 																</a>
 												</div>
-								</div>
+							</div>
+
+				<!-- Slider Controls: Prev / Next -->
+				<button type="button" @click="prev()" aria-label="Previous slide"
+								class="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition">
+								<i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+				</button>
+				<button type="button" @click="next()" aria-label="Next slide"
+								class="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition">
+								<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+				</button>
+
+				<!-- Dot Pagination -->
+				<div class="absolute bottom-16 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
+								<template x-for="i in totalSlides" :key="i">
+												<button type="button" @click="goTo(i - 1)" :aria-label="'Go to slide ' + i"
+																:class="activeSlide === i - 1 ? 'bg-white w-6' : 'bg-white/50 hover:bg-white/80 w-2.5'"
+																class="h-2.5 rounded-full transition-all duration-300"></button>
+								</template>
+				</div>
+
+				<!-- Scroll-down Indicator -->
+				<a href="#mission" aria-label="Scroll down to content"
+								@click.prevent="document.getElementById('mission').scrollIntoView({ behavior: 'smooth' })"
+								class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 text-white/80 hover:text-white animate-bounce">
+								<i class="fa-solid fa-chevron-down text-2xl" aria-hidden="true"></i>
+				</a>
 				</section>
 
 				<!-- Mission & Impact Section -->
-				<section class="py-16 px-6 md:px-12 bg-white">
+				<section id="mission" class="py-16 px-6 md:px-12 bg-white">
 								<!-- Top Divider -->
 								<div class="flex justify-center my-6">
 												<hr class="w-full border-t-2 border-red-600">
