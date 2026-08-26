@@ -192,11 +192,12 @@
 
 				<!-- Initiatives Section -->
 				<section class="py-6 px-6 md:px-12 bg-white">
-								<div class="flex justify-left">
+								<div class="max-w-7xl mx-auto flex justify-left">
 												<hr class="w-8 border-t-4 border-red-800">
+
 								</div>
-								<h2 class="text-xl md:text-xl font-bold text-green-800 mb-6">TOP STORIES</h2>
-								<div class="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+								<h2 class="max-w-7xl mx-auto text-xl md:text-xl font-bold text-green-800 mb-6">TOP STORIES</h2>
+								<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
 
 												<!-- Left Panel: Image + Red Rectangle -->
 												@if ($featuredUpdate)
@@ -307,7 +308,7 @@ mibextid=rS40aB7S9Ucbxw6v"
 
 				<!-- Latest News Section -->
 				<section class="py-12 px-6 md:px-12 bg-white">
-								<div class="max-w-8xl mx-auto" x-data="{ showMoreNews: false }">
+								<div class="max-w-7xl mx-auto" x-data="{ showMoreNews: false }">
 												<div class="flex justify-left">
 																<hr class="w-8 border-t-4 border-red-800">
 												</div>
@@ -461,7 +462,7 @@ mibextid=rS40aB7S9Ucbxw6v"
 				<!-- moments that matter section -->
 				<section class="py-12 px-6 md:px-12 bg-white">
 
-								<div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+								<div class="max-w-7xl mx-auto mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">
 												@forelse($news as $article)
 																<article class="overflow-hidden bg-white shadow rounded-[10px]">
 																				<img src="{{ $article->image_path ? asset("storage/" . $article->image_path . "?v=" . $article->updated_at->timestamp) : asset("images/update-1.jpg") }}"

@@ -347,8 +347,14 @@
 								});
 				</script>
 
+				<!-- Bottom Divider -->
+				<div class="flex justify-center my-6">
+								<hr class="w-full border-t-2 border-red-600">
+				</div>
+
 				<!-- Statistics Section -->
 				<section class="py-12 px-6 md:px-12">
+
 								<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
 												<div>
 																<h3 class="text-2xl font-bold text-green-700">1,249</h3>
@@ -370,7 +376,7 @@
 				</section>
 
 				<!-- Biography Modal -->
-				<div id="bio-modal-vincent" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden"
+				<div id="bio-modal-vincent" class="fixed inset-0 z-50 items-center justify-center bg-black/50 hidden"
 								onclick="this.classList.add('hidden')">
 								<div class="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 p-6 relative" onclick="event.stopPropagation()">
 												<button onclick="document.getElementById('bio-modal-vincent').classList.add('hidden')"
@@ -403,7 +409,7 @@
 				</div>
 
 				<!-- Biography Modal for Benedicto Khondowe -->
-				<div id="bio-modal-benedicto" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden"
+				<div id="bio-modal-benedicto" class="fixed inset-0 z-50 items-center justify-center bg-black/50 hidden"
 								onclick="this.classList.add('hidden')">
 								<div class="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 p-6 relative" onclick="event.stopPropagation()">
 												<button onclick="document.getElementById('bio-modal-benedicto').classList.add('hidden')"
@@ -436,7 +442,7 @@
 				</div>
 
 				<!-- Biography Modal for DR lucy Kapachira -->
-				<div id="bio-lucy-kapachira" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden"
+				<div id="bio-lucy-kapachira" class="fixed inset-0 z-50 items-center justify-center bg-black/50 hidden"
 								onclick="this.classList.add('hidden')">
 								<div class="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 p-6 relative" onclick="event.stopPropagation()">
 												<button onclick="document.getElementById('bio-lucy-kapachira').classList.add('hidden')"
@@ -469,7 +475,7 @@
 				</div>
 
 				<!-- Biography Modal for Mrs Laika Milanzi -->
-				<div id="bio-laika-milanzi" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden"
+				<div id="bio-laika-milanzi" class="fixed inset-0 z-50 items-center justify-center bg-black/50 hidden"
 								onclick="this.classList.add('hidden')">
 								<div class="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 p-6 relative" onclick="event.stopPropagation()">
 												<button onclick="document.getElementById('bio-laika-milanzi').classList.add('hidden')"
@@ -502,7 +508,7 @@
 				</div>
 
 				<!-- Biography Modal for Mrs Julia Chimuna -->
-				<div id="bio-julia-chimuna" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden"
+				<div id="bio-julia-chimuna" class="fixed inset-0 z-50 items-center justify-center bg-black/50 hidden"
 								onclick="this.classList.add('hidden')">
 								<div class="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 p-6 relative" onclick="event.stopPropagation()">
 												<button onclick="document.getElementById('bio-julia-chimuna').classList.add('hidden')"

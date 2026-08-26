@@ -14,12 +14,12 @@
 								</h1>
 
 								<!-- Images (placeholders for now) -->
-								<div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8" x-show="heroVisible"
+								<div class="flex flex-col lg:flex-row justify-between items-center gap-6 mb-8" x-show="heroVisible"
 												x-transition:enter="transition ease-out duration-700 delay-100"
 												x-transition:enter-start="opacity-0 -translate-y-6" x-transition:enter-end="opacity-100 translate-y-0">
 												<img src="{{ asset("images/boy childd.jpg") }}" alt="Child Left"
-																class="w-full md:w-1/3 rounded-lg shadow hidden lg:block transition-opacity duration-500">
-												<div class="w-full md:w-1/3 flex flex-col items-center bg-white shadow-lg rounded-lg p-6">
+																class="w-full lg:w-1/3 rounded-lg shadow hidden lg:block transition-opacity duration-500">
+												<div class="w-full lg:w-1/3 flex flex-col items-center bg-white shadow-lg rounded-lg p-6">
 
 																<!-- Toggle Tabs -->
 																<div class="flex gap-4 mb-6">
@@ -59,14 +59,14 @@
 
 																<!-- Payment Methods -->
 																<div
-																				class="flex flex-row lg:flex-row md:flex-col sm:flex-col justify-center gap-4 mt-6 transition-all duration-500 ease-in-out">
+																				class="flex flex-row lg:flex-row md:flex-row sm:flex-row justify-center gap-4 mt-6 transition-all duration-500 ease-in-out">
 																				<img src="{{ asset("images/airtel.png") }}" alt="Airtel Money" class="h-8 mx-auto">
 																				<img src="{{ asset("images/visa.png") }}" alt="Visa" class="h-8 mx-auto">
 																				<img src="{{ asset("images/paypal.png") }}" alt="PayPal" class="h-8 mx-auto">
 																				<img src="{{ asset("images/tnm.png") }}" alt="TNM Mpamba" class="h-8 mx-auto">
 																</div>
 												</div>
-												<img src="{{ asset("images/girl child.jpg") }}" alt="Child Right" class="w-full md:w-1/3 rounded-lg shadow">
+												<img src="{{ asset("images/girl child.jpg") }}" alt="Child Right" class="w-full lg:w-1/3 rounded-lg shadow">
 								</div>
 				</div>
 				<!-- Intro Information Section -->
@@ -105,9 +105,6 @@
 	    init() {
 	        window.addEventListener('resize', () => {
 	            this.perPage = window.innerWidth >= 768 ? 2 : 1;
-	            if (this.current > this.cards.length - this.perPage) {
-	                this.current = Math.max(0, this.cards.length - this.perPage);
-	            }
 	        });
 	        const observer = new IntersectionObserver((entries) => {
 	            entries.forEach(entry => {
@@ -137,34 +134,34 @@
 								</h2>
 
 								<!-- Cards Row -->
-								<div class="relative flex justify-center items-center">
+								<div class="relative overflow-hidden">
 												<!-- Left Arrow -->
-												<button x-show="current > 0" @click="current = Math.max(0, current - perPage)"
-																class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full">
+												<button x-show="current > 0" @click="current = Math.max(0, current - 1)"
+																class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full z-10 md:hidden">
 																&#8592;
 												</button>
 
-												<!-- Visible Cards -->
-												<div class="grid grid-cols-1 md:grid-cols-2 gap-15 w-full max-w-6xl">
-																<template x-for="(card, index) in cards.slice(current, current + perPage)" :key="index">
-																				<div class="bg-gray-100 rounded-lg shadow p-4 text-center" x-show="sectionVisible"
-																								x-transition:enter="transition ease-out duration-700"
-																								x-transition:enter-start="opacity-0 -translate-x-6"
-																								x-transition:enter-end="opacity-100 translate-x-0"
-																								:style="'transition-delay: ' + (index * 150) + 'ms'">
-																								<img :src="card.img" alt="Donation Impact" class="w-full h-75 object-cover rounded mb-4">
-																								<h3 class="text-lg font-bold mb-2">
-																												A Mkw <span x-text="card.amount"></span> Donation
-																								</h3>
-																								<p class="text-gray-700 mb-4" x-text="card.text"></p>
+												<!-- Sliding Track -->
+												<div class="flex w-max items-center" :class="perPage === 2 ? 'animate-scroll' : ''"
+																:style="perPage === 2 ? '' : 'transform: translateX(-' + (current * (100 / perPage)) +
+																    '%); transition: transform 2s ease-in-out;'">
+																<template x-for="(card, index) in [...cards, ...cards]" :key="'slide-' + index">
+																				<div class="shrink-0 w-150 px-3">
+																								<div class="bg-gray-100 rounded-lg shadow p-4 text-center h-full">
+																												<img :src="card.img" alt="Donation Impact" class="w-full h-80 object-cover rounded mb-4">
+																												<h3 class="text-lg font-bold mb-2">
+																																A Mkw <span x-text="card.amount"></span> Donation
+																												</h3>
+																												<p class="text-gray-700 mb-4" x-text="card.text"></p>
+																								</div>
 																				</div>
 																</template>
 												</div>
 
 												<!-- Right Arrow -->
 												<button x-show="current < cards.length - perPage"
-																@click="current = Math.min(cards.length - perPage, current + perPage)"
-																class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full">
+																@click="current = Math.min(cards.length - perPage, current + 1)"
+																class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-full z-10 md:hidden">
 																&#8594;
 												</button>
 								</div>
@@ -191,8 +188,8 @@
 												<!-- Grid -->
 												<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 																<!-- Card 1 -->
-																<div class="relative bg-white rounded-lg shadow p-6 pt-12 border-b-4 border-red-600"
-																				x-show="visible.card1" x-transition:enter="transition ease-out duration-700"
+																<div class="relative bg-white rounded-lg shadow p-6 pt-12 border-b-4 border-red-600" x-show="visible.card1"
+																				x-transition:enter="transition ease-out duration-700"
 																				x-transition:enter-start="opacity-0 translate-y-6" x-transition:enter-end="opacity-100 translate-y-0">
 																				<!-- Icon -->
 																				<div
@@ -487,5 +484,26 @@
 												</div>
 								</div>
 				</section>
+
+				<style>
+								@keyframes continuous-scroll {
+												0% {
+																transform: translateX(0);
+												}
+
+												100% {
+																transform: translateX(-50%);
+												}
+								}
+
+								.animate-scroll {
+												animation: continuous-scroll 15s linear infinite;
+												width: max-content;
+								}
+
+								.animate-scroll:hover {
+												animation-play-state: paused;
+								}
+				</style>
 
 @endsection

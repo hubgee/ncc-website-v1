@@ -15,15 +15,44 @@
 				</head>
 
 				<body class="min-h-screen bg-slate-50 text-slate-900">
-								<header class="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur-sm"
-												x-data="{ open: false, latestOpen: false }">
-												<div class="mx-auto flex max-w-8xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-																<a href="{{ route("home") }}" class="text-lg font-semibold text-emerald-700">
-																				<img src="{{ asset("images/ncc-logo.png") }}" alt="NCC Logo" class="h-20 w-auto">
-																</a>
+								<header class="sticky top-0 z-30 bg-white/95 backdrop-blur-sm" x-data="{ open: false, latestOpen: false }">
+												<div class="bg-emerald-800 px-4 py-3 sm:px-6 lg:px-8">
+																<div class="mx-auto flex max-w-8xl items-center justify-between">
+																				<a href="{{ route("home") }}" class="text-lg font-semibold text-white">
+																								<img src="{{ asset("images/NCClogo.png") }}" alt="NCC Logo" class="h-25 w-auto">
+																				</a>
 
-																<div class="hidden flex-1 items-center justify-end gap-10 lg:gap-10 lg:flex">
-																				<nav class="flex items-center gap-6 text-sm text-black">
+																				<div class="hidden lg:flex items-center gap-3">
+																								<a href="{{ route("childrens-corner") }}"
+																												class="flex items-center justify-center rounded-md border border-white/30 px-4 py-2 text-sm font-semibold uppercase text-white transition hover:border-white hover:text-white">
+																												<i class="fa-solid fa-child mr-2 text-red-400"></i>
+																												Child Rights Corner
+																								</a>
+
+																								<a href="{{ route("reporting") }}"
+																												class="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700">
+																												Report a Case Now
+																								</a>
+
+																								<a href="{{ route("donate") }}"
+																												class="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700">
+																												Donate
+																								</a>
+																				</div>
+
+																				<div class="flex items-center gap-2 lg:hidden">
+																								<button type="button"
+																												class="inline-flex items-center justify-center rounded-md p-2 text-white transition hover:bg-emerald-700 hover:text-white"
+																												@click="open = !open" :aria-expanded="open" aria-label="Toggle navigation">
+																												<i class="fa-solid text-lg" :class="open ? 'fa-xmark' : 'fa-bars'"></i>
+																								</button>
+																				</div>
+																</div>
+												</div>
+
+												<div class="bg-white border-b border-slate-200">
+																<div class="mx-auto flex max-w-8xl items-center justify-end px-4 py-2 sm:px-6 lg:px-8 mr-12">
+																				<nav class="hidden lg:flex items-center gap-12 font-bold text-sm text-black">
 																								<a href="{{ route("home") }}" class="hover:text-emerald-700">Home</a>
 																								<a href="{{ route("about") }}" class="hover:text-emerald-700">About</a>
 																								<div class="relative">
@@ -43,31 +72,6 @@
 																								<a href="{{ route("resources") }}" class="hover:text-emerald-700">Resources</a>
 																								<a href="{{ route("advertise") }}" class="hover:text-emerald-700">Advertise</a>
 																				</nav>
-																				<div class="flex items-center gap-3">
-																								<a href="{{ route("childrens-corner") }}"
-																												class="flex items-center justify-center rounded-md border border-gray-300 px-4 py-2 text-sm font-semibold uppercase text-gray-800 transition hover:border-green-700 hover:text-green-700">
-																												<i class="fa-solid fa-child mr-2 text-red-600"></i>
-																												Child Rights Corner
-																								</a>
-
-																								<a href="{{ route("reporting") }}"
-																												class="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700">
-																												Report a Case Now
-																								</a>
-
-																								<a href="{{ route("donate") }}"
-																												class="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700">
-																												Donate
-																								</a>
-																				</div>
-																</div>
-
-																<div class="flex items-center gap-2 lg:hidden">
-																				<button type="button"
-																								class="inline-flex items-center justify-center rounded-md p-2 text-slate-700 transition hover:bg-slate-100 hover:text-emerald-700"
-																								@click="open = !open" :aria-expanded="open" aria-label="Toggle navigation">
-																								<i class="fa-solid text-lg" :class="open ? 'fa-xmark' : 'fa-bars'"></i>
-																				</button>
 																</div>
 												</div>
 
@@ -113,11 +117,11 @@
 												@yield("content")
 								</main>
 
-								<footer class="bg-green-700 text-white pt-12 pb-6">
+								<footer class="bg-white text-black pt-12 pb-6">
 												<div class="max-w-8xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-5 gap-8">
 																<!-- Partnerships -->
 																<div>
-																				<h3 class="font-bold text-white mb-4">Partnerships & Stakeholders</h3>
+																				<h3 class="font-bold text-black mb-4">Partnerships & Stakeholders</h3>
 																				<ul class="space-y-2">
 																								<li>Unicef</li>
 																								<li>NGOCCR</li>
@@ -129,7 +133,7 @@
 
 																<!-- Quick Links -->
 																<div>
-																				<h3 class="font-bold text-white mb-4">Quick Links</h3>
+																				<h3 class="font-bold text-black mb-4">Quick Links</h3>
 																				<ul class="space-y-2">
 																								<li><a href="{{ route("home") }}" class="hover:text-green-600">Home</a></li>
 																								<li><a href="{{ route("about") }}" class="hover:text-green-600">About Us</a></li>
@@ -141,7 +145,7 @@
 
 																<!-- Help & Support -->
 																<div>
-																				<h3 class="font-bold text-white mb-4">Help & Support</h3>
+																				<h3 class="font-bold text-black mb-4">Help & Support</h3>
 																				<ul class="space-y-2">
 																								<li><a href="{{ route("reporting") }}" class="hover:text-green-600">Report a Case</a></li>
 																								<li><a href="#" class="hover:text-green-600">Donate</a></li>
@@ -153,7 +157,7 @@
 
 																<!-- Contact -->
 																<div>
-																				<h3 class="font-bold text-white mb-4">Contact Us</h3>
+																				<h3 class="font-bold text-black mb-4">Contact Us</h3>
 																				<p>P.O Box 30346, Area 12<br> Lilongwe, Malawi</p>
 																				<p class="mt-2">📞 +265 (0) 880‑268‑418</p>
 																				<p>✉️ nccmalawi@gmail.com</p>
@@ -161,7 +165,7 @@
 
 																<!-- Find Us -->
 																<div>
-																				<h3 class="font-bold text-white mb-4">Find Us</h3>
+																				<h3 class="font-bold text-black mb-4">Find Us</h3>
 																				<img src="{{ asset("images/map-placeholder.jpg") }}" alt="Map"
 																								class="rounded shadow-md w-full h-32 object-cover">
 																</div>
