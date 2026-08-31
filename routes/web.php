@@ -42,9 +42,9 @@ Route::get('/news', function () {
     return view('pages.news');
 })->name('news');
 
-Route::get('/checkout', function () {
-    return view('pages.checkout');
-})->name('checkout');
+Route::get('/latest-news', function () {
+    return view('pages.latest-news');
+})->name('latest-news');
 
 
 Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login');

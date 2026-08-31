@@ -8,9 +8,19 @@
 												<p class="text-lg font-serif text-red-600 uppercase tracking-widest inline-flex items-center gap-2">
 																News <i class="fa-solid fa-book text-base"></i>
 												</p>
-												<a href="#" class="text-gray-700 hover:text-red-600 inline-flex items-center gap-1">
-																Share <i class="fa-solid fa-share-nodes"></i>
-												</a>
+												<div class="flex items-center gap-3">
+																<span class="text-sm font-medium text-red-600">Share</span>
+																<a href="#" class="text-gray-500 hover:text-red-600 transition-colors duration-200"><i
+																								class="fa-brands fa-facebook-f"></i></a>
+																<a href="#" class="text-gray-500 hover:text-red-600 transition-colors duration-200"><i
+																								class="fa-brands fa-x-twitter"></i></a>
+																<a href="#" class="text-gray-500 hover:text-red-600 transition-colors duration-200"><i
+																								class="fa-brands fa-linkedin-in"></i></a>
+																<a href="#" class="text-gray-500 hover:text-red-600 transition-colors duration-200"><i
+																								class="fa-brands fa-whatsapp"></i></a>
+																<a href="#" class="text-gray-500 hover:text-red-600 transition-colors duration-200"><i
+																								class="fa-solid fa-envelope"></i></a>
+												</div>
 								</div>
 								<h1 class="max-w-7xl mx-auto px-6 py-7 text-5xl md:text-4xl font-bold text-gray-900 mb-4">
 												Protect Families & Children
@@ -24,7 +34,7 @@
 								</div>
 								<div class="max-w-5xl mx-auto px-6 py-10">
 												<p class="text-sm text-gray-500 mb-4">2 June 2026</p>
-												<p class="text-lg text-gray-700 leading-relaxed font-bold">
+												<p class="text-lg text-gray-700 leading-relaxed font-bold mb-4">
 																The National Children's Commission joined the Ministry of Gender, Children, Disability and Social Welfare,
 																development partners, traditional leaders, and community members in commemorating the International Day of
 																Families and the International Day of Street-Connected Children at Lunzu Primary School Ground in
