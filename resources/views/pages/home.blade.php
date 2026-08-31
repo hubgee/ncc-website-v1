@@ -29,39 +29,35 @@
 				@endphp
 				<!-- Hero Section -->
 				<section x-data="{
-								activeSlide: 0,
-								totalSlides: 3,
-								timer: null,
-								startTimer() {
-												this.stopTimer();
-												this.timer = setInterval(() => {
-																this.activeSlide = (this.activeSlide + 1) % this.totalSlides;
-												}, 9000);
-								},
-								stopTimer() {
-												if (this.timer) { clearInterval(this.timer); this.timer = null; }
-								},
-								goTo(i) { this.activeSlide = i; this.startTimer(); },
-								next() { this.goTo((this.activeSlide + 1) % this.totalSlides); },
-								prev() { this.goTo((this.activeSlide - 1 + this.totalSlides) % this.totalSlides); }
-				}"
-								x-init="startTimer()"
-								@mouseenter="stopTimer()"
-								@mouseleave="startTimer()"
-								role="region" aria-roledescription="carousel" aria-label="Featured highlights"
+	    activeSlide: 0,
+	    totalSlides: 3,
+	    timer: null,
+	    startTimer() {
+	        this.stopTimer();
+	        this.timer = setInterval(() => {
+	            this.activeSlide = (this.activeSlide + 1) % this.totalSlides;
+	        }, 9000);
+	    },
+	    stopTimer() {
+	        if (this.timer) { clearInterval(this.timer);
+	            this.timer = null; }
+	    },
+	    goTo(i) { this.activeSlide = i;
+	        this.startTimer(); },
+	    next() { this.goTo((this.activeSlide + 1) % this.totalSlides); },
+	    prev() { this.goTo((this.activeSlide - 1 + this.totalSlides) % this.totalSlides); }
+	}" x-init="startTimer()" @mouseenter="stopTimer()" @mouseleave="startTimer()" role="region"
+								aria-roledescription="carousel" aria-label="Featured highlights"
 								class="relative h-[70vh] flex items-center justify-center text-center text-white overflow-hidden">
 								<div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"
 												style="background-image: url('{{ asset("images/NCChero.jpg") }}');"
-												:class="activeSlide === 0 ? 'opacity-100' : 'opacity-0'"
-												:aria-hidden="activeSlide !== 0"></div>
+												:class="activeSlide === 0 ? 'opacity-100' : 'opacity-0'" :aria-hidden="activeSlide !== 0"></div>
 								<div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"
 												style="background-image: url('{{ asset("images/nccNews1.jpg") }}');"
-												:class="activeSlide === 1 ? 'opacity-100' : 'opacity-0'"
-												:aria-hidden="activeSlide !== 1"></div>
+												:class="activeSlide === 1 ? 'opacity-100' : 'opacity-0'" :aria-hidden="activeSlide !== 1"></div>
 								<div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"
 												style="background-image: url('{{ asset("images/nccCeleb.jpg") }}');"
-												:class="activeSlide === 2 ? 'opacity-100' : 'opacity-0'"
-												:aria-hidden="activeSlide !== 2"></div>
+												:class="activeSlide === 2 ? 'opacity-100' : 'opacity-0'" :aria-hidden="activeSlide !== 2"></div>
 								<div class="bg-black/50 absolute inset-0 z-10"></div>
 								<div class="relative z-20 px-4">
 												<h1 class="text-3xl md:text-5xl font-bold animate-pulse">Our Children, Our Responsibility</h1>
@@ -75,33 +71,33 @@
 																				Work With Us
 																</a>
 												</div>
-							</div>
+								</div>
 
-				<!-- Slider Controls: Prev / Next -->
-				<button type="button" @click="prev()" aria-label="Previous slide"
-								class="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition">
-								<i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-				</button>
-				<button type="button" @click="next()" aria-label="Next slide"
-								class="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition">
-								<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-				</button>
+								<!-- Slider Controls: Prev / Next -->
+								<button type="button" @click="prev()" aria-label="Previous slide"
+												class="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition">
+												<i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+								</button>
+								<button type="button" @click="next()" aria-label="Next slide"
+												class="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 text-white flex items-center justify-center transition">
+												<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+								</button>
 
-				<!-- Dot Pagination -->
-				<div class="absolute bottom-16 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
-								<template x-for="i in totalSlides" :key="i">
-												<button type="button" @click="goTo(i - 1)" :aria-label="'Go to slide ' + i"
-																:class="activeSlide === i - 1 ? 'bg-white w-6' : 'bg-white/50 hover:bg-white/80 w-2.5'"
-																class="h-2.5 rounded-full transition-all duration-300"></button>
-								</template>
-				</div>
+								<!-- Dot Pagination -->
+								<div class="absolute bottom-16 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
+												<template x-for="i in totalSlides" :key="i">
+																<button type="button" @click="goTo(i - 1)" :aria-label="'Go to slide ' + i"
+																				:class="activeSlide === i - 1 ? 'bg-white w-6' : 'bg-white/50 hover:bg-white/80 w-2.5'"
+																				class="h-2.5 rounded-full transition-all duration-300"></button>
+												</template>
+								</div>
 
-				<!-- Scroll-down Indicator -->
-				<a href="#mission" aria-label="Scroll down to content"
-								@click.prevent="document.getElementById('mission').scrollIntoView({ behavior: 'smooth' })"
-								class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 text-white/80 hover:text-white animate-bounce">
-								<i class="fa-solid fa-chevron-down text-2xl" aria-hidden="true"></i>
-				</a>
+								<!-- Scroll-down Indicator -->
+								<a href="#mission" aria-label="Scroll down to content"
+												@click.prevent="document.getElementById('mission').scrollIntoView({ behavior: 'smooth' })"
+												class="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 text-white/80 hover:text-white animate-bounce">
+												<i class="fa-solid fa-chevron-down text-2xl" aria-hidden="true"></i>
+								</a>
 				</section>
 
 				<!-- Mission & Impact Section -->
@@ -231,10 +227,7 @@
 																												</p>
 																								</div>
 																								<!-- Read More -->
-																								<a href="https://www.facebook.com/61578135073164/
-posts/122177408528937835/?
-mibextid=rS40aB7S9Ucbxw6v"
-																												class="underline text-sm hover:text-gray-200">Read More</a>
+																								<a href="{{ route("news") }}" class="underline text-sm hover:text-gray-200">Read More</a>
 																				</div>
 																</div>
 												@endif

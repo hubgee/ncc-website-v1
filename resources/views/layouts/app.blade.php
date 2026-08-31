@@ -62,7 +62,7 @@
 																												</button>
 																												<div x-show="latestOpen" @click.away="latestOpen = false" x-transition
 																																class="absolute top-full left-0 mt-2 bg-white border border-slate-200 rounded-lg shadow-lg py-2 min-w-50 z-40">
-																																<a href="{{ route("news") }}"
+																																<a href="{{ route("latest-news") }}"
 																																				class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-emerald-700">News</a>
 																																<a href="#"
 																																				class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-emerald-700">Stories</a>
@@ -86,7 +86,7 @@
 																												Latest <i class="fa-solid fa-chevron-down text-xs"></i>
 																								</button>
 																								<div x-show="latestOpen" x-transition class="ml-4 mt-2 flex flex-col gap-2">
-																												<a href="{{ route("news") }}" class="hover:text-emerald-700">News</a>
+																												<a href="{{ route("latest-news") }}" class="hover:text-emerald-700">News</a>
 																												<a href="#" class="hover:text-emerald-700">Stories</a>
 																								</div>
 																				</div>
