@@ -103,7 +103,7 @@ class ContentController extends Controller
         $content->save();
 
         return redirect()->route('admin.contents.index', ['section' => $section])
-            ->with('status', 'Content ' . ($content->is_published ? 'published' : 'unpublished') . ' successfully.');
+            ->with('status', 'Content '.($content->is_published ? 'published' : 'unpublished').' successfully.');
     }
 
     public function destroy(Request $request, $section, $id)
@@ -133,7 +133,7 @@ class ContentController extends Controller
         $content->update(['image_path' => $path]);
 
         return response()->json([
-            'url' => asset('storage/' . $path),
+            'url' => asset('storage/'.$path),
         ]);
     }
 }
