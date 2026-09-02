@@ -38,26 +38,38 @@
 	        else if (this.donor.name.trim().length < 2) e.name = 'Name must be at least 2 characters';
 	        if (!this.donor.email.trim()) e.email = 'Email is required';
 	        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.donor.email)) e.email = 'Enter a valid email address';
-	        if (this.donor.phone && !/^(\+265|0)?\s?\d{3}[\s-]?\d{3}[\s-]?\d{3}$/.test(this.donor.phone.replace(/\s/g,''))) e.phone = 'Enter a valid Malawi phone e.g. 0880 123 456';
+	        if (this.donor.phone && !/^(\+265|0)?\s?\d{3}[\s-]?\d{3}[\s-]?\d{3}$/.test(this.donor.phone.replace(/\s/g, ''))) e.phone = 'Enter a valid Malawi phone e.g. 0880 123 456';
 	        if (this.donor.message && this.donor.message.length > 500) e.message = 'Message must be under 500 characters';
 	        this.errors = e;
 	        return Object.keys(e).length === 0;
 	    },
 	    goToDetails() { if (this.validateAmount()) { this.step = 2; } },
 	    goToPreview() {
-	        this.touched = { name:true, email:true, phone:true, message:true };
+	        this.touched = { name: true, email: true, phone: true, message: true };
 	        if (this.validateDonor()) { this.step = 3; }
 	    },
 	    submitDonation() {
 	        this.isSubmitting = true;
 	        setTimeout(() => {
-	            this.donationRef = 'NCC-DON-' + new Date().getFullYear() + '-' + Math.floor(10000 + Math.random()*90000);
+	            this.donationRef = 'NCC-DON-' + new Date().getFullYear() + '-' + Math.floor(10000 + Math.random() * 90000);
 	            this.isSubmitting = false;
 	            this.step = 4;
 	        }, 1400);
 	    },
-	    copyRef() { if (this.donationRef && navigator.clipboard) { navigator.clipboard.writeText(this.donationRef).then(() => { this.copied = true; setTimeout(()=> this.copied=false, 2000); }); } },
-	    resetFlow() { this.step=1; this.donationRef=''; this.copied=false; this.isCustom=false; this.customAmount=''; this.selectedAmount=2000; this.recurring=true; this.frequency='Monthly'; this.donor={name:'',email:'',phone:'',message:''}; this.errors={}; this.touched={}; this.amountError=''; }
+	    copyRef() { if (this.donationRef && navigator.clipboard) { navigator.clipboard.writeText(this.donationRef).then(() => { this.copied = true;
+	                setTimeout(() => this.copied = false, 2000); }); } },
+	    resetFlow() { this.step = 1;
+	        this.donationRef = '';
+	        this.copied = false;
+	        this.isCustom = false;
+	        this.customAmount = '';
+	        this.selectedAmount = 2000;
+	        this.recurring = true;
+	        this.frequency = 'Monthly';
+	        this.donor = { name: '', email: '', phone: '', message: '' };
+	        this.errors = {};
+	        this.touched = {};
+	        this.amountError = ''; }
 	}" x-init="$nextTick(() => heroVisible = true)">
 
 								<!-- Headline -->
@@ -69,9 +81,11 @@
 
 								<!-- Presentation-mode badge -->
 								<div class="max-w-3xl mx-auto mb-4 flex justify-center" x-show="heroVisible" x-transition>
-									<span class="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold px-3 py-1.5 rounded-full">
-										<i class="fa-solid fa-circle-info"></i> Presentation mode — donations are simulated in-memory, no backend / payment processed
-									</span>
+												<span
+																class="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold px-3 py-1.5 rounded-full">
+																<i class="fa-solid fa-circle-info"></i> Presentation mode — donations are simulated in-memory, no backend /
+																payment processed
+												</span>
 								</div>
 
 								<!-- Images + Donation Card -->
@@ -79,194 +93,292 @@
 												x-transition:enter="transition ease-out duration-700 delay-100"
 												x-transition:enter-start="opacity-0 -translate-y-6" x-transition:enter-end="opacity-100 translate-y-0">
 												<img src="{{ asset("images/boy childd.jpg") }}" alt="Child Left"
-																class="w-full lg:w-1/3 rounded-lg shadow hidden lg:block transition-opacity duration-500 object-cover h-[520px]">
-												<div class="w-full lg:w-1/3 flex flex-col bg-white shadow-lg rounded-xl p-6 border border-slate-100 min-h-[520px]">
+																class="w-full lg:w-1/3 rounded-lg shadow hidden lg:block transition-opacity duration-500 object-cover h-130">
+												<div class="w-full lg:w-1/3 flex flex-col bg-white shadow-lg rounded-xl p-6 border border-slate-100 min-h-130">
 																<!-- Stepper -->
 																<div class="flex items-center justify-center gap-2 mb-5" aria-label="Donation steps">
-																	<template x-for="s in [1,2,3]" :key="s">
-																		<div class="flex items-center gap-2">
-																			<div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold border" :class="step >= s ? 'bg-emerald-600 text-white border-emerald-600' : step === s-1 ? 'bg-white text-emerald-600 border-emerald-300' : 'bg-slate-100 text-slate-400 border-slate-200'" x-text="s"></div>
-																			<span class="text-[11px] font-bold tracking-wide hidden sm:inline" :class="step >= s ? 'text-emerald-700' : 'text-slate-400'" x-text="s===1 ? 'Amount' : s===2 ? 'Details' : 'Confirm'"></span>
-																			<span x-show="s < 3" class="w-6 h-0.5" :class="step > s ? 'bg-emerald-600' : 'bg-slate-200'"></span>
-																		</div>
-																	</template>
+																				<template x-for="s in [1,2,3]" :key="s">
+																								<div class="flex items-center gap-2">
+																												<div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold border"
+																																:class="step >= s ? 'bg-emerald-600 text-white border-emerald-600' : step === s - 1 ?
+																																    'bg-white text-emerald-600 border-emerald-300' :
+																																    'bg-slate-100 text-slate-400 border-slate-200'"
+																																x-text="s"></div>
+																												<span class="text-[11px] font-bold tracking-wide hidden sm:inline"
+																																:class="step >= s ? 'text-emerald-700' : 'text-slate-400'"
+																																x-text="s===1 ? 'Amount' : s===2 ? 'Details' : 'Confirm'"></span>
+																												<span x-show="s < 3" class="w-6 h-0.5"
+																																:class="step > s ? 'bg-emerald-600' : 'bg-slate-200'"></span>
+																								</div>
+																				</template>
 																</div>
 
 																<!-- ========== STEP 1: Amount + Recurring ========== -->
 																<div x-show="step === 1" x-transition class="w-full space-y-4">
-																	<!-- Recurring toggle -->
-																	<div class="bg-slate-50 border border-slate-200 rounded-lg p-3 flex items-center justify-between gap-3">
-																		<div>
-																			<p class="text-sm font-bold text-slate-800">Make this recurring</p>
-																			<p class="text-xs text-slate-500" x-text="recurring ? 'You will be charged ' + frequency.toLowerCase() : 'One-time donation'"></p>
-																		</div>
-																		<label class="relative inline-flex items-center cursor-pointer shrink-0" aria-label="Toggle recurring donation">
-																			<input type="checkbox" class="sr-only peer" :checked="recurring" @change="recurring = !recurring" autocomplete="off">
-																			<div class="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-emerald-600 peer-focus:ring-2 peer-focus:ring-emerald-500 peer-focus:ring-offset-1 transition-colors duration-200"></div>
-																			<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow transition-transform duration-200 peer-checked:translate-x-5"></div>
-																		</label>
-																	</div>
-																	<!-- Frequency selector -->
-																	<div x-show="recurring" x-transition class="space-y-1">
-																		<p class="text-xs font-semibold text-slate-600">Frequency</p>
-																		<div class="grid grid-cols-3 gap-2">
-																			<template x-for="f in ['Monthly','Quarterly','Annually']" :key="f">
-																				<button type="button" @click="frequency = f" :class="frequency===f ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-slate-700 border-slate-200 hover:border-emerald-300'" class="text-xs font-bold px-2 py-2 rounded-lg border" x-text="f"></button>
-																			</template>
-																		</div>
-																	</div>
+																				<!-- Recurring toggle -->
+																				<div class="bg-slate-50 border border-slate-200 rounded-lg p-3 flex items-center justify-between gap-3">
+																								<div>
+																												<p class="text-sm font-bold text-slate-800">Make this recurring</p>
+																												<p class="text-xs text-slate-500"
+																																x-text="recurring ? 'You will be charged ' + frequency.toLowerCase() : 'One-time donation'">
+																												</p>
+																								</div>
+																								<label class="relative inline-flex items-center cursor-pointer shrink-0"
+																												aria-label="Toggle recurring donation">
+																												<input type="checkbox" class="sr-only peer" :checked="recurring"
+																																@change="recurring = !recurring" autocomplete="off">
+																												<div
+																																class="w-11 h-6 bg-gray-300 rounded-full peer peer-checked:bg-emerald-600 peer-focus:ring-2 peer-focus:ring-emerald-500 peer-focus:ring-offset-1 transition-colors duration-200">
+																												</div>
+																												<div
+																																class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow transition-transform duration-200 peer-checked:translate-x-5">
+																												</div>
+																								</label>
+																				</div>
+																				<!-- Frequency selector -->
+																				<div x-show="recurring" x-transition class="space-y-1">
+																								<p class="text-xs font-semibold text-slate-600">Frequency</p>
+																								<div class="grid grid-cols-3 gap-2">
+																												<template x-for="f in ['Monthly','Quarterly','Annually']" :key="f">
+																																<button type="button" @click="frequency = f"
+																																				:class="frequency === f ? 'bg-emerald-600 text-white border-emerald-600' :
+																																				    'bg-white text-slate-700 border-slate-200 hover:border-emerald-300'"
+																																				class="text-xs font-bold px-2 py-2 rounded-lg border" x-text="f"></button>
+																												</template>
+																								</div>
+																				</div>
 
-																	<!-- Preset amounts + Custom -->
-																	<div>
-																		<p class="text-xs font-semibold text-slate-600 mb-2">Select amount</p>
-																		<div class="grid grid-cols-2 gap-2">
-																			<template x-for="amount in presetAmounts" :key="amount">
-																				<button type="button" @click="isCustom=false; selectedAmount=amount; amountError=''" :class="!isCustom && selectedAmount===amount ? 'bg-emerald-600 text-white border-emerald-600 shadow' : 'bg-white text-slate-700 border-slate-200 hover:border-emerald-300'" class="px-3 py-2.5 rounded-lg font-bold border text-sm transition">
-																					Mkw <span x-text="amount.toLocaleString()"></span>
+																				<!-- Preset amounts + Custom -->
+																				<div>
+																								<p class="text-xs font-semibold text-slate-600 mb-2">Select amount</p>
+																								<div class="grid grid-cols-2 gap-2">
+																												<template x-for="amount in presetAmounts" :key="amount">
+																																<button type="button" @click="isCustom=false; selectedAmount=amount; amountError=''"
+																																				:class="!isCustom && selectedAmount === amount ?
+																																				    'bg-emerald-600 text-white border-emerald-600 shadow' :
+																																				    'bg-white text-slate-700 border-slate-200 hover:border-emerald-300'"
+																																				class="px-3 py-2.5 rounded-lg font-bold border text-sm transition">
+																																				Mkw <span x-text="amount.toLocaleString()"></span>
+																																</button>
+																												</template>
+																												<button type="button" @click="isCustom=true; amountError=''"
+																																:class="isCustom ? 'bg-emerald-600 text-white border-emerald-600 shadow' :
+																																    'bg-white text-slate-700 border-slate-200 hover:border-emerald-300'"
+																																class="px-3 py-2.5 rounded-lg font-bold border text-sm transition col-span-2 sm:col-span-1">Custom</button>
+																								</div>
+																								<!-- Custom input -->
+																								<div x-show="isCustom" x-transition class="mt-3">
+																												<label class="block text-xs font-semibold text-slate-700 mb-1">Custom amount (Mkw)</label>
+																												<div class="relative">
+																																<span
+																																				class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm font-bold">Mkw</span>
+																																<input type="number" inputmode="numeric" min="500" max="5000000" step="100"
+																																				x-model="customAmount" @input="amountError=''" placeholder="e.g. 7500"
+																																				class="w-full border rounded-lg pl-12 pr-3 py-2.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500"
+																																				:class="amountError ? 'border-red-400' : 'border-slate-200'">
+																												</div>
+																												<p class="text-[11px] text-slate-500 mt-1">Min Mkw 500 — Max Mkw 5,000,000</p>
+																								</div>
+																								<p x-show="amountError" x-text="amountError" class="text-xs text-red-600 mt-2 font-medium"></p>
+																								<div class="mt-2 bg-emerald-50 border border-emerald-100 rounded-lg px-3 py-2 text-center">
+																												<p class="text-xs text-slate-500">You are donating</p>
+																												<p class="text-lg font-extrabold text-emerald-700">Mkw <span x-text="formattedAmount"></span>
+																																<span class="text-xs font-semibold text-slate-600"
+																																				x-text="recurring ? '/ ' + frequency.toLowerCase() : ''"></span></p>
+																												<p x-show="recurring" class="text-[11px] text-slate-500">Annual total: Mkw <span
+																																				x-text="annualTotal.toLocaleString()"></span></p>
+																								</div>
+																				</div>
+
+																				<p class="text-gray-600 text-center text-xs leading-relaxed"
+																								x-text="recurring ? 'Change children\'s lives every ' + frequency.toLowerCase() + ' with a recurring donation.' : 'Make a one-time gift and bring hope to a child today.'">
+																				</p>
+
+																				<button type="button" @click="goToDetails()"
+																								class="w-full text-center px-4 py-2.5 bg-red-600 text-white rounded-lg font-bold hover:bg-red-700 transition flex items-center justify-center gap-2">
+																								Continue <i class="fa-solid fa-arrow-right text-xs"></i>
 																				</button>
-																			</template>
-																			<button type="button" @click="isCustom=true; amountError=''" :class="isCustom ? 'bg-emerald-600 text-white border-emerald-600 shadow' : 'bg-white text-slate-700 border-slate-200 hover:border-emerald-300'" class="px-3 py-2.5 rounded-lg font-bold border text-sm transition col-span-2 sm:col-span-1">Custom</button>
-																		</div>
-																		<!-- Custom input -->
-																		<div x-show="isCustom" x-transition class="mt-3">
-																			<label class="block text-xs font-semibold text-slate-700 mb-1">Custom amount (Mkw)</label>
-																			<div class="relative">
-																				<span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm font-bold">Mkw</span>
-																				<input type="number" inputmode="numeric" min="500" max="5000000" step="100" x-model="customAmount" @input="amountError=''" placeholder="e.g. 7500" class="w-full border rounded-lg pl-12 pr-3 py-2.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500" :class="amountError ? 'border-red-400' : 'border-slate-200'">
-																			</div>
-																			<p class="text-[11px] text-slate-500 mt-1">Min Mkw 500 — Max Mkw 5,000,000</p>
-																		</div>
-																		<p x-show="amountError" x-text="amountError" class="text-xs text-red-600 mt-2 font-medium"></p>
-																		<div class="mt-2 bg-emerald-50 border border-emerald-100 rounded-lg px-3 py-2 text-center">
-																			<p class="text-xs text-slate-500">You are donating</p>
-																			<p class="text-lg font-extrabold text-emerald-700">Mkw <span x-text="formattedAmount"></span> <span class="text-xs font-semibold text-slate-600" x-text="recurring ? '/ ' + frequency.toLowerCase() : ''"></span></p>
-																			<p x-show="recurring" class="text-[11px] text-slate-500">Annual total: Mkw <span x-text="annualTotal.toLocaleString()"></span></p>
-																		</div>
-																	</div>
-
-																	<p class="text-gray-600 text-center text-xs leading-relaxed" x-text="recurring ? 'Change children\'s lives every ' + frequency.toLowerCase() + ' with a recurring donation.' : 'Make a one-time gift and bring hope to a child today.'"></p>
-
-																	<button type="button" @click="goToDetails()" class="w-full text-center px-4 py-2.5 bg-red-600 text-white rounded-lg font-bold hover:bg-red-700 transition flex items-center justify-center gap-2">
-																		Continue <i class="fa-solid fa-arrow-right text-xs"></i>
-																	</button>
-																	<p class="text-[11px] text-center text-slate-400">Step 1 of 3 — amount & frequency</p>
+																				<p class="text-[11px] text-center text-slate-400">Step 1 of 3 — amount & frequency</p>
 																</div>
 
 																<!-- ========== STEP 2: Donor information ========== -->
 																<div x-show="step === 2" x-transition class="w-full space-y-3" id="donor-form-anchor">
-																	<div class="flex items-center justify-between">
-																		<h3 class="text-sm font-extrabold text-slate-800">Donor information</h3>
-																		<span class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2 py-1 font-semibold text-slate-600">Mkw <span x-text="formattedAmount"></span> • <span x-text="frequencyLabel"></span></span>
-																	</div>
-																	<div x-show="Object.keys(errors).length > 0" class="bg-red-50 border-l-4 border-red-500 p-3 rounded-md">
-																		<p class="text-xs font-bold text-red-700">Please correct:</p>
-																		<ul class="list-disc ml-5 mt-1 text-xs text-red-700">
-																			<template x-for="(msg, field) in errors" :key="field"><li x-text="msg"></li></template>
-																		</ul>
-																	</div>
-																	<div>
-																		<label class="block text-xs font-semibold text-slate-700">Full name <span class="text-red-500">*</span></label>
-																		<input type="text" x-model="donor.name" @blur="touched.name=true" autocomplete="name" class="mt-1 w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" :class="errors.name && touched.name ? 'border-red-400' : 'border-slate-200'" placeholder="Jane Banda">
-																		<p x-show="errors.name && touched.name" x-text="errors.name" class="text-xs text-red-600 mt-1"></p>
-																	</div>
-																	<div>
-																		<label class="block text-xs font-semibold text-slate-700">Email <span class="text-red-500">*</span></label>
-																		<input type="email" x-model="donor.email" @blur="touched.email=true" autocomplete="email" class="mt-1 w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" :class="errors.email && touched.email ? 'border-red-400' : 'border-slate-200'" placeholder="jane@example.com">
-																		<p x-show="errors.email && touched.email" x-text="errors.email" class="text-xs text-red-600 mt-1"></p>
-																	</div>
-																	<div>
-																		<label class="block text-xs font-semibold text-slate-700">Phone <span class="text-slate-400 font-normal">(optional)</span></label>
-																		<input type="tel" x-model="donor.phone" @blur="touched.phone=true" autocomplete="tel" class="mt-1 w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" :class="errors.phone && touched.phone ? 'border-red-400' : 'border-slate-200'" placeholder="0880 123 456">
-																		<p x-show="errors.phone && touched.phone" x-text="errors.phone" class="text-xs text-red-600 mt-1"></p>
-																	</div>
-																	<div>
-																		<label class="block text-xs font-semibold text-slate-700">Message <span class="text-slate-400 font-normal">(optional)</span></label>
-																		<textarea x-model="donor.message" @blur="touched.message=true" rows="3" maxlength="500" class="mt-1 w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" :class="errors.message && touched.message ? 'border-red-400' : 'border-slate-200'" placeholder="Leave a note for the children..."></textarea>
-																		<div class="flex justify-between mt-1">
-																			<p x-show="errors.message && touched.message" x-text="errors.message" class="text-xs text-red-600"></p>
-																			<p class="text-[11px] ml-auto" :class="donor.message.length > 450 ? 'text-amber-600' : 'text-slate-400'" x-text="donor.message.length + ' / 500'"></p>
-																		</div>
-																	</div>
-																	<div class="flex gap-2 pt-1">
-																		<button type="button" @click="step=1" class="flex-1 border border-slate-200 bg-white text-slate-700 rounded-lg py-2.5 text-sm font-bold hover:bg-slate-50">Back</button>
-																		<button type="button" @click="goToPreview()" class="flex-1 bg-emerald-600 text-white rounded-lg py-2.5 text-sm font-bold hover:bg-emerald-700">Preview donation</button>
-																	</div>
+																				<div class="flex items-center justify-between">
+																								<h3 class="text-sm font-extrabold text-slate-800">Donor information</h3>
+																								<span
+																												class="text-[11px] bg-slate-100 border border-slate-200 rounded-full px-2 py-1 font-semibold text-slate-600">Mkw
+																												<span x-text="formattedAmount"></span> • <span x-text="frequencyLabel"></span></span>
+																				</div>
+																				<div x-show="Object.keys(errors).length > 0"
+																								class="bg-red-50 border-l-4 border-red-500 p-3 rounded-md">
+																								<p class="text-xs font-bold text-red-700">Please correct:</p>
+																								<ul class="list-disc ml-5 mt-1 text-xs text-red-700">
+																												<template x-for="(msg, field) in errors" :key="field">
+																																<li x-text="msg"></li>
+																												</template>
+																								</ul>
+																				</div>
+																				<div>
+																								<label class="block text-xs font-semibold text-slate-700">Full name <span
+																																class="text-red-500">*</span></label>
+																								<input type="text" x-model="donor.name" @blur="touched.name=true" autocomplete="name"
+																												class="mt-1 w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+																												:class="errors.name && touched.name ? 'border-red-400' : 'border-slate-200'"
+																												placeholder="Jane Banda">
+																								<p x-show="errors.name && touched.name" x-text="errors.name" class="text-xs text-red-600 mt-1">
+																								</p>
+																				</div>
+																				<div>
+																								<label class="block text-xs font-semibold text-slate-700">Email <span
+																																class="text-red-500">*</span></label>
+																								<input type="email" x-model="donor.email" @blur="touched.email=true" autocomplete="email"
+																												class="mt-1 w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+																												:class="errors.email && touched.email ? 'border-red-400' : 'border-slate-200'"
+																												placeholder="jane@example.com">
+																								<p x-show="errors.email && touched.email" x-text="errors.email"
+																												class="text-xs text-red-600 mt-1"></p>
+																				</div>
+																				<div>
+																								<label class="block text-xs font-semibold text-slate-700">Phone <span
+																																class="text-slate-400 font-normal">(optional)</span></label>
+																								<input type="tel" x-model="donor.phone" @blur="touched.phone=true" autocomplete="tel"
+																												class="mt-1 w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+																												:class="errors.phone && touched.phone ? 'border-red-400' : 'border-slate-200'"
+																												placeholder="0880 123 456">
+																								<p x-show="errors.phone && touched.phone" x-text="errors.phone"
+																												class="text-xs text-red-600 mt-1"></p>
+																				</div>
+																				<div>
+																								<label class="block text-xs font-semibold text-slate-700">Message <span
+																																class="text-slate-400 font-normal">(optional)</span></label>
+																								<textarea x-model="donor.message" @blur="touched.message=true" rows="3" maxlength="500"
+																								    class="mt-1 w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+																								    :class="errors.message && touched.message ? 'border-red-400' : 'border-slate-200'"
+																								    placeholder="Leave a note for the children..."></textarea>
+																								<div class="flex justify-between mt-1">
+																												<p x-show="errors.message && touched.message" x-text="errors.message"
+																																class="text-xs text-red-600"></p>
+																												<p class="text-[11px] ml-auto"
+																																:class="donor.message.length > 450 ? 'text-amber-600' : 'text-slate-400'"
+																																x-text="donor.message.length + ' / 500'"></p>
+																								</div>
+																				</div>
+																				<div class="flex gap-2 pt-1">
+																								<button type="button" @click="step=1"
+																												class="flex-1 border border-slate-200 bg-white text-slate-700 rounded-lg py-2.5 text-sm font-bold hover:bg-slate-50">Back</button>
+																								<button type="button" @click="goToPreview()"
+																												class="flex-1 bg-emerald-600 text-white rounded-lg py-2.5 text-sm font-bold hover:bg-emerald-700">Preview
+																												donation</button>
+																				</div>
 																</div>
 
 																<!-- ========== STEP 3: Receipt preview ========== -->
 																<div x-show="step === 3" x-transition class="w-full space-y-3" id="receipt-anchor">
-																	<h3 class="text-sm font-extrabold text-slate-800 text-center">Receipt preview</h3>
-																	<p class="text-[11px] text-center text-slate-500">Review in-memory — nothing is charged yet</p>
-																	<div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 space-y-3">
-																		<div class="flex items-center justify-between">
-																			<span class="text-xs font-semibold text-slate-600">Amount</span>
-																			<span class="text-sm font-extrabold text-emerald-700">Mkw <span x-text="formattedAmount"></span> <span class="text-xs font-medium text-slate-600" x-text="recurring ? '/ ' + frequency.toLowerCase() : ''"></span></span>
-																		</div>
-																		<div class="flex items-center justify-between text-xs">
-																			<span class="font-semibold text-slate-600">Frequency</span>
-																			<span class="font-bold text-slate-800" x-text="frequencyLabel"></span>
-																		</div>
-																		<div x-show="recurring" class="flex items-center justify-between text-xs">
-																			<span class="font-semibold text-slate-600">Annual total</span>
-																			<span class="font-bold text-slate-800">Mkw <span x-text="annualTotal.toLocaleString()"></span></span>
-																		</div>
-																		<hr class="border-emerald-100">
-																		<div class="space-y-1 text-xs">
-																			<p class="font-bold text-slate-800">Donor</p>
-																			<p class="text-slate-700"><span x-text="donor.name || '—'"></span> • <span x-text="donor.email || '—'"></span></p>
-																			<p class="text-slate-600" x-text="donor.phone ? 'Phone: ' + donor.phone : 'Phone: not provided'"></p>
-																			<p x-show="donor.message" class="text-slate-600 italic">"<span x-text="donor.message"></span>"</p>
-																		</div>
-																		<hr class="border-emerald-100">
-																		<div class="flex items-center justify-between text-[11px] text-slate-500">
-																			<span>Date</span><span x-text="todayLabel"></span>
-																		</div>
-																		<div class="flex items-center justify-between text-[11px] text-slate-500">
-																			<span>Reference (preview)</span><span class="font-mono font-bold">NCC-DON-PREVIEW</span>
-																		</div>
-																	</div>
-																	<div class="bg-slate-50 border border-slate-200 rounded-lg p-3 text-[11px] text-slate-600 leading-relaxed">
-																		<i class="fa-solid fa-lock text-emerald-600 mr-1"></i> In presentation mode this receipt is generated fully in the browser. Use <span class="font-semibold">Confirm & Donate</span> to simulate a successful submission.
-																	</div>
-																	<div class="flex gap-2">
-																		<button type="button" @click="step=2" class="flex-1 border border-slate-200 bg-white text-slate-700 rounded-lg py-2.5 text-sm font-bold hover:bg-slate-50">Edit details</button>
-																		<button type="button" @click="submitDonation()" :disabled="isSubmitting" class="flex-1 bg-red-600 text-white rounded-lg py-2.5 text-sm font-bold hover:bg-red-700 disabled:opacity-50 flex items-center justify-center gap-2">
-																			<span x-show="!isSubmitting">Confirm & Donate</span>
-																			<span x-show="isSubmitting" class="flex items-center gap-2"><span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Processing...</span>
-																		</button>
-																	</div>
+																				<h3 class="text-sm font-extrabold text-slate-800 text-center">Receipt preview</h3>
+																				<p class="text-[11px] text-center text-slate-500">Review in-memory — nothing is charged yet</p>
+																				<div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 space-y-3">
+																								<div class="flex items-center justify-between">
+																												<span class="text-xs font-semibold text-slate-600">Amount</span>
+																												<span class="text-sm font-extrabold text-emerald-700">Mkw <span
+																																				x-text="formattedAmount"></span> <span class="text-xs font-medium text-slate-600"
+																																				x-text="recurring ? '/ ' + frequency.toLowerCase() : ''"></span></span>
+																								</div>
+																								<div class="flex items-center justify-between text-xs">
+																												<span class="font-semibold text-slate-600">Frequency</span>
+																												<span class="font-bold text-slate-800" x-text="frequencyLabel"></span>
+																								</div>
+																								<div x-show="recurring" class="flex items-center justify-between text-xs">
+																												<span class="font-semibold text-slate-600">Annual total</span>
+																												<span class="font-bold text-slate-800">Mkw <span
+																																				x-text="annualTotal.toLocaleString()"></span></span>
+																								</div>
+																								<hr class="border-emerald-100">
+																								<div class="space-y-1 text-xs">
+																												<p class="font-bold text-slate-800">Donor</p>
+																												<p class="text-slate-700"><span x-text="donor.name || '—'"></span> • <span
+																																				x-text="donor.email || '—'"></span></p>
+																												<p class="text-slate-600"
+																																x-text="donor.phone ? 'Phone: ' + donor.phone : 'Phone: not provided'"></p>
+																												<p x-show="donor.message" class="text-slate-600 italic">"<span
+																																				x-text="donor.message"></span>"</p>
+																								</div>
+																								<hr class="border-emerald-100">
+																								<div class="flex items-center justify-between text-[11px] text-slate-500">
+																												<span>Date</span><span x-text="todayLabel"></span>
+																								</div>
+																								<div class="flex items-center justify-between text-[11px] text-slate-500">
+																												<span>Reference (preview)</span><span class="font-mono font-bold">NCC-DON-PREVIEW</span>
+																								</div>
+																				</div>
+																				<div
+																								class="bg-slate-50 border border-slate-200 rounded-lg p-3 text-[11px] text-slate-600 leading-relaxed">
+																								<i class="fa-solid fa-lock text-emerald-600 mr-1"></i> In presentation mode this receipt is
+																								generated fully in the browser. Use <span class="font-semibold">Confirm & Donate</span> to simulate
+																								a successful submission.
+																				</div>
+																				<div class="flex gap-2">
+																								<button type="button" @click="step=2"
+																												class="flex-1 border border-slate-200 bg-white text-slate-700 rounded-lg py-2.5 text-sm font-bold hover:bg-slate-50">Edit
+																												details</button>
+																								<button type="button" @click="submitDonation()" :disabled="isSubmitting"
+																												class="flex-1 bg-red-600 text-white rounded-lg py-2.5 text-sm font-bold hover:bg-red-700 disabled:opacity-50 flex items-center justify-center gap-2">
+																												<span x-show="!isSubmitting">Confirm & Donate</span>
+																												<span x-show="isSubmitting" class="flex items-center gap-2"><span
+																																				class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+																																Processing...</span>
+																								</button>
+																				</div>
 																</div>
 
 																<!-- ========== STEP 4: Success (mock) ========== -->
 																<div x-show="step === 4" x-transition class="w-full space-y-4 text-center" id="success-anchor">
-																	<div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto"><i class="fa-solid fa-check text-xl"></i></div>
-																	<h3 class="text-lg font-extrabold text-slate-800">Thank you, <span x-text="donor.name.split(' ')[0] || 'friend'"></span>!</h3>
-																	<p class="text-sm text-slate-600">Your <span x-text="frequencyLabel.toLowerCase()"></span> donation of <span class="font-bold text-emerald-700">Mkw <span x-text="formattedAmount"></span></span> was received (simulated).</p>
-																	<div class="bg-white border border-emerald-200 rounded-xl p-4 text-left space-y-2">
-																		<p class="text-xs font-bold text-slate-700">Receipt</p>
-																		<p class="text-xs text-slate-600">Reference: <span class="font-mono font-bold text-slate-800" x-text="donationRef"></span> <button type="button" @click="copyRef()" class="ml-2 text-emerald-600 font-bold text-xs hover:underline" x-text="copied ? 'Copied!' : 'Copy'"></button></p>
-																		<p class="text-xs text-slate-600">Amount: Mkw <span x-text="formattedAmount"></span> • <span x-text="frequencyLabel"></span></p>
-																		<p class="text-xs text-slate-600">Email: <span x-text="donor.email"></span></p>
-																		<p class="text-xs text-slate-600">Date: <span x-text="todayLabel"></span></p>
-																		<p x-show="recurring" class="text-xs text-slate-500">Next charge (simulated): <span x-text="frequency==='Monthly' ? 'next month' : frequency==='Quarterly' ? 'in 3 months' : 'in 12 months'"></span></p>
-																	</div>
-																	<div class="flex flex-col gap-2">
-																		<button type="button" @click="resetFlow()" class="w-full bg-slate-800 text-white rounded-lg py-2.5 text-sm font-bold hover:bg-slate-900">Donate again</button>
-																		<a href="mailto:nccmalawi@gmail.com?subject=Donation%20Receipt%20{{'NCC-DON-xxxx'}}" class="w-full border border-slate-200 bg-white text-slate-700 rounded-lg py-2.5 text-sm font-bold hover:bg-slate-50 text-center">Contact NCC</a>
-																	</div>
-																	<p class="text-[11px] text-slate-400">This is a frontend simulation. No email or payment was sent — wire this to your backend when ready.</p>
+																				<div
+																								class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+																								<i class="fa-solid fa-check text-xl"></i></div>
+																				<h3 class="text-lg font-extrabold text-slate-800">Thank you, <span
+																												x-text="donor.name.split(' ')[0] || 'friend'"></span>!</h3>
+																				<p class="text-sm text-slate-600">Your <span x-text="frequencyLabel.toLowerCase()"></span> donation of
+																								<span class="font-bold text-emerald-700">Mkw <span x-text="formattedAmount"></span></span> was
+																								received (simulated).</p>
+																				<div class="bg-white border border-emerald-200 rounded-xl p-4 text-left space-y-2">
+																								<p class="text-xs font-bold text-slate-700">Receipt</p>
+																								<p class="text-xs text-slate-600">Reference: <span class="font-mono font-bold text-slate-800"
+																																x-text="donationRef"></span> <button type="button" @click="copyRef()"
+																																class="ml-2 text-emerald-600 font-bold text-xs hover:underline"
+																																x-text="copied ? 'Copied!' : 'Copy'"></button></p>
+																								<p class="text-xs text-slate-600">Amount: Mkw <span x-text="formattedAmount"></span> • <span
+																																x-text="frequencyLabel"></span></p>
+																								<p class="text-xs text-slate-600">Email: <span x-text="donor.email"></span></p>
+																								<p class="text-xs text-slate-600">Date: <span x-text="todayLabel"></span></p>
+																								<p x-show="recurring" class="text-xs text-slate-500">Next charge (simulated): <span
+																																x-text="frequency==='Monthly' ? 'next month' : frequency==='Quarterly' ? 'in 3 months' : 'in 12 months'"></span>
+																								</p>
+																				</div>
+																				<div class="flex flex-col gap-2">
+																								<button type="button" @click="resetFlow()"
+																												class="w-full bg-slate-800 text-white rounded-lg py-2.5 text-sm font-bold hover:bg-slate-900">Donate
+																												again</button>
+																								<a href="mailto:nccmalawi@gmail.com?subject=Donation%20Receipt%20{{ "NCC-DON-xxxx" }}"
+																												class="w-full border border-slate-200 bg-white text-slate-700 rounded-lg py-2.5 text-sm font-bold hover:bg-slate-50 text-center">Contact
+																												NCC</a>
+																				</div>
+																				<p class="text-[11px] text-slate-400">This is a frontend simulation. No email or payment was sent —
+																								wire this to your backend when ready.</p>
 																</div>
 
 																<!-- Payment Methods (show on step 1 & preview only) -->
-																<div x-show="step===1 || step===3" class="flex flex-row justify-center gap-4 mt-2 pt-4 border-t border-slate-100">
+																<div x-show="step===1 || step===3"
+																				class="flex flex-row justify-center gap-4 mt-2 pt-4 border-t border-slate-100">
 																				<img src="{{ asset("images/airtel.png") }}" alt="Airtel Money" class="h-7 mx-auto opacity-90">
 																				<img src="{{ asset("images/visa.png") }}" alt="Visa" class="h-7 mx-auto opacity-90">
 																				<img src="{{ asset("images/paypal.png") }}" alt="PayPal" class="h-7 mx-auto opacity-90">
 																				<img src="{{ asset("images/tnm.png") }}" alt="TNM Mpamba" class="h-7 mx-auto opacity-90">
 																</div>
-																<p x-show="step===1" class="text-[11px] text-center text-slate-400">Secure preview — no card charged in presentation mode</p>
+																<p x-show="step===1" class="text-[11px] text-center text-slate-400">Secure preview — no card charged in
+																				presentation mode</p>
 												</div>
-												<img src="{{ asset("images/girl child.jpg") }}" alt="Child Right" class="w-full lg:w-1/3 rounded-lg shadow object-cover h-[520px]">
+												<img src="{{ asset("images/girl child.jpg") }}" alt="Child Right"
+																class="w-full lg:w-1/3 rounded-lg shadow object-cover h-130">
 								</div>
 				</div>
 				<!-- Intro Information Section -->
@@ -348,7 +460,8 @@
 																<template x-for="(card, index) in [...cards, ...cards]" :key="'slide-' + index">
 																				<div class="shrink-0 w-150 px-3">
 																								<div class="bg-gray-100 rounded-lg shadow p-4 text-center h-full">
-																												<img :src="card.img" alt="Donation Impact" class="w-full h-80 object-cover rounded mb-4">
+																												<img :src="card.img" alt="Donation Impact"
+																																class="w-full h-80 object-cover rounded mb-4">
 																												<h3 class="text-lg font-bold mb-2">
 																																A Mkw <span x-text="card.amount"></span> Donation
 																												</h3>
@@ -388,8 +501,8 @@
 												<!-- Grid -->
 												<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 																<!-- Card 1 -->
-																<div class="relative bg-white rounded-lg shadow p-6 pt-12 border-b-4 border-red-600" x-show="visible.card1"
-																				x-transition:enter="transition ease-out duration-700"
+																<div class="relative bg-white rounded-lg shadow p-6 pt-12 border-b-4 border-red-600"
+																				x-show="visible.card1" x-transition:enter="transition ease-out duration-700"
 																				x-transition:enter-start="opacity-0 translate-y-6" x-transition:enter-end="opacity-100 translate-y-0">
 																				<!-- Icon -->
 																				<div
