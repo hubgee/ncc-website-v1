@@ -52,10 +52,10 @@
 																</p>
 
 																<!-- Continue Button -->
-																<a href="{{ route("checkout") }}"
+																<a href="mailto:nccmalawi@gmail.com?subject=Donation Inquiry"
 																				class="w-full text-center px-4 py-2 bg-red-600 text-white rounded-lg font-bold hover:bg-red-700 transition">
 																				Continue
-																</a>
+																				</a>
 
 																<!-- Payment Methods -->
 																<div
