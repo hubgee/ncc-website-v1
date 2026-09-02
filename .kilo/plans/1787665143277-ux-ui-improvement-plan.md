@@ -187,7 +187,7 @@ The NCC website is a Laravel + Tailwind v4 + Alpine.js prototype with 11 public 
 ### 9.1 Article Detail Simulation
 - Convert hardcoded article content into a **simulated article detail view**
 - Add **breadcrumbs** (Home > News > Article Title)
-- Add **social share buttons** (Facebook, Twitter/X, WhatsApp, Email) with share count placeholders
+- Add **social share buttons** (Facebook, Twitter/X, WhatsApp, Email) with share counhttps://open.spotify.com/track/5VP0uXkj2bvBHIYKUHYHUUt placeholders
 - Add **related articles** sidebar based on category tags
 
 ### 9.2 Category Filtering
@@ -213,6 +213,30 @@ The NCC website is a Laravel + Tailwind v4 + Alpine.js prototype with 11 public 
 - Add **preview modal** that shows first page or document outline
 - Add **recently viewed** horizontal scroll section at top
 - Expand from 2 cards to at least **6 placeholder resources** across categories
+
+Task: Implement Client-Side Pagination for Resources Page (9 Cards Per Page)
+
+Please add client-side pagination to the existing Alpine.js resource grid on the Resources page:
+
+Pagination State & Logic:
+
+Introduce Alpine.js state for currentPage (defaulting to 1) and itemsPerPage (set to 9).
+
+Ensure currentPage automatically resets back to page 1 whenever the active category filter or search query changes.
+
+Slice or show/hide the filtered resources array so that only 9 cards are displayed at any given time based on currentPage.
+
+Pagination Controls UI:
+
+Place a pagination bar below the resource grid using Tailwind CSS.
+
+Include "Previous", numbered page buttons, and "Next" controls.
+
+Dynamically calculate and render the total page count based on the number of currently filtered resource cards divided by 9.
+
+Disable or visually dim the "Previous" button on the first page and the "Next" button on the last page.
+
+Dynamically highlight the button corresponding to the active page.
 
 ---
 
