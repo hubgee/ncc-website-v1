@@ -3,194 +3,121 @@
 @section("title", "About Us")
 
 @section("content")
-				<section class="relative overflow-hidden py-12 px-6 md:px-12 min-h-128" x-data="{
-	    tab: 'mandate',
-	    backgrounds: {
-	        mandate: '{{ asset("images/about-mandate.jpg") }}',
-	        mission: '{{ asset("images/about-mission.jpg") }}',
-	        vision: '{{ asset("images/about-vision.jpg") }}'
-	    },
-	    cycleInterval: null,
-	    startCycle() {
-	        this.cycleInterval = setInterval(() => {
-	            this.tab = this.tab === 'mandate' ? 'mission' : this.tab === 'mission' ? 'vision' : 'mandate'
-	        }, 8000)
-	    },
-	    stopCycle() {
-	        clearInterval(this.cycleInterval)
-	        this.cycleInterval = null
+				<!-- Mandate / Mission / Objective Section — redesign ref: inset white card on field image -->
+				<section x-data="{
+	    selected: 'mandate',
+	    items: {
+	        mandate: {
+	            title: 'OUR MANDATE',
+	            bullets: [
+	                'The Commission safeguards and promotes the rights and welfare of all children, ensuring their protection from abuse, neglect, and exploitation.',
+	                'It monitors compliance with child-related laws, policies, and international conventions, holding duty bearers accountable for their responsibilities.',
+	                'The Commission coordinates and advises government, civil society, and communities to strengthen child protection and welfare programs.',
+	                'It conducts research, advocacy, and awareness campaigns to amplify children\'s voices and make child rights a national priority.'
+	            ],
+	            bg: '{{ asset("images/LATEST1.jpg") }}'
+	        },
+	        mission: {
+	            title: 'OUR MISSION',
+	            bullets: [
+	                'To champion a Malawi where every child grows up safe, valued, and empowered to reach their full potential.',
+	                'To monitor and drive implementation of child-related laws, policies, and international conventions with rigour and transparency.',
+	                'To strengthen accountability among duty bearers and build resilient systems that prevent harm and respond swiftly when it occurs.',
+	                'To elevate community awareness, evidence, and partnerships that put children at the centre of national development.'
+	            ],
+	            bg: '{{ asset("images/LATEST2.jpg") }}'
+	        },
+	        objective: {
+	            title: 'OUR OBJECTIVE',
+	            bullets: [
+	                'Coordinate government, civil society, and community efforts for coherent, child-centred welfare and protection.',
+	                'Provide expert advice and technical support to strengthen child protection systems and service delivery.',
+	                'Lead research, data, and learning to inform policy, advocacy, and scalable programmes.',
+	                'Amplify children\'s voices and agency, ensuring their rights shape decisions at every level.'
+	            ],
+	            bg: '{{ asset("images/nccNews1.jpg") }}'
+	        }
 	    }
-	}" x-init="startCycle()"
-								@mouseenter="stopCycle()" @mouseleave="startCycle()">
-								<div class="absolute inset-0">
-												<template x-for="(image, key) in backgrounds" :key="key">
-																<div x-show="tab === key" x-cloak x-transition:enter="transition-opacity duration-1000"
-																				x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-																				x-transition:leave="transition-opacity duration-1000" x-transition:leave-start="opacity-100"
-																				x-transition:leave-end="opacity-0" class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-																				:style="'background-image: url(' + image + ')'"></div>
-												</template>
-												<div class="absolute inset-0 z-10 bg-green-900/50"></div>
-								</div>
+	}"
+								class="relative w-full min-h-150 lg:min-h-140 bg-cover bg-center flex items-center py-8 lg:py-10"
+								x-bind:style="`background-image: url('${items[selected].bg}')`">
+								<!-- subtle overlay to ensure white card pops without hiding background -->
+								<div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
 
-								<div class="relative max-w-7xl mx-auto z-20">
-												<div class="bg-white/90 border border-slate-200 rounded-2xl shadow-sm p-8 backdrop-blur-sm">
-																<div class="flex flex-wrap items-center justify-center gap-4 border-b border-slate-200 pb-6 mb-8">
-																				<button @click="tab = 'mandate'"
-																								:class="tab === 'mandate' ? 'border-b-4 border-green-600 text-green-700' : 'text-gray-600'"
-																								class="px-4 py-3 font-semibold transition duration-200">
-																								Our Mandate
-																				</button>
-																				<button @click="tab = 'mission'"
-																								:class="tab === 'mission' ? 'border-b-4 border-green-600 text-green-700' : 'text-gray-600'"
-																								class="px-4 py-3 font-semibold transition duration-200">
-																								Our Mission
-																				</button>
-																				<button @click="tab = 'vision'"
-																								:class="tab === 'vision' ? 'border-b-4 border-green-600 text-green-700' : 'text-gray-600'"
-																								class="px-4 py-3 font-semibold transition duration-200">
-																								Our Vision
-																				</button>
+								<!-- Inset Content Card -->
+								<div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+												<div
+																class="bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col min-h-105 lg:min-h-110 p-6 sm:p-8 lg:p-10">
+																<!-- Title row — right aligned on desktop, centered on mobile -->
+																<div class="flex justify-center lg:justify-end mb-6 lg:mb-8">
+																				<h2 class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-[#0b6b2e] leading-none"
+																								style="text-shadow: 0 1px 2px rgba(0,0,0,0.08)" x-text="items[selected].title"></h2>
 																</div>
 
-																<div class="space-y-6">
-																				<div x-show="tab === 'mandate'" class="grid grid-cols-1 gap-8" x-cloak>
-																								<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-																												<div class="bg-slate-50 rounded-3xl shadow-sm p-6 text-center">
-																																<i class="fa-solid fa-shield-halved text-green-600 text-3xl mb-4"></i>
-																																<h3 class="font-bold text-lg mb-2">Protection</h3>
-																																<p class="text-gray-600 text-sm">Safeguarding children from abuse and exploitation.</p>
-																												</div>
-																												<div class="bg-slate-50 rounded-3xl shadow-sm p-6 text-center">
-																																<i class="fa-solid fa-scale-balanced text-green-600 text-3xl mb-4"></i>
-																																<h3 class="font-bold text-lg mb-2">Policy & Law</h3>
-																																<p class="text-gray-600 text-sm">Monitoring child rights laws and conventions.</p>
-																												</div>
-																												<div class="bg-slate-50 rounded-3xl shadow-sm p-6 text-center">
-																																<i class="fa-solid fa-bullhorn text-green-600 text-3xl mb-4"></i>
-																																<h3 class="font-bold text-lg mb-2">Advocacy</h3>
-																																<p class="text-gray-600 text-sm">Amplifying children’s voices in society.</p>
-																												</div>
+																<!-- 3-zone body -->
+																<div class="flex-1 grid grid-cols-1 lg:grid-cols-[170px_210px_1fr] gap-6 lg:gap-8 items-center">
+																				<!-- Left: pill tabs -->
+																				<div
+																								class="flex flex-row lg:flex-col gap-2 justify-center lg:justify-start lg:space-y-2 order-2 lg:order-1">
+																								<button @click="selected='mandate'"
+																												:class="selected === 'mandate' ? 'bg-[#0a7a2e] text-white shadow-md border-[#0a7a2e]' :
+																												    'bg-white text-slate-800 border-slate-200 hover:border-green-300'"
+																												class="flex-1 lg:flex-none text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full border text-center transition whitespace-nowrap">Our
+																												Mandate</button>
+																								<button @click="selected='mission'"
+																												:class="selected === 'mission' ? 'bg-[#0a7a2e] text-white shadow-md border-[#0a7a2e]' :
+																												    'bg-white text-slate-800 border-slate-200 hover:border-green-300'"
+																												class="flex-1 lg:flex-none text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full border text-center transition whitespace-nowrap">Our
+																												Mission</button>
+																								<button @click="selected='objective'"
+																												:class="selected === 'objective' ? 'bg-[#0a7a2e] text-white shadow-md border-[#0a7a2e]' :
+																												    'bg-white text-slate-800 border-slate-200 hover:border-green-300'"
+																												class="flex-1 lg:flex-none text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full border text-center transition whitespace-nowrap">Our
+																												Objective</button>
+																				</div>
+
+																				<!-- Center: large shield icon -->
+																				<div class="flex items-center justify-center order-1 lg:order-2 py-2 lg:py-0">
+																								<!-- Outline shield with check / target / lightbulb per tab -->
+																								<div x-show="selected==='mandate'" class="text-[#0a7a2e]">
+																												<svg width="132" height="148" viewBox="0 0 100 110" fill="none"
+																																xmlns="http://www.w3.org/2000/svg" class="drop-shadow-sm">
+																																<path d="M50 5 L88 20 L88 52 C88 72 70 92 50 105 C30 92 12 72 12 52 L12 20 Z"
+																																				stroke="currentColor" stroke-width="5.5" fill="none" stroke-linejoin="round" />
+																																<path d="M50 10 L82 23 L82 52 C82 68 68 86 50 98 C32 86 18 68 18 52 L18 23 Z"
+																																				stroke="currentColor" stroke-width="1.2" fill="white" opacity="0.95" />
+																																<path d="M28 54 L44 72 L74 38" stroke="currentColor" stroke-width="6" stroke-linecap="round"
+																																				stroke-linejoin="round" fill="none" />
+																												</svg>
 																								</div>
-																								<div class="bg-slate-50 rounded-3xl p-8 shadow-sm">
-																												<h2 class="text-xl font-bold text-green-700 mb-4">What the Commission is Mandated to Do</h2>
-																												<p class="text-gray-700 mb-6">
-																																The Commission was established under the Child Care, Protection and Justice Act to serve as
-																																the independent authority for promoting and protecting children’s rights across all 28
-																																districts.
-																																We collaborate with government ministries, civil society, and communities to ensure every
-																																child in Malawi grows up safe and able to reach their full potential.
-																												</p>
-																												<div class="flex flex-wrap gap-3">
-																																<span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Child
-																																				Protection</span>
-																																<span
-																																				class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Rights
-																																				Monitoring</span>
-																																<span
-																																				class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Community
-																																				Engagement</span>
-																																<span
-																																				class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Education
-																																				Access</span>
-																																<span
-																																				class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Policy
-																																				Reform</span>
-																												</div>
+																								<div x-show="selected==='mission'"
+																												class="w-33 h-37 flex items-center justify-center text-[#0a7a2e]">
+																												<i class="fas fa-bullseye text-[92px] leading-none"></i>
+																								</div>
+																								<div x-show="selected==='objective'"
+																												class="w-33 h-37 flex items-center justify-center text-[#0a7a2e]">
+																												<i class="fas fa-lightbulb text-[88px] leading-none"></i>
 																								</div>
 																				</div>
 
-																				<div x-show="tab === 'mission'" class="grid grid-cols-1 gap-8" x-cloak>
-																								<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-																												<div class="bg-slate-50 rounded-3xl shadow-sm p-6 text-center">
-																																<i class="fa-solid fa-shield-halved text-green-600 text-3xl mb-4"></i>
-																																<h3 class="font-bold text-lg mb-2">Protection</h3>
-																																<p class="text-gray-600 text-sm">Safeguarding children from abuse and exploitation.</p>
-																												</div>
-																												<div class="bg-slate-50 rounded-3xl shadow-sm p-6 text-center">
-																																<i class="fa-solid fa-scale-balanced text-green-600 text-3xl mb-4"></i>
-																																<h3 class="font-bold text-lg mb-2">Policy & Law</h3>
-																																<p class="text-gray-600 text-sm">Monitoring child rights laws and conventions.</p>
-																												</div>
-																												<div class="bg-slate-50 rounded-3xl shadow-sm p-6 text-center">
-																																<i class="fa-solid fa-bullhorn text-green-600 text-3xl mb-4"></i>
-																																<h3 class="font-bold text-lg mb-2">Advocacy</h3>
-																																<p class="text-gray-600 text-sm">Amplifying children’s voices in society.</p>
-																												</div>
-																								</div>
-																								<div class="bg-slate-50 rounded-3xl p-8 shadow-sm">
-																												<h2 class="text-xl font-bold text-green-700 mb-4">What the Commission is Mandated to Do</h2>
-																												<p class="text-gray-700 mb-6">
-																																The Commission was established under the Child Care, Protection and Justice Act to serve as
-																																the independent authority for promoting and protecting children’s rights across all 28
-																																districts.
-																																We collaborate with government ministries, civil society, and communities to ensure every
-																																child in Malawi grows up safe and able to reach their full potential.
-																												</p>
-																												<div class="flex flex-wrap gap-3">
-																																<span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Child
-																																				Protection</span>
-																																<span
-																																				class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Rights
-																																				Monitoring</span>
-																																<span
-																																				class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Community
-																																				Engagement</span>
-																																<span
-																																				class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Education
-																																				Access</span>
-																																<span
-																																				class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Policy
-																																				Reform</span>
-																												</div>
-																								</div>
+																				<!-- Right: bullets -->
+																				<div class="order-3 text-left">
+																								<ul class="space-y-3.5">
+																												<template x-for="(bullet, idx) in items[selected].bullets" :key="idx">
+																																<li class="flex gap-2.5 text-[13px] lg:text-[12.5px] leading-relaxed text-slate-800">
+																																				<span class="mt-1.75 w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+																																				<span x-text="bullet"></span>
+																																</li>
+																												</template>
+																								</ul>
 																				</div>
+																</div>
 
-																				<div x-show="tab === 'vision'" class="grid grid-cols-1 gap-8" x-cloak>
-																								<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-																												<div class="bg-slate-50 rounded-3xl shadow-sm p-6 text-center">
-																																<i class="fa-solid fa-shield-halved text-green-600 text-3xl mb-4"></i>
-																																<h3 class="font-bold text-lg mb-2">Protection</h3>
-																																<p class="text-gray-600 text-sm">Safeguarding children from abuse and exploitation.</p>
-																												</div>
-																												<div class="bg-slate-50 rounded-3xl shadow-sm p-6 text-center">
-																																<i class="fa-solid fa-scale-balanced text-green-600 text-3xl mb-4"></i>
-																																<h3 class="font-bold text-lg mb-2">Policy & Law</h3>
-																																<p class="text-gray-600 text-sm">Monitoring child rights laws and conventions.</p>
-																												</div>
-																												<div class="bg-slate-50 rounded-3xl shadow-sm p-6 text-center">
-																																<i class="fa-solid fa-bullhorn text-green-600 text-3xl mb-4"></i>
-																																<h3 class="font-bold text-lg mb-2">Advocacy</h3>
-																																<p class="text-gray-600 text-sm">Amplifying children’s voices in society.</p>
-																												</div>
-																								</div>
-																								<div class="bg-slate-50 rounded-3xl p-8 shadow-sm">
-																												<h2 class="text-xl font-bold text-green-700 mb-4">What the Commission is Mandated to Do</h2>
-																												<p class="text-gray-700 mb-6">
-																																The Commission was established under the Child Care, Protection and Justice Act to serve as
-																																the independent authority for promoting and protecting children’s rights across all 28
-																																districts.
-																																We collaborate with government ministries, civil society, and communities to ensure every
-																																child in Malawi grows up safe and able to reach their full potential.
-																												</p>
-																												<div class="flex flex-wrap gap-3">
-																																<span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Child
-																																				Protection</span>
-																																<span
-																																				class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Rights
-																																				Monitoring</span>
-																																<span
-																																				class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Community
-																																				Engagement</span>
-																																<span
-																																				class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Education
-																																				Access</span>
-																																<span
-																																				class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Policy
-																																				Reform</span>
-																												</div>
-																								</div>
-																				</div>
+																<!-- Footer CTA -->
+																<div class="flex justify-center lg:justify-end mt-8 lg:mt-6">
+																				<a href="#partner"
+																								class="inline-flex items-center justify-center bg-[#0a7a2e] hover:bg-[#095a22] text-white text-xs font-bold tracking-wide uppercase px-6 py-2.5 rounded shadow transition">Partner
+																								With Us</a>
 																</div>
 												</div>
 								</div>
